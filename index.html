@@ -1,1 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Secret Surprise 💗</title>
 
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+body{
+  overflow:hidden;
+  font-family:Arial,sans-serif;
+  background:#090914;
+  color:white;
+}
+
+#app{
+  width:100vw;
+  height:100vh;
+  position:relative;
+  overflow:hidden;
+}
+
+.screen{
+  position:absolute;
+  inset:0;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  transition:1s ease;
+}
+
+.hidden{
+  opacity:0;
+  pointer-events:none;
+  transform:scale(1.15);
+}
+
+h1{
+  font-size:clamp(30px,9vw,65px);
+  margin-bottom:30px;
+}
+
+.subtitle{
+  font-size:17px;
+  opacity:.8;
+  margin-bottom:30px;
+}
+
+button{
+  border:0;
+  padding:15px 30px;
+  border-radius:50px;
+  font-size:17px;
+  font-weight:bold;
+  cursor:pointer;
+  margin:8px;
+  background:white;
+  color:#151525;
+  box-shadow:0 8px 30px #0006;
+}
+
+button:active{
+  transform:scale(.92);
+}
+
+/* DOORS */
+#doorScreen{
+  background:
+    radial-gradient(circle at center,#40305e,#100d20 55%,#05050b);
+}
+
+.doorTitle{
+  position:absolute;
+  top:15%;
+  z-index:5;
+}
+
+.doors{
+  position:absolute;
+  inset:0;
+  display:flex;
+  z-index:2;
+}
+
+.door{
+  width:50%;
+  height:100%;
+  background:linear-gradient(135deg,#6d315c,#25183b);
+  border:2px solid #ffffff22;
+  transition:2s cubic-bezier(.7,0,.2,1);
+}
+
+.leftDoor{
+  transform-origin:left;
+}
+
+.rightDoor{
+  transform-origin:right;
+}
+
+.open .leftDoor{
+  transform:rotateY(-105deg);
+}
+
+.open .rightDoor{
+  transform:rotateY(105deg);
+}
+
+.doorButtons{
+  position:absolute;
+  z-index:10;
+  bottom:15%;
+}
+
+#noBtn{
+  background:#292936;
+  color:white;
+}
+
+/* WELCOME */
+#welcomeScreen{
+  background:
+    radial-gradient(circle,#702d62,#170d27 60%,#05050b);
+}
+
+.welcome{
+  animation:welcomePop 1.5s ease forwards;
+}
+
+@keyframes welcomePop{
+  0%{transform:scale(.2);opacity:0}
+  60%{transform:scale(1.2)}
+  100%{transform:scale(1);opacity:1}
+}
+
+.heart{
+  position:absolute;
+  font-size:25px;
+  animation:fall linear forwards;
+  pointer-events:none;
+}
+
+@keyframes fall{
+  from{transform:translateY(-10vh) rotate(0deg);opacity:1}
+  to{transform:translateY(110vh) rotate(360deg);opacity:0}
+}
+
+/* CAT */
+#catScreen{
+  background:linear-gradient(#11152c,#24122d);
+}
+
+.cat{
+  font-size:90px;
+  animation:catDrop 1.5s ease;
+}
+
+@keyframes catDrop{
+  from{transform:translateY(-100vh)}
+  to{transform:translateY(0)}
+}
+
+.letter{
+  background:#fff8df;
+  color:#30242a;
+  padding:25px;
+  width:min(88%,400px);
+  border-radius:20px;
+  box-shadow:0 15px 50px #0008;
+  margin:20px;
+}
+
+input{
+  width:min(80%,300px);
+  padding:15px;
+  border:0;
+  outline:0;
+  border-radius:30px;
+  text-align:center;
+  font-size:17px;
+  margin:15px;
+}
+
+/* PHOTOS */
+#memoryScreen{
+  background:radial-gradient(circle,#362044,#080812);
+  padding:20px;
+}
+
+.photoStack{
+  width:min(82vw,350px);
+  height:430px;
+  position:relative;
+  margin:20px;
+}
+
+.photo{
+  position:absolute;
+  inset:0;
+  background:#fff;
+  padding:10px 10px 55px;
+  border-radius:5px;
+  color:#222;
+  box-shadow:0 15px 40px #0009;
+  transition:1s;
+}
+
+.photo img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.photo:nth-child(1){
+  transform:rotate(-7deg);
+}
+
+.photo:nth-child(2){
+  transform:rotate(5deg);
+}
+
+.photo:nth-child(3){
+  transform:rotate(-2deg);
+}
+
+.photo.active{
+  transform:translateX(110%) rotate(20deg);
+}
+
+.caption{
+  position:absolute;
+  bottom:15px;
+  left:0;
+  right:0;
+  font-weight:bold;
+}
+
+/* FINAL */
+#finalScreen{
+  background:
+    linear-gradient(#07121e,#080914);
+}
+
+.road{
+  position:absolute;
+  bottom:0;
+  width:100%;
+  height:30%;
+  background:#16161d;
+  border-top:4px solid #444;
+}
+
+.car{
+  position:absolute;
+  bottom:23%;
+  left:-250px;
+  font-size:110px;
+  animation:drive 4s ease forwards;
+}
+
+@keyframes drive{
+  0%{left:-250px}
+  70%{left:45%}
+  100%{left:38%}
+}
+
+.finalText{
+  z-index:5;
+  opacity:0;
+  animation:appear 1s ease 3.5s forwards;
+}
+
+@keyframes appear{
+  to{opacity:1;transform:translateY(-20px)}
+}
+
+.replay{
+  margin-top:25px;
+}
+
+/* MOBILE */
+@media(max-width:500px){
+  .cat{font-size:75px}
+  .photoStack{height:380px}
+  .car{font-size:85px}
+}
+</style>
+</head>
+
+<body>
+
+<div id="app">
+
+<!-- SCREEN 1 -->
+<section id="doorScreen" class="screen">
+
+  <h1 class="doorTitle">
+    Can I show you<br>
+    something special? ✨
+  </h1>
+
+  <div class="doors">
+    <div class="door leftDoor"></div>
+    <div class="door rightDoor"></div>
+  </div>
+
+  <div class="doorButtons">
+    <button onclick="openSurprise()">YES ✨</button>
+    <button id="noBtn" onclick="sayBye()">NO 😭</button>
+  </div>
+
+</section>
+
+
+<!-- SCREEN 2 -->
+<section id="welcomeScreen" class="screen hidden">
+
+  <div class="welcome">
+    <h1>YOUR MOST WELCOME, MADAM! 💐</h1>
+    <p class="subtitle">A little surprise made especially for you ✨</p>
+    <button onclick="showCat()">CONTINUE 🐱</button>
+  </div>
+
+</section>
+
+
+<!-- SCREEN 3 -->
+<section id="catScreen" class="screen hidden">
+
+  <div class="cat">🐱</div>
+
+  <div class="letter">
+    <h2>Secret Mission 🔐</h2>
+    <br>
+    <p>There is a secret name hidden here 👀</p>
+    <p>Enter the special code to continue...</p>
+
+    <input id="secretInput" placeholder="Enter secret name">
+
+    <br>
+
+    <button onclick="unlock()">UNLOCK 🔓</button>
+
+    <p id="wrong" style="color:#d66;margin-top:10px;"></p>
+  </div>
+
+</section>
+
+
+<!-- SCREEN 4 -->
+<section id="memoryScreen" class="screen hidden">
+
+  <h1>Our Little Memories 📸</h1>
+
+  <p class="subtitle">Three moments worth keeping forever ✨</p>
+
+  <div class="photoStack">
+
+    <!-- PHOTO 1 -->
+    <div class="photo">
+      <img src="photo1.jpg">
+      <div class="caption">Memory #1 🫶</div>
+    </div>
+
+    <!-- PHOTO 2 -->
+    <div class="photo">
+      <img src="photo2.jpg">
+      <div class="caption">Memory #2 💫</div>
+    </div>
+
+    <!-- PHOTO 3 -->
+    <div class="photo">
+      <img src="photo3.jpg">
+      <div class="caption">Memory #3 🌸</div>
+    </div>
+
+  </div>
+
+  <button onclick="nextPhoto()">NEXT ➜</button>
+
+</section>
+
+
+<!-- SCREEN 5 -->
+<section id="finalScreen" class="screen hidden">
+
+  <div class="road"></div>
+
+  <div class="car">🚗</div>
+
+  <div class="finalText">
+
+    <h1>Hey Bestie! 🫶</h1>
+
+    <p style="font-size:20px;line-height:1.6;">
+      Some people come into life<br>
+      and become unforgettable memories. ✨
+    </p>
+
+    <h2 style="margin-top:25px;">
+      Thank you for being my bestie. 💗
+    </h2>
+
+    <button class="replay" onclick="location.reload()">
+      REPLAY 🔄
+    </button>
+
+  </div>
+
+</section>
+
+</div>
+
+
+<script>
+
+const doorScreen=document.getElementById("doorScreen");
+const welcomeScreen=document.getElementById("welcomeScreen");
+const catScreen=document.getElementById("catScreen");
+const memoryScreen=document.getElementById("memoryScreen");
+const finalScreen=document.getElementById("finalScreen");
+
+function openSurprise(){
+
+  doorScreen.classList.add("open");
+
+  setTimeout(()=>{
+
+    doorScreen.classList.add("hidden");
+    welcomeScreen.classList.remove("hidden");
+
+    makeHearts();
+
+  },1500);
+}
+
+
+function sayBye(){
+
+  document.querySelector(".doorTitle").innerHTML=
+  "Okayyy bye bestie 😂👋";
+
+  document.querySelector(".doorButtons").style.display="none";
+
+  setTimeout(()=>{
+    doorScreen.classList.add("hidden");
+  },2000);
+
+}
+
+
+function makeHearts(){
+
+  for(let i=0;i<35;i++){
+
+    const heart=document.createElement("div");
+
+    heart.className="heart";
+    heart.innerHTML=["💗","💖","✨","💕","🌸"]
+      [Math.floor(Math.random()*5)];
+
+    heart.style.left=Math.random()*100+"vw";
+    heart.style.animationDuration=(2+Math.random()*4)+"s";
+    heart.style.animationDelay=Math.random()*2+"s";
+
+    document.body.appendChild(heart);
+
+    setTimeout(()=>heart.remove(),7000);
+  }
+}
+
+
+function showCat(){
+
+  welcomeScreen.classList.add("hidden");
+
+  setTimeout(()=>{
+    catScreen.classList.remove("hidden");
+  },700);
+
+}
+
+
+function unlock(){
+
+  const value=document
+    .getElementById("secretInput")
+    .value
+    .trim()
+    .toLowerCase();
+
+  if(value==="harkesh"){
+
+    document.getElementById("wrong").innerHTML=
+      "Access granted! 😼✨";
+
+    setTimeout(()=>{
+
+      catScreen.classList.add("hidden");
+
+      setTimeout(()=>{
+        memoryScreen.classList.remove("hidden");
+      },700);
+
+    },1000);
+
+  }else{
+
+    document.getElementById("wrong").innerHTML=
+      "Nope 😼 Try again!";
+
+  }
+
+}
+
+
+let photoCount=0;
+
+function nextPhoto(){
+
+  const photos=document.querySelectorAll(".photo");
+
+  if(photoCount<photos.length){
+
+    photos[photoCount].classList.add("active");
+    photoCount++;
+
+  }else{
+
+    memoryScreen.classList.add("hidden");
+
+    setTimeout(()=>{
+      finalScreen.classList.remove("hidden");
+    },700);
+
+  }
+
+}
+
+</script>
+
+</body>
+</html>
