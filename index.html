@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
 <meta charset="UTF-8">
 
 <meta
   name="viewport"
-  content="width=device-width, initial-scale=1.0">
+  content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
 <title>For You ❤️</title>
 
@@ -17,7 +18,8 @@
   -webkit-tap-highlight-color:transparent;
 }
 
-html,body{
+html,
+body{
   margin:0;
   padding:0;
   width:100%;
@@ -32,14 +34,9 @@ body{
   overflow-y:auto;
 }
 
-.hidden{
-  display:none !important;
-}
-
 .screen{
   width:100%;
   min-height:100vh;
-  min-height:100dvh;
   padding:5px 4px;
   display:flex;
   justify-content:center;
@@ -50,7 +47,6 @@ body{
   width:100%;
   max-width:520px;
   min-height:98vh;
-  min-height:98dvh;
   background:rgba(255,255,255,.97);
   border-radius:25px;
   padding:12px;
@@ -60,6 +56,10 @@ body{
   flex-direction:column;
   justify-content:center;
   overflow:visible;
+}
+
+.hidden{
+  display:none!important;
 }
 
 button{
@@ -82,18 +82,13 @@ button{
 #acceptNo{
   background:#eeeeee;
   color:#555;
-  z-index:1000;
+  z-index:100000;
+  white-space:nowrap;
 }
 
 .nextBtn{
   width:100%;
   background:#ff4f81;
-  color:white;
-  margin-top:10px;
-}
-
-.stopBtn{
-  background:#222;
   color:white;
   margin-top:10px;
 }
@@ -115,6 +110,7 @@ p{
 }
 
 @keyframes heartbeat{
+
   0%,100%{
     transform:scale(1)
   }
@@ -122,6 +118,7 @@ p{
   50%{
     transform:scale(1.15)
   }
+
 }
 
 
@@ -153,6 +150,7 @@ p{
   align-items:center;
   overflow:hidden;
   border-radius:20px;
+  touch-action:none;
 }
 
 .catPaperImage{
@@ -171,6 +169,7 @@ p{
   width:70%;
   text-align:center;
   z-index:20;
+  pointer-events:none;
 }
 
 .proposalText{
@@ -194,6 +193,11 @@ p{
   justify-content:center;
   align-items:center;
   gap:8px;
+  pointer-events:none;
+}
+
+.paperButtons button{
+  pointer-events:auto;
 }
 
 
@@ -257,6 +261,7 @@ p{
   align-items:center;
   overflow:hidden;
   border-radius:20px;
+  touch-action:none;
 }
 
 .ringCat{
@@ -272,36 +277,28 @@ p{
    EMOJI RAIN
 ========================= */
 
-#page7{
-  position:relative;
-  width:100%;
-  min-height:100vh;
-  min-height:100dvh;
-  overflow:hidden;
-}
-
-#page7 .card{
-  position:relative;
-  z-index:10;
-}
-
-
-/*
-  Emoji body ke fixed viewport par hain,
-  isliye background/card ke peeche nahi jaayenge.
-*/
-
 .falling{
-  position:fixed !important;
-  top:-40px;
-  left:0;
+  position:fixed;
+
+  top:-30px;
+
   pointer-events:none;
+
   user-select:none;
+
+  /*
+    SABSE AAGE
+  */
+  z-index:2147483647;
+
   line-height:1;
-  z-index:999999999999 !important;
+
   will-change:transform;
+
   animation-name:fallDown;
+
   animation-timing-function:linear;
+
   animation-fill-mode:forwards;
 }
 
@@ -309,38 +306,18 @@ p{
 
   0%{
     transform:
-      translate3d(0,-60px,0)
+      translate3d(0,-40px,0)
       rotate(0deg);
     opacity:1;
   }
 
   100%{
     transform:
-      translate3d(0,calc(100vh + 100px),0)
+      translate3d(0,calc(100vh + 80px),0)
       rotate(360deg);
     opacity:1;
   }
 
-}
-
-
-/* =========================
-   VIDEO
-========================= */
-
-.finalVideo{
-  width:100%;
-  max-height:75vh;
-  border-radius:20px;
-  display:block;
-  background:#000;
-  object-fit:contain;
-}
-
-.videoText{
-  font-size:18px;
-  line-height:1.7;
-  margin:12px 0;
 }
 
 
@@ -352,14 +329,12 @@ p{
 
   .screen{
     min-height:100vh;
-    min-height:100dvh;
     padding:5px 3px;
     align-items:flex-start;
   }
 
   .card{
     min-height:98vh;
-    min-height:98dvh;
     padding:10px;
   }
 
@@ -385,6 +360,12 @@ p{
     min-width:70px;
     padding:8px 10px;
     font-size:14px;
+  }
+
+  #noBtn,
+  #acceptNo{
+    font-size:14px;
+    padding:8px 12px;
   }
 
   h1{
@@ -425,6 +406,23 @@ p{
 
 }
 
+
+/* =========================
+   RING NO BUTTON
+========================= */
+
+.ringArea .paperContent{
+  pointer-events:none;
+}
+
+.ringArea .paperButtons{
+  pointer-events:none;
+}
+
+.ringArea .paperButtons button{
+  pointer-events:auto;
+}
+
 </style>
 
 </head>
@@ -433,7 +431,7 @@ p{
 
 
 <!-- ==================================================
-     PAGE 1 - CAT PAPER
+     PAGE 1
 ================================================== -->
 
 <div class="screen" id="page1">
@@ -445,7 +443,7 @@ p{
       id="paperArea">
 
       <img
-        src="cat-paper.jpg"
+        src="cat-blank.jpg"
         class="catPaperImage"
         alt="Cute cat holding paper">
 
@@ -467,14 +465,17 @@ p{
             YES ❤️
           </button>
 
-          <button
-            id="noBtn">
-            NO 😭
-          </button>
-
         </div>
 
       </div>
+
+      <!-- NO ALAG HAI
+           isliye YES ke saath disappear nahi hoga -->
+
+      <button
+        id="noBtn">
+        NO 😭
+      </button>
 
     </div>
 
@@ -484,12 +485,10 @@ p{
 
 
 <!-- ==================================================
-     PAGE 2 - NAME
+     PAGE 2
 ================================================== -->
 
-<div
-  class="screen hidden"
-  id="page2">
+<div class="screen hidden" id="page2">
 
   <div class="card">
 
@@ -498,7 +497,7 @@ p{
     </div>
 
     <h1>
-      thank you so much madam! 🥹❤️
+      Yayyy! 🥹❤️
     </h1>
 
     <p>
@@ -527,12 +526,10 @@ p{
 
 
 <!-- ==================================================
-     PAGE 3 - SHAYARI 1
+     PAGE 3
 ================================================== -->
 
-<div
-  class="screen hidden"
-  id="page3">
+<div class="screen hidden" id="page3">
 
   <div class="card">
 
@@ -594,12 +591,10 @@ p{
 
 
 <!-- ==================================================
-     PAGE 4 - SHAYARI 2
+     PAGE 4
 ================================================== -->
 
-<div
-  class="screen hidden"
-  id="page4">
+<div class="screen hidden" id="page4">
 
   <div class="card">
 
@@ -660,12 +655,10 @@ p{
 
 
 <!-- ==================================================
-     PAGE 5 - SHAYARI 3
+     PAGE 5
 ================================================== -->
 
-<div
-  class="screen hidden"
-  id="page5">
+<div class="screen hidden" id="page5">
 
   <div class="card">
 
@@ -742,12 +735,10 @@ p{
 
 
 <!-- ==================================================
-     PAGE 6 - I LOVE YOU TOO
+     PAGE 6
 ================================================== -->
 
-<div
-  class="screen hidden"
-  id="page6">
+<div class="screen hidden" id="page6">
 
   <div class="card">
 
@@ -795,12 +786,10 @@ p{
 
 
 <!-- ==================================================
-     PAGE 7 - EMOJI RAIN
+     PAGE 7
 ================================================== -->
 
-<div
-  class="screen hidden"
-  id="page7">
+<div class="screen hidden" id="page7">
 
   <div class="card">
 
@@ -830,6 +819,8 @@ p{
       🎤
     </div>
 
+    <!-- SIRF MIC WALA STOP -->
+
     <button
       class="nextBtn"
       id="stopVoiceBtn">
@@ -842,11 +833,7 @@ p{
       Tap and say "STOP" ❤️
     </p>
 
-    <button
-      class="stopBtn"
-      id="manualStopBtn">
-      STOP ✋
-    </button>
+    <!-- STOP ke baad sirf ye -->
 
     <button
       class="nextBtn hidden"
@@ -860,12 +847,10 @@ p{
 
 
 <!-- ==================================================
-     PAGE 8 - RING
+     PAGE 8
 ================================================== -->
 
-<div
-  class="screen hidden"
-  id="page8">
+<div class="screen hidden" id="page8">
 
   <div class="card">
 
@@ -899,14 +884,16 @@ p{
             YES ❤️
           </button>
 
-          <button
-            id="acceptNo">
-            NO 😭
-          </button>
-
         </div>
 
       </div>
+
+      <!-- NO IMAGE KE ANDAR -->
+
+      <button
+        id="acceptNo">
+        NO 😭
+      </button>
 
     </div>
 
@@ -916,12 +903,10 @@ p{
 
 
 <!-- ==================================================
-     PAGE 9 - THANK YOU
+     PAGE 9
 ================================================== -->
 
-<div
-  class="screen hidden"
-  id="page9">
+<div class="screen hidden" id="page9">
 
   <div class="card">
 
@@ -967,12 +952,10 @@ p{
 
 
 <!-- ==================================================
-     PAGE 10 - FINAL VIDEO
+     PAGE 10
 ================================================== -->
 
-<div
-  class="screen hidden"
-  id="page10">
+<div class="screen hidden" id="page10">
 
   <div class="card">
 
@@ -980,7 +963,7 @@ p{
       One last thing for you... ❤️
     </h1>
 
-    <p class="videoText">
+    <p>
       Before this little story ends,
       I wanted you to see this. 🥹❤️
     </p>
@@ -995,11 +978,9 @@ p{
         src="final-video.mp4"
         type="video/mp4">
 
-      Your browser does not support video.
-
     </video>
 
-    <p class="videoText">
+    <p>
       ❤️🌹💍
     </p>
 
@@ -1045,11 +1026,10 @@ function goTo(number){
       "hidden"
     );
 
-    window.scrollTo({
-      top:0,
-      left:0,
-      behavior:"instant"
-    });
+    window.scrollTo(
+      0,
+      0
+    );
 
   }
 
@@ -1061,32 +1041,22 @@ function goTo(number){
 ================================================== */
 
 document
-  .getElementById("yesBtn")
-  .addEventListener(
-    "click",
-    function(){
+.getElementById("yesBtn")
+.addEventListener(
+  "click",
+  function(){
 
-      goTo(2);
+    goTo(2);
 
-    }
-  );
+  }
+);
 
 
 /* ==================================================
-   PAGE 1 NO
-   ALWAYS VISIBLE INSIDE CAT IMAGE
+   NO BUTTON FIX
+   NO KABHI GAYAB NAHI HOGA
+   IMAGE CONTAINER KE ANDAR HI RAHEGA
 ================================================== */
-
-const noBtn =
-  document.getElementById(
-    "noBtn"
-  );
-
-const paperArea =
-  document.getElementById(
-    "paperArea"
-  );
-
 
 function moveNoInside(
   element,
@@ -1094,11 +1064,18 @@ function moveNoInside(
   event
 ){
 
-  event.preventDefault();
-  event.stopPropagation();
+  if(event){
 
-  const areaRect =
-    area.getBoundingClientRect();
+    event.preventDefault();
+    event.stopPropagation();
+
+  }
+
+  const areaWidth =
+    area.clientWidth;
+
+  const areaHeight =
+    area.clientHeight;
 
   const buttonWidth =
     element.offsetWidth;
@@ -1106,33 +1083,45 @@ function moveNoInside(
   const buttonHeight =
     element.offsetHeight;
 
-  const padding = 8;
+  const padding =
+    8;
 
-  const availableWidth =
+  const maxX =
     Math.max(
-      1,
-      areaRect.width -
+      padding,
+      areaWidth -
       buttonWidth -
-      padding * 2
+      padding
     );
 
-  const availableHeight =
+  const maxY =
     Math.max(
-      1,
-      areaRect.height -
+      padding,
+      areaHeight -
       buttonHeight -
-      padding * 2
+      padding
     );
 
   const x =
     padding +
     Math.random() *
-    availableWidth;
+    Math.max(
+      1,
+      maxX - padding
+    );
 
   const y =
     padding +
     Math.random() *
-    availableHeight;
+    Math.max(
+      1,
+      maxY - padding
+    );
+
+  /*
+    IMPORTANT:
+    Area ke relative absolute position.
+  */
 
   element.style.position =
     "absolute";
@@ -1152,10 +1141,29 @@ function moveNoInside(
   element.style.margin =
     "0";
 
+  /*
+    NO text same rahega
+  */
+
   element.innerText =
     "NO 😭";
 
 }
+
+
+/* ==================================================
+   PAPER NO
+================================================== */
+
+const noBtn =
+  document.getElementById(
+    "noBtn"
+  );
+
+const paperArea =
+  document.getElementById(
+    "paperArea"
+  );
 
 
 function movePaperNo(e){
@@ -1172,13 +1180,17 @@ function movePaperNo(e){
 noBtn.addEventListener(
   "pointerdown",
   movePaperNo,
-  {passive:false}
+  {
+    passive:false
+  }
 );
 
 noBtn.addEventListener(
   "touchstart",
   movePaperNo,
-  {passive:false}
+  {
+    passive:false
+  }
 );
 
 noBtn.addEventListener(
@@ -1188,8 +1200,16 @@ noBtn.addEventListener(
     e.preventDefault();
     e.stopPropagation();
 
+    moveNoInside(
+      noBtn,
+      paperArea,
+      e
+    );
+
   },
-  {passive:false}
+  {
+    passive:false
+  }
 );
 
 
@@ -1198,31 +1218,31 @@ noBtn.addEventListener(
 ================================================== */
 
 document
-  .getElementById("nameNext")
-  .addEventListener(
-    "click",
-    function(){
+.getElementById("nameNext")
+.addEventListener(
+  "click",
+  function(){
 
-      const input =
-        document.getElementById(
-          "nameInput"
-        );
+    const input =
+      document.getElementById(
+        "nameInput"
+      );
 
-      if(
-        input.value.trim()===""
-      ){
+    if(
+      input.value.trim()===""
+    ){
 
-        input.placeholder =
-          "Pehle naam toh likho 🥺❤️";
+      input.placeholder =
+        "Pehle naam toh likho 🥺❤️";
 
-        return;
-
-      }
-
-      goTo(3);
+      return;
 
     }
-  );
+
+    goTo(3);
+
+  }
+);
 
 
 /* ==================================================
@@ -1238,8 +1258,12 @@ const SpeechRecognition =
    I LOVE YOU TOO
 ================================================== */
 
-let loveRecognition = null;
-let loveListening = false;
+let loveRecognition =
+  null;
+
+let loveListening =
+  false;
+
 
 if(SpeechRecognition){
 
@@ -1255,28 +1279,26 @@ if(SpeechRecognition){
   loveRecognition.interimResults =
     true;
 
-  loveRecognition.maxAlternatives =
-    5;
-
 
   loveRecognition.onstart =
   function(){
 
-    loveListening = true;
+    loveListening =
+      true;
 
     document
-      .getElementById(
-        "listeningText"
-      )
-      .innerText =
-        "🎤 Listening... Say I love you too ❤️";
+    .getElementById(
+      "listeningText"
+    )
+    .innerText =
+      "🎤 Listening... Say I love you too ❤️";
 
     document
-      .getElementById(
-        "voiceBtn"
-      )
-      .innerText =
-        "🎤 Listening...";
+    .getElementById(
+      "voiceBtn"
+    )
+    .innerText =
+      "🎤 Listening...";
 
   };
 
@@ -1284,7 +1306,8 @@ if(SpeechRecognition){
   loveRecognition.onresult =
   function(event){
 
-    let text = "";
+    let text =
+      "";
 
     for(
       let i=event.resultIndex;
@@ -1294,28 +1317,24 @@ if(SpeechRecognition){
 
       text +=
         event.results[i][0]
-          .transcript + " ";
+        .transcript;
 
     }
 
-    text =
-      text.trim();
-
     const clean =
       text
-        .toLowerCase()
-        .replace(/[.,!?]/g," ")
-        .replace(/\s+/g," ")
-        .trim();
+      .toLowerCase()
+      .replace(/[.,!?]/g,"")
+      .trim();
 
     document
-      .getElementById(
-        "voiceResult"
-      )
-      .innerText =
-        'Heard: "'+
-        text+
-        '"';
+    .getElementById(
+      "voiceResult"
+    )
+    .innerText =
+      'Heard: "'+
+      text+
+      '"';
 
 
     const phrases = [
@@ -1340,9 +1359,7 @@ if(SpeechRecognition){
 
     if(matched){
 
-      try{
-        loveRecognition.stop();
-      }catch(error){}
+      loveRecognition.stop();
 
       setTimeout(
         function(){
@@ -1363,14 +1380,15 @@ if(SpeechRecognition){
   loveRecognition.onend =
   function(){
 
-    loveListening = false;
+    loveListening =
+      false;
 
     document
-      .getElementById(
-        "voiceBtn"
-      )
-      .innerText =
-        "🎤 SAY IT";
+    .getElementById(
+      "voiceBtn"
+    )
+    .innerText =
+      "🎤 SAY IT";
 
   };
 
@@ -1382,39 +1400,39 @@ if(SpeechRecognition){
 ================================================== */
 
 document
-  .getElementById("voiceBtn")
-  .addEventListener(
-    "click",
-    function(){
+.getElementById(
+  "voiceBtn"
+)
+.addEventListener(
+  "click",
+  function(){
 
-      if(!SpeechRecognition){
+    if(!SpeechRecognition){
 
-        alert(
-          "Android Chrome mein open karke microphone permission allow karo."
-        );
+      alert(
+        "Android Chrome mein open karke microphone permission allow karo."
+      );
 
-        return;
-
-      }
-
-      if(loveListening){
-
-        try{
-          loveRecognition.stop();
-        }catch(error){}
-
-        return;
-
-      }
-
-      try{
-
-        loveRecognition.start();
-
-      }catch(error){}
+      return;
 
     }
-  );
+
+    if(loveListening){
+
+      loveRecognition.stop();
+
+      return;
+
+    }
+
+    try{
+
+      loveRecognition.start();
+
+    }catch(error){}
+
+  }
+);
 
 
 /* ==================================================
@@ -1450,8 +1468,11 @@ const emojiItems = [
 ];
 
 
-let rainActive = false;
-let rainTimer = null;
+let rainActive =
+  false;
+
+let rainTimer =
+  null;
 
 
 /* ==================================================
@@ -1474,6 +1495,7 @@ function createEmoji(){
   emoji.className =
     "falling";
 
+
   emoji.innerText =
     emojiItems[
       Math.floor(
@@ -1484,55 +1506,48 @@ function createEmoji(){
 
 
   /*
-    Medium-small size
+    SMALL EMOJIS
   */
 
   emoji.style.fontSize =
     (
-      14 +
-      Math.random() * 8
+      10 +
+      Math.random()*8
     ) + "px";
 
 
   /*
-    Full mobile width
+    FULL SCREEN WIDTH
   */
 
   emoji.style.left =
-    Math.random() * 100 +
-    "vw";
-
-
-  /*
-    Small random horizontal offset
-  */
-
-  emoji.style.marginLeft =
     (
-      -8 +
-      Math.random() * 16
-    ) + "px";
+      Math.random()*100
+    ) + "vw";
 
 
   /*
-    Fast falling
+    FAST RAIN
   */
-
-  const duration =
-    1.1 +
-    Math.random() * 0.8;
 
   emoji.style.animationDuration =
-    duration + "s";
+    (
+      1.2 +
+      Math.random()*0.7
+    ) + "s";
 
 
   /*
-    Always front
+    RANDOM ROTATION
   */
 
-  emoji.style.zIndex =
-    "999999999999";
+  emoji.style.transform =
+    "translateY(-40px)";
 
+
+  /*
+    SCREEN KE SABSE AAGE
+  */
 
   document.body.appendChild(
     emoji
@@ -1549,7 +1564,7 @@ function createEmoji(){
       }
 
     },
-    (duration * 1000) + 500
+    2500
   );
 
 }
@@ -1561,7 +1576,9 @@ function createEmoji(){
 
 function startEmojiRain(){
 
-  rainActive = true;
+  rainActive =
+    true;
+
 
   if(rainTimer){
 
@@ -1572,25 +1589,17 @@ function startEmojiRain(){
   }
 
 
-  /*
-    Reset STOP state
-  */
-
-  stopAlreadyTriggered =
-    false;
-
-
-  /*
-    Dense rain
-  */
-
   rainTimer =
     setInterval(
       function(){
 
+        /*
+          Dense rain
+        */
+
         for(
           let i=0;
-          i<32;
+          i<20;
           i++
         ){
 
@@ -1599,7 +1608,7 @@ function startEmojiRain(){
         }
 
       },
-      45
+      50
     );
 
 }
@@ -1611,10 +1620,8 @@ function startEmojiRain(){
 
 function stopEmojiRain(){
 
-  rainActive = false;
-
-  stopAlreadyTriggered =
-    true;
+  rainActive =
+    false;
 
 
   if(rainTimer){
@@ -1623,95 +1630,83 @@ function stopEmojiRain(){
       rainTimer
     );
 
-    rainTimer = null;
+    rainTimer =
+      null;
 
   }
 
 
   /*
-    Remove all emojis
+    Saare emojis remove
   */
 
   document
-    .querySelectorAll(
-      ".falling"
-    )
-    .forEach(
-      function(emoji){
-
-        emoji.remove();
-
-      }
-    );
-
-
-  /*
-    STOP controls disappear
-  */
-
-  document
-    .getElementById(
-      "stopVoiceBtn"
-    )
-    .classList
-    .add("hidden");
-
-
-  document
-    .getElementById(
-      "manualStopBtn"
-    )
-    .classList
-    .add("hidden");
-
-
-  document
-    .getElementById(
-      "stopVoiceResult"
-    )
-    .classList
-    .add("hidden");
-
-
-  /*
-    ONLY CONTINUE appears
-  */
-
-  document
-    .getElementById(
-      "continueAfterStop"
-    )
-    .classList
-    .remove("hidden");
-
-}
-
-
-/* ==================================================
-   MANUAL STOP
-================================================== */
-
-document
-  .getElementById(
-    "manualStopBtn"
+  .querySelectorAll(
+    ".falling"
   )
-  .addEventListener(
-    "click",
-    function(){
+  .forEach(
+    function(emoji){
 
-      stopEmojiRain();
+      emoji.remove();
 
     }
   );
 
 
+  /*
+    MIC STOP BUTTON HIDE
+  */
+
+  const stopButton =
+    document.getElementById(
+      "stopVoiceBtn"
+    );
+
+  stopButton.classList.add(
+    "hidden"
+  );
+
+
+  /*
+    Heard text hide
+  */
+
+  document
+  .getElementById(
+    "stopVoiceResult"
+  )
+  .classList
+  .add(
+    "hidden"
+  );
+
+
+  /*
+    ONLY CONTINUE
+  */
+
+  document
+  .getElementById(
+    "continueAfterStop"
+  )
+  .classList
+  .remove(
+    "hidden"
+  );
+
+}
+
+
 /* ==================================================
-   STOP VOICE RECOGNITION
+   STOP VOICE
 ================================================== */
 
-let stopRecognition = null;
-let stopListening = false;
-let stopAlreadyTriggered = false;
+let stopRecognition =
+  null;
+
+let stopListening =
+  false;
+
 
 if(SpeechRecognition){
 
@@ -1727,21 +1722,19 @@ if(SpeechRecognition){
   stopRecognition.interimResults =
     true;
 
-  stopRecognition.maxAlternatives =
-    5;
-
 
   stopRecognition.onstart =
   function(){
 
-    stopListening = true;
+    stopListening =
+      true;
 
     document
-      .getElementById(
-        "stopVoiceBtn"
-      )
-      .innerText =
-        "🎤 Listening...";
+    .getElementById(
+      "stopVoiceBtn"
+    )
+    .innerText =
+      "🎤 Listening...";
 
   };
 
@@ -1749,7 +1742,8 @@ if(SpeechRecognition){
   stopRecognition.onresult =
   function(event){
 
-    let text = "";
+    let text =
+      "";
 
     for(
       let i=event.resultIndex;
@@ -1759,60 +1753,40 @@ if(SpeechRecognition){
 
       text +=
         event.results[i][0]
-          .transcript + " ";
+        .transcript;
 
     }
-
-    text =
-      text.trim();
-
-
-    document
-      .getElementById(
-        "stopVoiceResult"
-      )
-      .innerText =
-        'Heard: "'+
-        text+
-        '"';
 
 
     const clean =
       text
-        .toLowerCase()
-        .replace(/[.,!?]/g," ")
-        .replace(/\s+/g," ")
-        .trim();
+      .toLowerCase()
+      .replace(/[.,!?]/g,"")
+      .trim();
+
+
+    document
+    .getElementById(
+      "stopVoiceResult"
+    )
+    .innerText =
+      'Heard: "'+
+      text+
+      '"';
 
 
     /*
-      STOP ko sentence ke andar bhi
-      recognise karega.
+      STOP recognise hote hi
+      immediately rain stop
     */
 
-    const words =
-      clean.split(" ");
-
-
-    const heardStop =
-      words.includes("stop");
-
-
     if(
-      heardStop &&
-      !stopAlreadyTriggered
+      clean.includes(
+        "stop"
+      )
     ){
 
-      stopAlreadyTriggered =
-        true;
-
-
-      try{
-
-        stopRecognition.stop();
-
-      }catch(error){}
-
+      stopRecognition.stop();
 
       stopEmojiRain();
 
@@ -1821,21 +1795,25 @@ if(SpeechRecognition){
   };
 
 
-  stopRecognition.onerror =
+  stopRecognition.onend =
   function(){
 
-    stopListening = false;
+    stopListening =
+      false;
 
     const button =
       document.getElementById(
         "stopVoiceBtn"
       );
 
+    /*
+      Agar STOP nahi bola,
+      tab button wapas SAY STOP
+    */
+
     if(
-      button &&
-      !button.classList.contains(
-        "hidden"
-      )
+      !button.classList
+      .contains("hidden")
     ){
 
       button.innerText =
@@ -1846,23 +1824,25 @@ if(SpeechRecognition){
   };
 
 
-  stopRecognition.onend =
+  /*
+    Recognition error handle
+    taaki button atke nahi
+  */
+
+  stopRecognition.onerror =
   function(){
 
-    stopListening = false;
+    stopListening =
+      false;
 
     const button =
       document.getElementById(
         "stopVoiceBtn"
       );
 
-
     if(
-      button &&
-      !button.classList.contains(
-        "hidden"
-      ) &&
-      !stopAlreadyTriggered
+      !button.classList
+      .contains("hidden")
     ){
 
       button.innerText =
@@ -1880,52 +1860,41 @@ if(SpeechRecognition){
 ================================================== */
 
 document
-  .getElementById(
-    "stopVoiceBtn"
-  )
-  .addEventListener(
-    "click",
-    function(){
+.getElementById(
+  "stopVoiceBtn"
+)
+.addEventListener(
+  "click",
+  function(){
 
-      if(!SpeechRecognition){
+    if(!SpeechRecognition){
 
-        alert(
-          "Android Chrome mein open karke microphone permission allow karo."
-        );
+      alert(
+        "Android Chrome mein open karke microphone permission allow karo."
+      );
 
-        return;
-
-      }
-
-
-      if(stopAlreadyTriggered){
-
-        return;
-
-      }
-
-
-      if(stopListening){
-
-        try{
-
-          stopRecognition.stop();
-
-        }catch(error){}
-
-        return;
-
-      }
-
-
-      try{
-
-        stopRecognition.start();
-
-      }catch(error){}
+      return;
 
     }
-  );
+
+
+    if(stopListening){
+
+      stopRecognition.stop();
+
+      return;
+
+    }
+
+
+    try{
+
+      stopRecognition.start();
+
+    }catch(error){}
+
+  }
+);
 
 
 /* ==================================================
@@ -1933,22 +1902,22 @@ document
 ================================================== */
 
 document
-  .getElementById(
-    "continueAfterStop"
-  )
-  .addEventListener(
-    "click",
-    function(){
+.getElementById(
+  "continueAfterStop"
+)
+.addEventListener(
+  "click",
+  function(){
 
-      goTo(8);
+    goTo(8);
 
-    }
-  );
+  }
+);
 
 
 /* ==================================================
    RING NO
-   ALWAYS VISIBLE INSIDE RING IMAGE
+   SAME FIX AS PAPER NO
 ================================================== */
 
 const acceptNo =
@@ -1976,13 +1945,17 @@ function moveRingNo(e){
 acceptNo.addEventListener(
   "pointerdown",
   moveRingNo,
-  {passive:false}
+  {
+    passive:false
+  }
 );
 
 acceptNo.addEventListener(
   "touchstart",
   moveRingNo,
-  {passive:false}
+  {
+    passive:false
+  }
 );
 
 acceptNo.addEventListener(
@@ -1992,8 +1965,16 @@ acceptNo.addEventListener(
     e.preventDefault();
     e.stopPropagation();
 
+    moveNoInside(
+      acceptNo,
+      ringArea,
+      e
+    );
+
   },
-  {passive:false}
+  {
+    passive:false
+  }
 );
 
 
@@ -2002,18 +1983,243 @@ acceptNo.addEventListener(
 ================================================== */
 
 document
-  .getElementById(
-    "acceptYes"
-  )
-  .addEventListener(
-    "click",
-    function(){
+.getElementById(
+  "acceptYes"
+)
+.addEventListener(
+  "click",
+  function(){
 
-      goTo(9);
+    goTo(9);
+
+  }
+);
+
+
+/* ==================================================
+   INITIAL NO POSITIONS
+   IMAGE KE ANDAR HI
+================================================== */
+
+function setInitialNoPositions(){
+
+  /*
+    Paper NO
+  */
+
+  if(
+    noBtn &&
+    paperArea
+  ){
+
+    noBtn.style.position =
+      "absolute";
+
+    noBtn.style.left =
+      Math.max(
+        8,
+        paperArea.clientWidth * 0.58
+      ) + "px";
+
+    noBtn.style.top =
+      Math.max(
+        8,
+        paperArea.clientHeight * 0.68
+      ) + "px";
+
+    noBtn.style.right =
+      "auto";
+
+    noBtn.style.bottom =
+      "auto";
+
+    noBtn.style.margin =
+      "0";
+
+  }
+
+
+  /*
+    Ring NO
+  */
+
+  if(
+    acceptNo &&
+    ringArea
+  ){
+
+    acceptNo.style.position =
+      "absolute";
+
+    acceptNo.style.left =
+      Math.max(
+        8,
+        ringArea.clientWidth * 0.58
+      ) + "px";
+
+    acceptNo.style.top =
+      Math.max(
+        8,
+        ringArea.clientHeight * 0.78
+      ) + "px";
+
+    acceptNo.style.right =
+      "auto";
+
+    acceptNo.style.bottom =
+      "auto";
+
+    acceptNo.style.margin =
+      "0";
+
+  }
+
+}
+
+
+/*
+  Page load ke baad
+*/
+
+window.addEventListener(
+  "load",
+  function(){
+
+    setTimeout(
+      setInitialNoPositions,
+      100
+    );
+
+  }
+);
+
+
+/*
+  Screen resize hone par
+  NO ko safe area ke andar rakho
+*/
+
+window.addEventListener(
+  "resize",
+  function(){
+
+    if(
+      !document
+      .getElementById("page1")
+      .classList
+      .contains("hidden")
+    ){
+
+      keepButtonInside(
+        noBtn,
+        paperArea
+      );
 
     }
-  );
 
+    if(
+      !document
+      .getElementById("page8")
+      .classList
+      .contains("hidden")
+    ){
+
+      keepButtonInside(
+        acceptNo,
+        ringArea
+      );
+
+    }
+
+  }
+);
+
+
+/* ==================================================
+   KEEP NO INSIDE
+================================================== */
+
+function keepButtonInside(
+  element,
+  area
+){
+
+  if(!element || !area){
+
+    return;
+
+  }
+
+  const areaWidth =
+    area.clientWidth;
+
+  const areaHeight =
+    area.clientHeight;
+
+  const buttonWidth =
+    element.offsetWidth;
+
+  const buttonHeight =
+    element.offsetHeight;
+
+  const padding =
+    8;
+
+  let left =
+    parseFloat(
+      element.style.left
+    ) || 0;
+
+  let top =
+    parseFloat(
+      element.style.top
+    ) || 0;
+
+
+  const maxLeft =
+    Math.max(
+      padding,
+      areaWidth -
+      buttonWidth -
+      padding
+    );
+
+  const maxTop =
+    Math.max(
+      padding,
+      areaHeight -
+      buttonHeight -
+      padding
+    );
+
+
+  left =
+    Math.min(
+      Math.max(
+        padding,
+        left
+      ),
+      maxLeft
+    );
+
+
+  top =
+    Math.min(
+      Math.max(
+        padding,
+        top
+      ),
+      maxTop
+    );
+
+
+  element.style.left =
+    left + "px";
+
+  element.style.top =
+    top + "px";
+
+}
 
 </script>
 
