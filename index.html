@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Secret Surprise 💗</title>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>A Little Surprise 💗</title>
 
 <style>
 *{
@@ -40,13 +39,7 @@ body{
 .hidden{
   opacity:0;
   pointer-events:none;
-  transform:scale(1.1);
-}
-
-/* OPENING */
-#intro{
-  background:
-  radial-gradient(circle at center,#521640,#190719 50%,#050008);
+  transform:scale(1.08);
 }
 
 .label{
@@ -77,16 +70,21 @@ button{
   background:#ff3f91;
   color:white;
   box-shadow:0 0 30px #ff3f9166;
+  margin-top:25px;
 }
 
 button:active{
   transform:scale(.92);
 }
 
+/* OPENING */
+#intro{
+  background:radial-gradient(circle,#521640,#190719 50%,#050008);
+}
+
 /* QUESTION */
 #question{
-  background:
-    radial-gradient(circle,#63194f,#19081c 55%,#050008);
+  background:radial-gradient(circle,#63194f,#19081c 55%,#050008);
 }
 
 .question{
@@ -124,8 +122,7 @@ button:active{
 
 /* WELCOME */
 #welcome{
-  background:
-    radial-gradient(circle,#7d1d54,#26091f 55%,#08000d);
+  background:radial-gradient(circle,#7d1d54,#26091f 55%,#08000d);
 }
 
 .welcomeText{
@@ -155,8 +152,7 @@ button:active{
 
 /* CAT */
 #cat{
-  background:
-    radial-gradient(circle at center,#30204c,#0c0818);
+  background:radial-gradient(circle at center,#30204c,#0c0818);
 }
 
 .catCharacter{
@@ -217,12 +213,12 @@ input{
 .error{
   color:#c23a5d;
   min-height:20px;
+  margin-top:10px;
 }
 
 /* MEMORIES */
 #memories{
-  background:
-    radial-gradient(circle,#342047,#080811);
+  background:radial-gradient(circle,#342047,#080811);
 }
 
 .memoryTitle{
@@ -284,10 +280,6 @@ input{
   transform:translateX(120%) rotate(25deg);
 }
 
-.next{
-  padding:12px 28px;
-}
-
 /* FINAL */
 #final{
   background:linear-gradient(#091722,#05070c);
@@ -328,17 +320,35 @@ input{
     transform:translateY(-15px);
   }
 }
+
+@media(max-width:500px){
+  .doors{
+    gap:12px;
+  }
+
+  .door{
+    width:125px;
+    height:175px;
+  }
+
+  .catCharacter{
+    font-size:80px;
+  }
+}
 </style>
 </head>
 
 <body>
 
-<!-- 1. OPENING -->
+<!-- OPENING -->
 <section id="intro" class="screen">
 
   <div class="label">A LITTLE SURPRISE</div>
 
-  <h1>Someone has a question<br>for you... 💗</h1>
+  <h1>
+    Someone has a question<br>
+    for you... 💗
+  </h1>
 
   <p class="sub">Tap when you're ready.</p>
 
@@ -349,13 +359,14 @@ input{
 </section>
 
 
-<!-- 2. QUESTION -->
+<!-- YES / NO -->
 <section id="question" class="screen hidden">
 
   <div class="label">JUST ONE QUESTION</div>
 
   <div class="question">
-    Can I show you<br>something special? 💗
+    Can I show you<br>
+    something special? 💗
   </div>
 
   <div class="doors">
@@ -373,7 +384,7 @@ input{
 </section>
 
 
-<!-- 3. WELCOME -->
+<!-- WELCOME -->
 <section id="welcome" class="screen hidden">
 
   <div class="welcomeText">
@@ -381,10 +392,14 @@ input{
     MADAM 💗
   </div>
 
+  <button onclick="continueToCat()">
+    CONTINUE ➜
+  </button>
+
 </section>
 
 
-<!-- 4. CAT + LETTER -->
+<!-- CAT + LETTER -->
 <section id="cat" class="screen hidden">
 
   <div class="catCharacter">🐱</div>
@@ -416,7 +431,7 @@ input{
 </section>
 
 
-<!-- 5. MEMORIES -->
+<!-- MEMORIES -->
 <section id="memories" class="screen hidden">
 
   <div class="memoryTitle">
@@ -442,3 +457,213 @@ input{
     <div class="card">
       <img src="photo3.jpg" alt="Memory 3">
       <div class="cardText">Memory #3 🌸</div>
+    </div>
+
+  </div>
+
+  <button onclick="nextMemory()">
+    NEXT ➜
+  </button>
+
+</section>
+
+
+<!-- FINAL -->
+<section id="final" class="screen hidden">
+
+  <div class="road"></div>
+
+  <div class="car">🚗</div>
+
+  <div class="finalMessage">
+
+    <h1>BESTIE FOREVER 🫶</h1>
+
+    <p style="font-size:19px;line-height:1.6;margin-top:20px;">
+      Some people become memories,<br>
+      and some become your favourite memories. ✨
+    </p>
+
+  </div>
+
+</section>
+
+
+<script>
+
+function hide(id){
+  document.getElementById(id).classList.add("hidden");
+}
+
+function show(id){
+  document.getElementById(id).classList.remove("hidden");
+}
+
+
+/* OPENING */
+
+function openQuestion(){
+
+  hide("intro");
+
+  setTimeout(()=>{
+    show("question");
+  },600);
+
+}
+
+
+/* YES */
+
+function yesAnswer(){
+
+  hide("question");
+
+  setTimeout(()=>{
+    show("welcome");
+    createHearts();
+  },600);
+
+}
+
+
+/* NO */
+
+function noAnswer(){
+
+  hide("question");
+
+  setTimeout(()=>{
+
+    document.body.innerHTML=`
+
+      <section class="screen"
+        style="background:#050505">
+
+        <h1>BYE 👋</h1>
+
+      </section>
+
+    `;
+
+  },600);
+
+}
+
+
+/* WELCOME -> CAT */
+
+function continueToCat(){
+
+  hide("welcome");
+
+  setTimeout(()=>{
+    show("cat");
+  },600);
+
+}
+
+
+/* HEARTS */
+
+function createHearts(){
+
+  for(let i=0;i<50;i++){
+
+    const heart=document.createElement("div");
+
+    heart.className="heart";
+
+    heart.innerHTML=[
+      "❤️",
+      "💗",
+      "💕",
+      "💖",
+      "✨",
+      "🌸"
+    ][Math.floor(Math.random()*6)];
+
+    heart.style.left=Math.random()*100+"vw";
+
+    heart.style.fontSize=
+      (18+Math.random()*25)+"px";
+
+    heart.style.animationDuration=
+      (3+Math.random()*4)+"s";
+
+    heart.style.animationDelay=
+      Math.random()*2+"s";
+
+    document.getElementById("welcome")
+      .appendChild(heart);
+
+  }
+
+}
+
+
+/* SECRET CODE */
+
+function unlock(){
+
+  const value=
+    document.getElementById("secret")
+    .value
+    .trim()
+    .toLowerCase();
+
+  if(value==="harkesh"){
+
+    document.getElementById("error").innerText=
+      "ACCESS GRANTED ✨";
+
+    setTimeout(()=>{
+
+      hide("cat");
+
+      setTimeout(()=>{
+        show("memories");
+      },600);
+
+    },900);
+
+  }else{
+
+    document.getElementById("error").innerText=
+      "Hmm... that's not the secret code 😼";
+
+  }
+
+}
+
+
+/* MEMORIES */
+
+let memory=0;
+
+function nextMemory(){
+
+  const cards=document.querySelectorAll(".card");
+
+  if(memory<cards.length){
+
+    cards[memory].classList.add("gone");
+
+    memory++;
+
+  }else{
+
+    hide("memories");
+
+    setTimeout(()=>{
+      show("final");
+    },600);
+
+  }
+
+}
+
+</script>
+
+</body>
+</html>
