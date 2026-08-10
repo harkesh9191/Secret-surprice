@@ -4,18 +4,11 @@
 <meta charset="UTF-8">
 
 <meta name="viewport"
-content="width=device-width,
-initial-scale=1.0,
-maximum-scale=1.0,
-user-scalable=no">
+content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
 <title>For You ❤️</title>
 
 <style>
-
-/* =========================
-   BASIC
-========================= */
 
 *{
   box-sizing:border-box;
@@ -117,13 +110,16 @@ p{
 
 .paperContent{
   position:absolute;
+
   left:50%;
   top:64%;
+
   transform:translate(-50%,-50%);
 
   width:74%;
 
   text-align:center;
+
   z-index:20;
 }
 
@@ -138,12 +134,6 @@ p{
   font-weight:bold;
   margin-bottom:8px;
 }
-
-
-/*
-   YES + NO
-   START SAME LEVEL
-*/
 
 .paperButtons{
   position:relative;
@@ -163,8 +153,6 @@ p{
 
   left:auto;
   top:auto;
-  right:auto;
-  bottom:auto;
 
   margin:0;
 
@@ -174,6 +162,9 @@ p{
   z-index:50;
 
   white-space:nowrap;
+
+  opacity:1;
+  visibility:visible;
 }
 
 
@@ -203,7 +194,7 @@ p{
 
 
 /* =========================
-   VOICE
+   MIC
 ========================= */
 
 .mic{
@@ -225,10 +216,6 @@ p{
 /* =========================
    EMOJI RAIN
 ========================= */
-
-#page7{
-  overflow:visible;
-}
 
 .falling{
   position:fixed;
@@ -293,7 +280,7 @@ p{
   0%{
     transform:
       translate(-50%,-50%)
-      scale:.2)
+      scale(.2)
       rotate(0deg);
 
     opacity:1;
@@ -376,6 +363,9 @@ p{
   z-index:50;
 
   white-space:nowrap;
+
+  opacity:1;
+  visibility:visible;
 }
 
 
@@ -477,7 +467,7 @@ p{
 
 
 <!-- =================================================
-     PAGE 1
+     PAGE 1 — CAT PAPER
 ================================================= -->
 
 <section class="screen" id="page1">
@@ -526,8 +516,7 @@ p{
 
 
 <!-- =================================================
-     PAGE 2
-     THANK YOU + CELEBRATION
+     PAGE 2 — THANK YOU
 ================================================= -->
 
 <section class="screen hidden" id="page2">
@@ -550,11 +539,6 @@ p{
     <p style="font-size:19px;font-weight:bold;">
       Tum meri crush se bhi zyada
       special ho... 🌹✨
-    </p>
-
-    <p>
-      Aaj ka ye beautiful moment
-      main hamesha yaad rakhunga. 💖
     </p>
 
     <button
@@ -724,8 +708,7 @@ p{
 
 
 <!-- =================================================
-     PAGE 6
-     I LOVE YOU TOO
+     PAGE 6 — I LOVE YOU TOO
 ================================================= -->
 
 <section class="screen hidden" id="page6">
@@ -771,8 +754,7 @@ p{
 
 
 <!-- =================================================
-     PAGE 7
-     EMOJI RAIN
+     PAGE 7 — EMOJI RAIN
 ================================================= -->
 
 <section class="screen hidden" id="page7">
@@ -791,14 +773,20 @@ p{
       🎤
     </div>
 
-    <p id="stopStatus">
-      Say "STOP" whenever you want.
+    <p
+      id="stopStatus"
+      style="
+        font-size:18px;
+        font-weight:bold;
+        margin:10px 0;
+      ">
+      🎤 STOP boliye madam ❤️
     </p>
 
     <button
       id="stopVoiceBtn"
       class="nextBtn">
-      🎤 SAY STOP
+      🎤 STOP BOLO
     </button>
 
     <p
@@ -818,8 +806,7 @@ p{
 
 
 <!-- =================================================
-     PAGE 8
-     RING
+     PAGE 8 — RING
 ================================================= -->
 
 <section class="screen hidden" id="page8">
@@ -905,8 +892,7 @@ p{
 
 
 <!-- =================================================
-     PAGE 10
-     FINAL VIDEO
+     PAGE 10 — FINAL VIDEO
 ================================================= -->
 
 <section
@@ -937,10 +923,6 @@ p{
 
 function goTo(number){
 
-  /*
-    Hide EVERY page
-  */
-
   document
     .querySelectorAll(".screen")
     .forEach(function(page){
@@ -950,14 +932,11 @@ function goTo(number){
     });
 
 
-  /*
-    Show requested page
-  */
-
-  const target=
+  const target =
     document.getElementById(
-      "page"+number
+      "page" + number
     );
+
 
   if(target){
 
@@ -969,7 +948,6 @@ function goTo(number){
 
 
   window.scrollTo(0,0);
-
 }
 
 
@@ -978,32 +956,29 @@ function goTo(number){
 ================================================= */
 
 document
-.getElementById("yesBtn")
-.addEventListener(
-  "click",
-  function(){
+  .getElementById("yesBtn")
+  .addEventListener(
+    "click",
+    function(){
 
-    goTo(2);
+      goTo(2);
 
-    startCelebration();
+      startCelebration();
 
-  }
-);
+    }
+  );
 
 
 /* =================================================
    PAPER NO
+   PAPER KE ANDAR HI RAHEGA
 ================================================= */
 
-const noBtn=
-  document.getElementById(
-    "noBtn"
-  );
+const noBtn =
+  document.getElementById("noBtn");
 
-const paperArea=
-  document.getElementById(
-    "paperArea"
-  );
+const paperArea =
+  document.getElementById("paperArea");
 
 
 function movePaperNo(event){
@@ -1012,59 +987,84 @@ function movePaperNo(event){
   event.stopPropagation();
 
 
-  const area=
+  const area =
     paperArea.getBoundingClientRect();
 
-  const button=
-    noBtn.getBoundingClientRect();
+
+  const buttonWidth =
+    noBtn.offsetWidth;
+
+  const buttonHeight =
+    noBtn.offsetHeight;
 
 
   /*
-    Paper ke andar hi maximum area
+    Safe area.
+    Button kabhi paper ke bahar nahi jayega.
   */
 
-  const maxX=
+  const minX = 8;
+
+  const minY = 8;
+
+  const maxX =
     Math.max(
-      8,
-      area.width-
-      button.width-
+      minX,
+      area.width -
+      buttonWidth -
       8
     );
 
-  const maxY=
+  const maxY =
     Math.max(
-      8,
-      area.height-
-      button.height-
+      minY,
+      area.height -
+      buttonHeight -
       8
     );
 
 
-  const x=
-    8+
-    Math.random()*
+  const x =
+    minX +
+    Math.random() *
     Math.max(
       1,
-      maxX-8
-    );
-
-  const y=
-    8+
-    Math.random()*
-    Math.max(
-      1,
-      maxY-8
+      maxX - minX
     );
 
 
-  noBtn.style.position=
+  const y =
+    minY +
+    Math.random() *
+    Math.max(
+      1,
+      maxY - minY
+    );
+
+
+  noBtn.style.position =
     "absolute";
 
-  noBtn.style.left=
-    x+"px";
 
-  noBtn.style.top=
-    y+"px";
+  noBtn.style.left =
+    x + "px";
+
+
+  noBtn.style.top =
+    y + "px";
+
+
+  /*
+    Kabhi invisible nahi hoga
+  */
+
+  noBtn.style.opacity = "1";
+
+  noBtn.style.visibility =
+    "visible";
+
+  noBtn.style.display =
+    "block";
 
 }
 
@@ -1080,7 +1080,7 @@ noBtn.addEventListener(
    CELEBRATION
 ================================================= */
 
-const celebrationItems=[
+const celebrationItems = [
 
   "🎉",
   "✨",
@@ -1100,13 +1100,9 @@ const celebrationItems=[
 
 function startCelebration(){
 
-  /*
-    6 separate bursts
-  */
-
   for(
-    let burst=0;
-    burst<6;
+    let burst = 0;
+    burst < 6;
     burst++
   ){
 
@@ -1114,8 +1110,8 @@ function startCelebration(){
       function(){
 
         for(
-          let i=0;
-          i<24;
+          let i = 0;
+          i < 24;
           i++
         ){
 
@@ -1124,7 +1120,7 @@ function startCelebration(){
         }
 
       },
-      burst*300
+      burst * 300
     );
 
   }
@@ -1134,60 +1130,63 @@ function startCelebration(){
 
 function createCelebrationEmoji(){
 
-  const emoji=
-    document.createElement(
-      "div"
-    );
+  const emoji =
+    document.createElement("div");
 
-  emoji.className=
+
+  emoji.className =
     "celebrateEmoji";
 
-  emoji.innerText=
+
+  emoji.innerText =
     celebrationItems[
       Math.floor(
-        Math.random()*
+        Math.random() *
         celebrationItems.length
       )
     ];
 
 
-  const angle=
-    Math.random()*
-    Math.PI*2;
+  const angle =
+    Math.random() *
+    Math.PI * 2;
 
-  const distance=
-    100+
-    Math.random()*300;
+
+  const distance =
+    100 +
+    Math.random() * 300;
 
 
   emoji.style.setProperty(
     "--x",
-    Math.cos(angle)*
-    distance+
+    Math.cos(angle) *
+    distance +
     "px"
   );
 
+
   emoji.style.setProperty(
     "--y",
-    Math.sin(angle)*
-    distance+
+    Math.sin(angle) *
+    distance +
     "px"
   );
+
 
   emoji.style.setProperty(
     "--rotation",
     (
-      -360+
-      Math.random()*720
-    )+"deg"
+      -360 +
+      Math.random() * 720
+    ) + "deg"
   );
 
 
-  emoji.style.fontSize=
+  emoji.style.fontSize =
     (
-      20+
-      Math.random()*18
-    )+"px";
+      20 +
+      Math.random() * 18
+    ) + "px";
 
 
   document.body.appendChild(
@@ -1208,28 +1207,28 @@ function createCelebrationEmoji(){
 
 
 /* =================================================
-   CELEBRATION NEXT
+   THANK YOU NEXT
 ================================================= */
 
 document
-.getElementById(
-  "celebrationNext"
-)
-.addEventListener(
-  "click",
-  function(){
+  .getElementById(
+    "celebrationNext"
+  )
+  .addEventListener(
+    "click",
+    function(){
 
-    goTo(3);
+      goTo(3);
 
-  }
-);
+    }
+  );
 
 
 /* =================================================
    SPEECH RECOGNITION
 ================================================= */
 
-const SpeechRecognition=
+const SpeechRecognition =
   window.SpeechRecognition ||
   window.webkitSpeechRecognition;
 
@@ -1238,71 +1237,69 @@ const SpeechRecognition=
    I LOVE YOU TOO
 ================================================= */
 
-let loveRecognition=null;
-let loveListening=false;
+let loveRecognition = null;
+
+let loveListening = false;
 
 
 if(SpeechRecognition){
 
-  loveRecognition=
+  loveRecognition =
     new SpeechRecognition();
 
-  loveRecognition.lang=
+  loveRecognition.lang =
     "en-US";
 
-  loveRecognition.continuous=
+  loveRecognition.continuous =
     false;
 
-  loveRecognition.interimResults=
+  loveRecognition.interimResults =
     true;
 
-  loveRecognition.maxAlternatives=
+  loveRecognition.maxAlternatives =
     5;
 
 
-  loveRecognition.onstart=
+  loveRecognition.onstart =
   function(){
 
-    loveListening=true;
+    loveListening = true;
 
-    document
-    .getElementById(
+
+    document.getElementById(
       "loveStatus"
-    )
-    .innerText=
+    ).innerText =
       "🎤 Listening...";
 
-    document
-    .getElementById(
+
+    document.getElementById(
       "loveVoiceBtn"
-    )
-    .innerText=
+    ).innerText =
       "🎤 Listening...";
 
   };
 
 
-  loveRecognition.onresult=
+  loveRecognition.onresult =
   function(event){
 
-    let transcript="";
+    let transcript = "";
 
 
     for(
-      let i=0;
-      i<event.results.length;
+      let i = 0;
+      i < event.results.length;
       i++
     ){
 
-      transcript+=
+      transcript +=
         event.results[i][0]
-        .transcript+
-        " ";
+        .transcript + " ";
 
     }
 
 
-    const clean=
+    const clean =
       transcript
       .toLowerCase()
       .replace(/[.,!?]/g," ")
@@ -1310,35 +1307,26 @@ if(SpeechRecognition){
       .trim();
 
 
-    document
-    .getElementById(
+    document.getElementById(
       "loveResult"
-    )
-    .innerText=
-      'Heard: "'+
-      transcript.trim()+
+    ).innerText =
+      'Heard: "' +
+      transcript.trim() +
       '"';
 
 
     if(
-      clean.includes(
-        "i love you too"
-      ) ||
-      clean.includes(
-        "i love you to"
-      ) ||
-      clean.includes(
-        "i love you two"
-      ) ||
-      clean.includes(
-        "i love u too"
-      ) ||
-      clean.includes(
-        "love you too"
-      )
+      clean.includes("i love you too") ||
+      clean.includes("i love you to") ||
+      clean.includes("i love you two") ||
+      clean.includes("i love u too") ||
+      clean.includes("love you too")
     ){
 
-      loveRecognition.stop();
+      try{
+        loveRecognition.stop();
+      }catch(e){}
+
 
       setTimeout(
         function(){
@@ -1356,31 +1344,27 @@ if(SpeechRecognition){
   };
 
 
-  loveRecognition.onerror=
+  loveRecognition.onerror =
   function(){
 
-    loveListening=false;
+    loveListening = false;
 
-    document
-    .getElementById(
+    document.getElementById(
       "loveResult"
-    )
-    .innerText=
+    ).innerText =
       "Mic permission allow karo 🎤";
 
   };
 
 
-  loveRecognition.onend=
+  loveRecognition.onend =
   function(){
 
-    loveListening=false;
+    loveListening = false;
 
-    document
-    .getElementById(
+    document.getElementById(
       "loveVoiceBtn"
-    )
-    .innerText=
+    ).innerText =
       "🎤 SAY IT";
 
   };
@@ -1389,48 +1373,50 @@ if(SpeechRecognition){
 
 
 document
-.getElementById(
-  "loveVoiceBtn"
-)
-.addEventListener(
-  "click",
-  function(){
+  .getElementById(
+    "loveVoiceBtn"
+  )
+  .addEventListener(
+    "click",
+    function(){
 
-    if(!SpeechRecognition){
+      if(!SpeechRecognition){
 
-      alert(
-        "Voice ke liye Chrome use karo."
-      );
+        alert(
+          "Voice ke liye Chrome use karo."
+        );
 
-      return;
+        return;
+
+      }
+
+
+      if(loveListening){
+
+        try{
+          loveRecognition.stop();
+        }catch(e){}
+
+        return;
+
+      }
+
+
+      try{
+
+        loveRecognition.start();
+
+      }catch(e){}
 
     }
-
-
-    if(loveListening){
-
-      loveRecognition.stop();
-
-      return;
-
-    }
-
-
-    try{
-
-      loveRecognition.start();
-
-    }catch(error){}
-
-  }
-);
+  );
 
 
 /* =================================================
-   EMOJI LIST
+   EMOJI RAIN
 ================================================= */
 
-const emojiItems=[
+const emojiItems = [
 
   "💎",
   "👑",
@@ -1459,13 +1445,10 @@ const emojiItems=[
 ];
 
 
-let rainActive=false;
-let rainTimer=null;
+let rainActive = false;
 
+let rainTimer = null;
 
-/* =================================================
-   CREATE RAIN EMOJI
-================================================= */
 
 function createRainEmoji(){
 
@@ -1474,19 +1457,18 @@ function createRainEmoji(){
   }
 
 
-  const emoji=
-    document.createElement(
-      "div"
-    );
+  const emoji =
+    document.createElement("div");
 
-  emoji.className=
+
+  emoji.className =
     "falling";
 
 
-  emoji.innerText=
+  emoji.innerText =
     emojiItems[
       Math.floor(
-        Math.random()*
+        Math.random() *
         emojiItems.length
       )
     ];
@@ -1496,28 +1478,27 @@ function createRainEmoji(){
     Medium size
   */
 
-  emoji.style.fontSize=
+  emoji.style.fontSize =
     (
-      17+
-      Math.random()*9
-    )+"px";
+      17 +
+      Math.random() * 9
+    ) + "px";
 
 
   /*
-    Entire screen width
+    Full screen width
   */
 
-  emoji.style.left=
-    Math.random()*97+
-    "vw";
+  emoji.style.left =
+    Math.random() * 97 + "vw";
 
 
   emoji.style.setProperty(
     "--rotation",
     (
-      -180+
-      Math.random()*360
-    )+"deg"
+      -180 +
+      Math.random() * 360
+    ) + "deg"
   );
 
 
@@ -1525,11 +1506,11 @@ function createRainEmoji(){
     Fast falling
   */
 
-  emoji.style.animationDuration=
+  emoji.style.animationDuration =
     (
-      1.0+
-      Math.random()*0.8
-    )+"s";
+      1.0 +
+      Math.random() * 0.8
+    ) + "s";
 
 
   /*
@@ -1539,15 +1520,15 @@ function createRainEmoji(){
   emoji.style.setProperty(
     "--distance",
     (
-      window.innerHeight+
+      window.innerHeight +
       140
-    )+"px"
+    ) + "px"
   );
 
 
   /*
-    BODY par add:
-    card ke piche nahi jayega
+    BODY par add.
+    Isliye card ke piche nahi jayega.
   */
 
   document.body.appendChild(
@@ -1567,13 +1548,9 @@ function createRainEmoji(){
 }
 
 
-/* =================================================
-   START RAIN
-================================================= */
-
 function startRain(){
 
-  rainActive=true;
+  rainActive = true;
 
 
   if(rainTimer){
@@ -1586,16 +1563,16 @@ function startRain(){
 
 
   /*
-    Full screen dense rain
+    Dense fast rain
   */
 
-  rainTimer=
+  rainTimer =
     setInterval(
       function(){
 
         for(
-          let i=0;
-          i<11;
+          let i = 0;
+          i < 11;
           i++
         ){
 
@@ -1610,13 +1587,9 @@ function startRain(){
 }
 
 
-/* =================================================
-   STOP RAIN
-================================================= */
-
 function stopRain(){
 
-  rainActive=false;
+  rainActive = false;
 
 
   if(rainTimer){
@@ -1625,143 +1598,102 @@ function stopRain(){
       rainTimer
     );
 
-    rainTimer=null;
+    rainTimer = null;
 
   }
 
 
-  /*
-    Existing emojis remove
-  */
-
   document
-  .querySelectorAll(
-    ".falling"
-  )
-  .forEach(
-    function(emoji){
+    .querySelectorAll(".falling")
+    .forEach(
+      function(emoji){
 
-      emoji.remove();
+        emoji.remove();
 
-    }
-  );
-
-
-  /*
-    STOP button completely hide
-  */
-
-  document
-  .getElementById(
-    "stopVoiceBtn"
-  )
-  .classList
-  .add("hidden");
-
-
-  document
-  .getElementById(
-    "stopStatus"
-  )
-  .classList
-  .add("hidden");
-
-
-  document
-  .getElementById(
-    "stopResult"
-  )
-  .classList
-  .add("hidden");
-
-
-  /*
-    Only CONTINUE
-  */
-
-  document
-  .getElementById(
-    "continueAfterStop"
-  )
-  .classList
-  .remove("hidden");
+      }
+    );
 
 }
 
 
 /* =================================================
-   STOP SPEECH
+   STOP VOICE
 ================================================= */
 
-let stopRecognition=null;
-let stopListening=false;
+let stopRecognition = null;
+
+let stopListening = false;
+
+let stopDetected = false;
 
 
 if(SpeechRecognition){
 
-  stopRecognition=
+  stopRecognition =
     new SpeechRecognition();
 
-  stopRecognition.lang=
+  stopRecognition.lang =
     "en-US";
 
-  stopRecognition.continuous=
-    false;
+  /*
+    Continuous rakha hai,
+    taaki STOP miss na ho.
+  */
 
-  stopRecognition.interimResults=
+  stopRecognition.continuous =
     true;
 
-  stopRecognition.maxAlternatives=
+  stopRecognition.interimResults =
+    true;
+
+  stopRecognition.maxAlternatives =
     5;
 
 
-  stopRecognition.onstart=
+  stopRecognition.onstart =
   function(){
 
-    stopListening=true;
+    stopListening = true;
 
-    document
-    .getElementById(
-      "stopVoiceBtn"
-    )
-    .innerText=
-      "🎤 Listening...";
 
-    document
-    .getElementById(
+    document.getElementById(
       "stopStatus"
-    )
-    .innerText=
-      'Bol "STOP" 🎤';
+    ).innerText =
+      "🎤 STOP boliye madam ❤️";
+
+
+    document.getElementById(
+      "stopVoiceBtn"
+    ).innerText =
+      "🎤 Listening...";
 
   };
 
 
-  stopRecognition.onresult=
+  stopRecognition.onresult =
   function(event){
 
-    let transcript="";
+    let transcript = "";
 
 
     /*
-      Interim + final dono read
+      Saara current speech collect karo
     */
 
     for(
-      let i=0;
-      i<event.results.length;
+      let i = event.resultIndex;
+      i < event.results.length;
       i++
     ){
 
-      transcript+=
+      transcript +=
         event.results[i][0]
-        .transcript+
-        " ";
+        .transcript + " ";
 
     }
 
 
-    const clean=
+    const clean =
       transcript
       .toLowerCase()
       .replace(/[.,!?]/g," ")
@@ -1769,84 +1701,131 @@ if(SpeechRecognition){
       .trim();
 
 
-    document
-    .getElementById(
+    document.getElementById(
       "stopResult"
-    )
-    .innerText=
-      'Heard: "'+
-      transcript.trim()+
+    ).innerText =
+      'Heard: "' +
+      transcript.trim() +
       '"';
 
 
     /*
       STOP detect
-      immediately
     */
 
-    if(
+    const saidStop =
       clean.includes("stop") ||
-      clean.includes("stopp") ||
       clean.includes("stop it") ||
-      clean.includes("please stop")
+      clean.includes("please stop") ||
+      clean.includes("stop please") ||
+      clean.includes("stopp");
+
+
+    if(
+      saidStop &&
+      !stopDetected
     ){
 
-      stopRecognition.stop();
+      stopDetected = true;
+
+
+      /*
+        Recognition stop
+      */
+
+      try{
+
+        stopRecognition.stop();
+
+      }catch(e){}
+
+
+      stopListening = false;
+
+
+      /*
+        Emoji rain band
+      */
 
       stopRain();
+
+
+      /*
+        STOP text hide
+      */
+
+      document.getElementById(
+        "stopStatus"
+      ).classList.add(
+        "hidden"
+      );
+
+
+      document.getElementById(
+        "stopVoiceBtn"
+      ).classList.add(
+        "hidden"
+      );
+
+
+      document.getElementById(
+        "stopResult"
+      ).classList.add(
+        "hidden"
+      );
+
+
+      /*
+        ONLY CONTINUE
+      */
+
+      document.getElementById(
+        "continueAfterStop"
+      ).classList.remove(
+        "hidden"
+      );
 
     }
 
   };
 
 
-  stopRecognition.onerror=
+  stopRecognition.onerror =
   function(){
 
-    stopListening=false;
+    stopListening = false;
 
-    document
-    .getElementById(
-      "stopVoiceBtn"
-    )
-    .innerText=
-      "🎤 SAY STOP";
 
-    document
-    .getElementById(
-      "stopResult"
-    )
-    .innerText=
-      "Mic permission allow karo 🎤";
+    if(!stopDetected){
+
+      document.getElementById(
+        "stopVoiceBtn"
+      ).innerText =
+        "🎤 STOP BOLO";
+
+
+      document.getElementById(
+        "stopStatus"
+      ).innerText =
+        "🎤 STOP boliye madam ❤️";
+
+    }
 
   };
 
 
-  stopRecognition.onend=
+  stopRecognition.onend =
   function(){
 
-    stopListening=false;
+    stopListening = false;
 
 
-    const button=
+    if(!stopDetected){
+
       document.getElementById(
         "stopVoiceBtn"
-      );
-
-
-    /*
-      STOP already pressed nahi hua
-      toh button normal rahe
-    */
-
-    if(
-      !button.classList.contains(
-        "hidden"
-      )
-    ){
-
-      button.innerText=
-        "🎤 SAY STOP";
+      ).innerText =
+        "🎤 STOP BOLO";
 
     }
 
@@ -1860,41 +1839,48 @@ if(SpeechRecognition){
 ================================================= */
 
 document
-.getElementById(
-  "stopVoiceBtn"
-)
-.addEventListener(
-  "click",
-  function(){
+  .getElementById(
+    "stopVoiceBtn"
+  )
+  .addEventListener(
+    "click",
+    function(){
 
-    if(!SpeechRecognition){
+      if(!SpeechRecognition){
 
-      alert(
-        "Voice ke liye Chrome use karo."
-      );
+        alert(
+          "Voice recognition ke liye Chrome use karo."
+        );
 
-      return;
+        return;
+
+      }
+
+
+      if(stopListening){
+
+        return;
+
+      }
+
+
+      stopDetected = false;
+
+
+      document.getElementById(
+        "stopStatus"
+      ).innerText =
+        "🎤 STOP boliye madam ❤️";
+
+
+      try{
+
+        stopRecognition.start();
+
+      }catch(e){}
 
     }
-
-
-    if(stopListening){
-
-      stopRecognition.stop();
-
-      return;
-
-    }
-
-
-    try{
-
-      stopRecognition.start();
-
-    }catch(error){}
-
-  }
-);
+  );
 
 
 /* =================================================
@@ -1902,29 +1888,29 @@ document
 ================================================= */
 
 document
-.getElementById(
-  "continueAfterStop"
-)
-.addEventListener(
-  "click",
-  function(){
+  .getElementById(
+    "continueAfterStop"
+  )
+  .addEventListener(
+    "click",
+    function(){
 
-    goTo(8);
+      goTo(8);
 
-  }
-);
+    }
+  );
 
 
 /* =================================================
    RING NO
 ================================================= */
 
-const acceptNo=
+const acceptNo =
   document.getElementById(
     "acceptNo"
   );
 
-const ringArea=
+const ringArea =
   document.getElementById(
     "ringArea"
   );
@@ -1936,55 +1922,80 @@ function moveRingNo(event){
   event.stopPropagation();
 
 
-  const area=
+  const area =
     ringArea.getBoundingClientRect();
 
-  const button=
-    acceptNo.getBoundingClientRect();
+
+  const buttonWidth =
+    acceptNo.offsetWidth;
+
+  const buttonHeight =
+    acceptNo.offsetHeight;
 
 
-  const maxX=
+  const minX = 8;
+
+  const minY = 8;
+
+
+  const maxX =
     Math.max(
-      8,
-      area.width-
-      button.width-
+      minX,
+      area.width -
+      buttonWidth -
       8
     );
 
-  const maxY=
+
+  const maxY =
     Math.max(
-      8,
-      area.height-
-      button.height-
+      minY,
+      area.height -
+      buttonHeight -
       8
     );
 
 
-  const x=
-    8+
-    Math.random()*
+  const x =
+    minX +
+    Math.random() *
     Math.max(
       1,
-      maxX-8
-    );
-
-  const y=
-    8+
-    Math.random()*
-    Math.max(
-      1,
-      maxY-8
+      maxX - minX
     );
 
 
-  acceptNo.style.position=
+  const y =
+    minY +
+    Math.random() *
+    Math.max(
+      1,
+      maxY - minY
+    );
+
+
+  acceptNo.style.position =
     "absolute";
 
-  acceptNo.style.left=
-    x+"px";
 
-  acceptNo.style.top=
-    y+"px";
+  acceptNo.style.left =
+    x + "px";
+
+
+  acceptNo.style.top =
+    y + "px";
+
+
+  acceptNo.style.opacity =
+    "1";
+
+
+  acceptNo.style.visibility =
+    "visible";
+
+
+  acceptNo.style.display =
+    "block";
 
 }
 
@@ -2001,33 +2012,27 @@ acceptNo.addEventListener(
 ================================================= */
 
 document
-.getElementById(
-  "acceptYes"
-)
-.addEventListener(
-  "click",
-  function(){
+  .getElementById(
+    "acceptYes"
+  )
+  .addEventListener(
+    "click",
+    function(){
 
-    goTo(9);
+      goTo(9);
 
-  }
-);
+    }
+  );
 
 
 /* =================================================
    FINAL VIDEO
 ================================================= */
 
-const finalVideo=
+const finalVideo =
   document.getElementById(
     "finalVideo"
   );
-
-
-/*
-   Page 9 ka NEXT directly
-   page 10 par jaata hai.
-*/
 
 </script>
 
