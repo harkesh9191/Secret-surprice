@@ -1,9 +1,12 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
 <title>For You ❤️</title>
 
@@ -14,7 +17,8 @@
   -webkit-tap-highlight-color:transparent;
 }
 
-html,body{
+html,
+body{
   margin:0;
   padding:0;
   width:100%;
@@ -26,13 +30,17 @@ body{
   background:linear-gradient(135deg,#ffdce8,#fff5f8);
   color:#542337;
   overflow-x:hidden;
-  overflow-y:auto;
+}
+
+.hidden{
+  display:none !important;
 }
 
 .screen{
   width:100%;
   min-height:100vh;
-  padding:8px;
+  min-height:100dvh;
+  padding:5px;
   display:flex;
   justify-content:center;
   align-items:center;
@@ -41,10 +49,11 @@ body{
 .card{
   width:100%;
   max-width:520px;
-  min-height:96vh;
+  min-height:98vh;
+  min-height:98dvh;
   background:rgba(255,255,255,.97);
   border-radius:25px;
-  padding:15px;
+  padding:12px;
   text-align:center;
   box-shadow:0 15px 50px rgba(80,20,45,.16);
   display:flex;
@@ -53,77 +62,10 @@ body{
   overflow:visible;
 }
 
-.hidden{
-  display:none!important;
-}
-
-/* CAT PAPER */
-
-.catPaperArea{
-  position:relative;
-  width:100%;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  overflow:visible;
-}
-
-.catPaperImage{
-  width:100%;
-  max-width:510px;
-  height:auto;
-  max-height:700px;
-  object-fit:contain;
-  display:block;
-}
-
-.paperContent{
-  position:absolute;
-  left:50%;
-  top:62%;
-  transform:translate(-50%,-50%);
-  width:72%;
-  text-align:center;
-  z-index:20;
-}
-
-.proposalText{
-  font-size:18px;
-  font-weight:bold;
-  color:#542337;
-  line-height:1.35;
-  margin-bottom:5px;
-}
-
-.answerText{
-  font-size:13px;
-  font-weight:bold;
-  color:#7d5062;
-  margin-bottom:8px;
-}
-
-.paperButtons{
-  position:relative;
-  width:100%;
-  min-height:50px;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  gap:9px;
-  z-index:20;
-}
-
-.paperButtons button{
-  min-width:78px;
-  padding:10px 13px;
-}
-
-/* BUTTONS */
-
 button{
   border:0;
   border-radius:50px;
-  padding:14px 24px;
+  padding:13px 22px;
   font-size:17px;
   font-weight:bold;
   cursor:pointer;
@@ -136,13 +78,6 @@ button{
   color:white;
 }
 
-#noBtn,
-#acceptNo{
-  background:#eeeeee;
-  color:#555;
-  z-index:9999999;
-}
-
 .nextBtn{
   width:100%;
   background:#ff4f81;
@@ -150,30 +85,16 @@ button{
   margin-top:10px;
 }
 
-.stopBtn{
-  background:#222;
-  color:white;
-  margin-top:10px;
-}
-
-/* TEXT */
-
 h1{
   font-size:29px;
   line-height:1.3;
   margin:10px 0;
 }
 
-h2{
-  line-height:1.5;
-}
-
 p{
   font-size:17px;
   line-height:1.8;
 }
-
-/* HEART */
 
 .heart{
   font-size:62px;
@@ -190,7 +111,82 @@ p{
   }
 }
 
-/* NAME */
+
+/* =========================
+   PAPER CAT
+========================= */
+
+#paperArea{
+  position:relative;
+  width:100%;
+  overflow:hidden;
+  border-radius:20px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  touch-action:manipulation;
+}
+
+.catPaperImage{
+  width:100%;
+  height:auto;
+  max-height:760px;
+  object-fit:contain;
+  display:block;
+}
+
+.paperContent{
+  position:absolute;
+  left:50%;
+  top:62%;
+  transform:translate(-50%,-50%);
+  width:70%;
+  z-index:20;
+  text-align:center;
+  pointer-events:none;
+}
+
+.proposalText{
+  font-size:18px;
+  font-weight:bold;
+  line-height:1.3;
+  margin-bottom:5px;
+}
+
+.answerText{
+  font-size:13px;
+  font-weight:bold;
+  margin-bottom:8px;
+}
+
+.paperButtons{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:8px;
+  pointer-events:auto;
+}
+
+
+/* =========================
+   NO BUTTON
+========================= */
+
+#noBtn{
+  position:absolute;
+  left:58%;
+  top:68%;
+  margin:0;
+  background:#eeeeee;
+  color:#555;
+  z-index:50;
+  white-space:nowrap;
+}
+
+
+/* =========================
+   NAME
+========================= */
 
 .nameInput{
   width:100%;
@@ -203,27 +199,22 @@ p{
   text-align:center;
 }
 
-/* SHAYARI */
 
-.pageTitle{
-  font-size:27px;
-}
+/* =========================
+   SHAYARI
+========================= */
 
 .shayari{
   font-size:18px;
   line-height:1.9;
   font-style:italic;
-  margin-bottom:10px;
 }
-
-/* PHOTOS */
 
 .photoArea{
   width:100%;
   margin:12px 0 18px;
   display:flex;
   justify-content:center;
-  align-items:center;
   gap:10px;
 }
 
@@ -233,10 +224,12 @@ p{
   object-fit:cover;
   border-radius:20px;
   display:block;
-  box-shadow:0 5px 18px rgba(80,20,45,.12);
 }
 
-/* VOICE */
+
+/* =========================
+   VOICE
+========================= */
 
 .mic{
   font-size:70px;
@@ -254,85 +247,157 @@ p{
   opacity:.7;
 }
 
-/* FALLING EMOJIS */
+
+/* =========================
+   EMOJI RAIN
+========================= */
+
+#page7{
+  position:relative;
+  overflow:hidden;
+}
+
+#page7 .card{
+  position:relative;
+  z-index:1000000000;
+}
 
 .falling{
   position:fixed;
-  top:-80px;
+  top:-50px;
   pointer-events:none;
-  z-index:99999999;
-  animation:fallDown linear forwards;
   user-select:none;
+  z-index:999999999;
+  line-height:1;
+  will-change:transform;
+  animation-name:emojiFall;
+  animation-timing-function:linear;
+  animation-fill-mode:forwards;
 }
 
-@keyframes fallDown{
+@keyframes emojiFall{
 
   0%{
     transform:
-      translateY(-80px)
-      rotate(0deg)
-      scale(1);
+      translateY(-50px)
+      rotate(0deg);
     opacity:1;
   }
 
   100%{
     transform:
-      translateY(115vh)
-      rotate(720deg)
-      scale(1.15);
+      translateY(var(--fall-distance))
+      rotate(var(--rotation));
     opacity:1;
   }
 }
 
-/* RING CAT */
+
+/* =========================
+   RING
+========================= */
+
+#ringArea{
+  position:relative;
+  width:100%;
+  overflow:hidden;
+  border-radius:20px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  touch-action:manipulation;
+}
 
 .ringCat{
   width:100%;
   max-width:510px;
-  max-height:620px;
+  max-height:700px;
   object-fit:contain;
-  margin:0 auto 12px;
   display:block;
 }
 
-/* FINAL */
-
-.final{
-  font-size:19px;
-  line-height:2;
+.ringContent{
+  position:absolute;
+  left:50%;
+  top:78%;
+  transform:translate(-50%,-50%);
+  width:70%;
+  z-index:20;
+  text-align:center;
+  pointer-events:none;
 }
 
-/* MOBILE */
+.ringButtons{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:8px;
+  pointer-events:auto;
+}
+
+#acceptNo{
+  position:absolute;
+  left:58%;
+  top:78%;
+  margin:0;
+  background:#eeeeee;
+  color:#555;
+  z-index:50;
+  white-space:nowrap;
+}
+
+
+/* =========================
+   FINAL VIDEO
+========================= */
+
+#page10{
+  position:fixed;
+  inset:0;
+  width:100vw;
+  height:100vh;
+  height:100dvh;
+  padding:0;
+  margin:0;
+  background:#000;
+  z-index:9999999999;
+  overflow:hidden;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.fullVideo{
+  width:100vw;
+  height:100vh;
+  height:100dvh;
+  object-fit:cover;
+  display:block;
+  background:#000;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
 
 @media(max-width:600px){
 
-  body{
-    overflow-x:hidden;
-    overflow-y:auto;
-  }
-
   .screen{
     min-height:100vh;
-    height:auto;
-    padding:8px 5px;
+    min-height:100dvh;
+    padding:4px;
     align-items:flex-start;
   }
 
   .card{
-    min-height:96vh;
-    height:auto;
-    padding:12px;
-    border-radius:22px;
-  }
-
-  .catPaperImage{
-    width:100%;
-    max-width:100%;
-    max-height:700px;
+    min-height:98vh;
+    min-height:98dvh;
+    padding:10px;
   }
 
   .paperContent{
-    width:73%;
+    width:72%;
     top:62%;
   }
 
@@ -342,43 +407,47 @@ p{
 
   .answerText{
     font-size:11px;
-    margin-bottom:6px;
-  }
-
-  .paperButtons{
-    min-height:45px;
-    gap:6px;
   }
 
   .paperButtons button{
-    min-width:72px;
-    padding:9px 11px;
+    min-width:70px;
+    padding:8px 10px;
     font-size:14px;
+  }
+
+  #noBtn{
+    font-size:14px;
+    padding:8px 12px;
   }
 
   h1{
     font-size:25px;
   }
 
-  p{
-    font-size:16px;
-  }
-
   .shayari{
-    font-size:16.5px;
-    line-height:1.85;
+    font-size:16px;
+    line-height:1.8;
   }
 
   .myPhoto{
     height:165px;
+  }
+
+  .ringContent{
+    width:72%;
+  }
+
+  #acceptNo{
+    font-size:14px;
+    padding:8px 12px;
   }
 }
 
 @media(max-width:380px){
 
   .paperContent{
+    width:74%;
     top:62%;
-    width:75%;
   }
 
   .proposalText{
@@ -390,13 +459,14 @@ p{
   }
 
   .paperButtons button{
-    min-width:68px;
+    min-width:65px;
     font-size:13px;
-    padding:8px 9px;
+    padding:8px;
   }
 }
 
 </style>
+
 </head>
 
 <body>
@@ -408,13 +478,12 @@ p{
 
   <div class="card">
 
-    <div class="catPaperArea">
+    <div id="paperArea">
 
       <img
         src="cat-paper.jpg"
         class="catPaperImage"
-        alt="Cute cat holding paper"
-      >
+        alt="Cute cat holding paper">
 
       <div class="paperContent">
 
@@ -434,14 +503,13 @@ p{
             YES ❤️
           </button>
 
-          <button
-            id="noBtn">
-            NO 😭
-          </button>
-
         </div>
 
       </div>
+
+      <button id="noBtn">
+        NO 😭
+      </button>
 
     </div>
 
@@ -456,7 +524,9 @@ p{
 
   <div class="card">
 
-    <div class="heart">❤️</div>
+    <div class="heart">
+      ❤️
+    </div>
 
     <h1>
       Yayyy! 🥹❤️
@@ -474,8 +544,7 @@ p{
       id="nameInput"
       class="nameInput"
       maxlength="30"
-      placeholder="Apna naam likho..."
-    >
+      placeholder="Apna naam likho...">
 
     <button
       id="nameNext"
@@ -494,7 +563,7 @@ p{
 
   <div class="card">
 
-    <h1 class="pageTitle">
+    <h1>
       Bas ek baat kehni thi... ❤️
     </h1>
 
@@ -503,24 +572,26 @@ p{
       Pata nahi kab tum meri
       itni favourite person ban gayi,
 
-      bas itna pata hai ki
-      tumhari ek smile bhi
-      mera poora din achha kar deti hai. ❤️
+      bas itna pata hai ki tumhari
+      ek smile bhi mera poora din
+      achha kar deti hai. ❤️
 
       <br><br>
 
-      Tumhe shayad iska
-      ehsaas bhi nahi hoga,
+      Tumhe shayad iska ehsaas bhi
+      nahi hoga,
 
       lekin meri chhoti si duniya mein
-      tumhari jagah thodi
-      zyada special hai. 🥹
+      tumhari jagah thodi zyada
+      special hai. 🥹
 
       <br><br>
 
-      Shayad main tumhe
-      jitna notice karta hoon,
-      tumhe uska andaaza bhi nahi hai. ❤️
+      Shayad main tumhe jitna
+      notice karta hoon,
+
+      tumhe uska andaaza bhi
+      nahi hai. ❤️
 
     </p>
 
@@ -529,14 +600,12 @@ p{
       <img
         src="photo1.jpg"
         class="myPhoto"
-        alt="Photo 1"
-      >
+        alt="Photo 1">
 
       <img
         src="photo2.jpg"
         class="myPhoto"
-        alt="Photo 2"
-      >
+        alt="Photo 2">
 
     </div>
 
@@ -557,34 +626,32 @@ p{
 
   <div class="card">
 
-    <h1 class="pageTitle">
+    <h1>
       Shayad ye one-sided hai... 💗
     </h1>
 
     <p class="shayari">
 
-      Mujhe nahi pata
-      tumhare dil mein mere liye
-      kuch hai bhi ya nahi,
+      Mujhe nahi pata tumhare dil mein
+      mere liye kuch hai bhi ya nahi,
 
-      aur sach kahun toh
-      maine kabhi tumse
-      kuch expect bhi nahi kiya. 🌸
+      aur sach kahun toh maine kabhi
+      tumse kuch expect bhi nahi kiya. 🌸
 
       <br><br>
 
       Bas tum khush raho,
-      chahe meri wajah se
-      ya kisi aur ki wajah se,
 
-      kyunki tumhe khush dekhna
-      hi shayad meri
-      sabse cute si problem hai. ❤️
+      chahe meri wajah se ya kisi
+      aur ki wajah se,
+
+      kyunki tumhe khush dekhna hi
+      shayad meri sabse cute
+      si problem hai. ❤️
 
       <br><br>
 
-      Kabhi kabhi tumse
-      baat karna bhi
+      Kabhi kabhi tumse baat karna bhi
       mere liye poore din ka
       favourite moment ban jaata hai. 🥹
 
@@ -595,14 +662,12 @@ p{
       <img
         src="photo3.jpg"
         class="myPhoto"
-        alt="Photo 3"
-      >
+        alt="Photo 3">
 
       <img
         src="photo4.jpg"
         class="myPhoto"
-        alt="Photo 4"
-      >
+        alt="Photo 4">
 
     </div>
 
@@ -623,7 +688,7 @@ p{
 
   <div class="card">
 
-    <h1 class="pageTitle">
+    <h1>
       Aur agar kabhi poochho... ❤️
     </h1>
 
@@ -632,13 +697,12 @@ p{
       Ki tum mujhe itni pasand
       kyun ho,
 
-      toh shayad mere paas
-      koi perfect answer nahi hoga. 🥹
+      toh shayad mere paas koi
+      perfect answer nahi hoga. 🥹
 
       <br><br>
 
-      Bas tum ho,
-      isliye ho.
+      Bas tum ho, isliye ho.
 
       Tumhari baatein,
       tumhari smile,
@@ -652,21 +716,13 @@ p{
 
       Aur haan...
 
-      main ye nahi keh raha
-      ki tumhe bhi mujhe
-      pasand karna hi padega.
-
-      Bas dil mein jo tha,
-      aaj keh diya. 🌷
+      main ye nahi keh raha ki tumhe
+      bhi mujhe pasand karna hi padega.
 
       <br><br>
 
-      Maybe this is just
-      my little one-sided story...
-
-      but honestly,
-      I wouldn't want to change
-      the way I feel about you. ❤️
+      Bas dil mein jo tha,
+      aaj keh diya. 🌷
 
     </p>
 
@@ -675,14 +731,12 @@ p{
       <img
         src="photo5.jpg"
         class="myPhoto"
-        alt="Photo 5"
-      >
+        alt="Photo 5">
 
       <img
         src="photo6.jpg"
         class="myPhoto"
-        alt="Photo 6"
-      >
+        alt="Photo 6">
 
     </div>
 
@@ -712,9 +766,7 @@ p{
     </h1>
 
     <p>
-      <strong>
-        You have to say
-      </strong>
+      You have to say
     </p>
 
     <h1>
@@ -793,12 +845,6 @@ p{
     </p>
 
     <button
-      class="stopBtn"
-      id="manualStopBtn">
-      STOP ✋
-    </button>
-
-    <button
       class="nextBtn hidden"
       id="continueAfterStop">
       CONTINUE 💍
@@ -815,30 +861,36 @@ p{
 
   <div class="card">
 
-    <img
-      src="cat-ring.jpg"
-      class="ringCat"
-      alt="Cute cat holding a ring"
-    >
+    <div id="ringArea">
 
-    <h1>
-      Can you accept? 💍❤️
-    </h1>
+      <img
+        src="cat-ring.jpg"
+        class="ringCat"
+        alt="Cute cat holding ring">
 
-    <p>
-      One last little question... 🥺
-    </p>
+      <div class="ringContent">
 
-    <div class="paperButtons">
+        <div class="proposalText">
+          Can you accept? 💍❤️
+        </div>
 
-      <button
-        class="yes"
-        id="acceptYes">
-        YES ❤️
-      </button>
+        <div class="answerText">
+          One last little question... 🥺
+        </div>
 
-      <button
-        id="acceptNo">
+        <div class="ringButtons">
+
+          <button
+            class="yes"
+            id="acceptYes">
+            YES ❤️
+          </button>
+
+        </div>
+
+      </div>
+
+      <button id="acceptNo">
         NO 😭
       </button>
 
@@ -863,32 +915,57 @@ p{
       Thank You ❤️
     </h1>
 
-    <p class="final">
+    <p>
 
       I don't know what the future holds...
 
-      but I'm really happy
-      that I got to tell you
-      how I feel. 🌸
+      <br><br>
+
+      but I'm really happy that I got
+      to tell you how I feel. 🌸
 
       <br><br>
 
-      Some feelings are simply
-      too beautiful to keep hidden. ❤️
+      Some feelings are simply too
+      beautiful to keep hidden. ❤️
 
       <br><br>
 
       Whatever your answer,
-      you'll always be
-      a very special person to me. 🥹
+      you'll always be a very special
+      person to me. 🥹
 
     </p>
 
-    <h2>
-      ❤️🌹
-    </h2>
+    <button
+      class="nextBtn"
+      onclick="goTo(10)">
+      NEXT ❤️
+    </button>
 
   </div>
+
+</div>
+
+
+<!-- PAGE 10 -->
+
+<div
+  class="screen hidden"
+  id="page10">
+
+  <video
+    id="finalVideo"
+    class="fullVideo"
+    controls
+    playsinline
+    preload="metadata">
+
+    <source
+      src="final-video.mp4"
+      type="video/mp4">
+
+  </video>
 
 </div>
 
@@ -896,118 +973,45 @@ p{
 <script>
 
 /* =========================
-   PAGE CHANGE
+   PAGE SYSTEM
 ========================= */
 
 function goTo(number){
 
-  for(let i=1;i<=9;i++){
+  for(let i=1;i<=10;i++){
 
     const page =
-      document.getElementById("page"+i);
+      document.getElementById(
+        "page"+i
+      );
 
     if(page){
-      page.classList.add("hidden");
+      page.classList.add(
+        "hidden"
+      );
     }
 
   }
 
   const target =
-    document.getElementById("page"+number);
+    document.getElementById(
+      "page"+number
+    );
 
   if(target){
 
-    target.classList.remove("hidden");
+    target.classList.remove(
+      "hidden"
+    );
 
-    window.scrollTo({
-      top:0,
-      behavior:"instant"
-    });
+    window.scrollTo(
+      0,
+      0
+    );
 
   }
 
 }
-
-
-/* =========================
-   FIRST NO BUTTON
-========================= */
-
-const noBtn =
-  document.getElementById("noBtn");
-
-
-function moveNoButton(event){
-
-  event.preventDefault();
-  event.stopPropagation();
-
-  const image =
-    document.querySelector(".catPaperImage");
-
-  if(!image){
-    return;
-  }
-
-  const rect =
-    image.getBoundingClientRect();
-
-  noBtn.style.position="fixed";
-  noBtn.style.zIndex="9999999";
-
-  const padding=8;
-
-  const minX=rect.left+padding;
-
-  const maxX=
-    rect.right-
-    noBtn.offsetWidth-
-    padding;
-
-  const minY=rect.top+padding;
-
-  const maxY=
-    rect.bottom-
-    noBtn.offsetHeight-
-    padding;
-
-  const x=
-    minX+
-    Math.random()*
-    Math.max(1,maxX-minX);
-
-  const y=
-    minY+
-    Math.random()*
-    Math.max(1,maxY-minY);
-
-  noBtn.style.left=x+"px";
-  noBtn.style.top=y+"px";
-
-  noBtn.innerText="NO NO NO 😭";
-}
-
-
-noBtn.addEventListener(
-  "pointerdown",
-  moveNoButton,
-  {passive:false}
-);
-
-noBtn.addEventListener(
-  "touchstart",
-  moveNoButton,
-  {passive:false}
-);
-
-noBtn.addEventListener(
-  "click",
-  function(event){
-    event.preventDefault();
-    event.stopPropagation();
-  },
-  {passive:false}
-);
 
 
 /* =========================
@@ -1019,8 +1023,122 @@ document
 .addEventListener(
   "click",
   function(){
+
     goTo(2);
+
   }
+);
+
+
+/* =========================
+   PAPER NO
+   IMAGE/AREA KE ANDAR HI
+========================= */
+
+const noBtn =
+  document.getElementById(
+    "noBtn"
+  );
+
+const paperArea =
+  document.getElementById(
+    "paperArea"
+  );
+
+
+function movePaperNo(e){
+
+  e.preventDefault();
+  e.stopPropagation();
+
+  const areaWidth =
+    paperArea.clientWidth;
+
+  const areaHeight =
+    paperArea.clientHeight;
+
+  const buttonWidth =
+    noBtn.offsetWidth;
+
+  const buttonHeight =
+    noBtn.offsetHeight;
+
+  const padding = 8;
+
+  const maxX =
+    Math.max(
+      padding,
+      areaWidth -
+      buttonWidth -
+      padding
+    );
+
+  const maxY =
+    Math.max(
+      padding,
+      areaHeight -
+      buttonHeight -
+      padding
+    );
+
+  const x =
+    padding +
+    Math.random() *
+    Math.max(
+      1,
+      maxX - padding
+    );
+
+  const y =
+    padding +
+    Math.random() *
+    Math.max(
+      1,
+      maxY - padding
+    );
+
+  noBtn.style.position =
+    "absolute";
+
+  noBtn.style.left =
+    x + "px";
+
+  noBtn.style.top =
+    y + "px";
+
+  noBtn.style.right =
+    "auto";
+
+  noBtn.style.bottom =
+    "auto";
+
+  noBtn.style.margin =
+    "0";
+
+}
+
+
+noBtn.addEventListener(
+  "pointerdown",
+  movePaperNo,
+  {passive:false}
+);
+
+noBtn.addEventListener(
+  "touchstart",
+  movePaperNo,
+  {passive:false}
+);
+
+noBtn.addEventListener(
+  "click",
+  function(e){
+
+    e.preventDefault();
+    e.stopPropagation();
+
+  },
+  {passive:false}
 );
 
 
@@ -1034,29 +1152,30 @@ document
   "click",
   function(){
 
-    const name=
-      document
-      .getElementById("nameInput")
-      .value
-      .trim();
+    const input =
+      document.getElementById(
+        "nameInput"
+      );
 
-    if(name===""){
+    if(
+      input.value.trim()===""
+    ){
 
-      document
-      .getElementById("nameInput")
-      .placeholder=
-      "Pehle naam toh likho 🥺❤️";
+      input.placeholder =
+        "Pehle naam toh likho 🥺❤️";
 
       return;
+
     }
 
     goTo(3);
+
   }
 );
 
 
 /* =========================
-   VOICE
+   SPEECH
 ========================= */
 
 const SpeechRecognition =
@@ -1064,41 +1183,58 @@ const SpeechRecognition =
   window.webkitSpeechRecognition;
 
 
-let loveRecognition=null;
-let loveListening=false;
+/* =========================
+   LOVE VOICE
+========================= */
 
+let loveRecognition =
+  null;
+
+let loveListening =
+  false;
 
 if(SpeechRecognition){
 
-  loveRecognition=
+  loveRecognition =
     new SpeechRecognition();
 
-  loveRecognition.lang="en-US";
-  loveRecognition.continuous=false;
-  loveRecognition.interimResults=true;
+  loveRecognition.lang =
+    "en-US";
+
+  loveRecognition.continuous =
+    false;
+
+  loveRecognition.interimResults =
+    true;
 
 
-  loveRecognition.onstart=function(){
+  loveRecognition.onstart =
+  function(){
 
-    loveListening=true;
+    loveListening =
+      true;
 
     document
-    .getElementById("listeningText")
-    .innerText=
-    "🎤 Listening... Say I love you too ❤️";
+    .getElementById(
+      "listeningText"
+    )
+    .innerText =
+      "🎤 Listening... Say I love you too ❤️";
 
     document
-    .getElementById("voiceBtn")
-    .innerText=
-    "🎤 Listening...";
+    .getElementById(
+      "voiceBtn"
+    )
+    .innerText =
+      "🎤 Listening...";
 
   };
 
 
-  loveRecognition.onresult=
+  loveRecognition.onresult =
   function(event){
 
-    let transcript="";
+    let text = "";
 
     for(
       let i=event.resultIndex;
@@ -1106,59 +1242,60 @@ if(SpeechRecognition){
       i++
     ){
 
-      transcript+=
+      text +=
         event.results[i][0]
         .transcript;
 
     }
 
-    const clean=
-      transcript
+    const clean =
+      text
       .toLowerCase()
       .replace(/[.,!?]/g,"")
       .trim();
 
-
     document
-    .getElementById("voiceResult")
-    .innerText=
-    'Heard: "'+
-    transcript+
-    '"';
+    .getElementById(
+      "voiceResult"
+    )
+    .innerText =
+      'Heard: "'+
+      text+
+      '"';
 
 
-    const phrases=[
+    const phrases = [
+
       "i love you too",
       "i love you to",
       "i love u too",
       "i love you two",
       "love you too"
+
     ];
 
 
-    const heardIt=
+    const matched =
       phrases.some(
-        function(phrase){
-          return clean.includes(phrase);
-        }
+        phrase =>
+          clean.includes(
+            phrase
+          )
       );
 
 
-    if(heardIt){
+    if(matched){
 
       loveRecognition.stop();
-
-      loveListening=false;
 
       setTimeout(
         function(){
 
           goTo(7);
-
-          startFalling();
+          startEmojiRain();
 
         },
-        400
+        300
       );
 
     }
@@ -1166,38 +1303,28 @@ if(SpeechRecognition){
   };
 
 
-  loveRecognition.onend=function(){
+  loveRecognition.onend =
+  function(){
 
-    loveListening=false;
-
-    document
-    .getElementById("voiceBtn")
-    .innerText=
-    "🎤 SAY IT";
-
-  };
-
-
-  loveRecognition.onerror=function(){
-
-    loveListening=false;
+    loveListening =
+      false;
 
     document
-    .getElementById("voiceBtn")
-    .innerText=
-    "🎤 TRY AGAIN";
+    .getElementById(
+      "voiceBtn"
+    )
+    .innerText =
+      "🎤 SAY IT";
 
   };
 
 }
 
 
-/* =========================
-   LOVE VOICE BUTTON
-========================= */
-
 document
-.getElementById("voiceBtn")
+.getElementById(
+  "voiceBtn"
+)
 .addEventListener(
   "click",
   function(){
@@ -1205,10 +1332,11 @@ document
     if(!SpeechRecognition){
 
       alert(
-        "Please use Android Chrome and allow microphone permission."
+        "Chrome mein open karke microphone permission allow karo."
       );
 
       return;
+
     }
 
     if(loveListening){
@@ -1216,90 +1344,128 @@ document
       loveRecognition.stop();
 
       return;
+
     }
 
-    loveRecognition.start();
+    try{
+
+      loveRecognition.start();
+
+    }catch(error){}
 
   }
 );
 
 
 /* =========================
-   EMOJI RAIN
+   EMOJI LIST
 ========================= */
 
-let fallingTimer=null;
-let fallingActive=false;
+const emojiItems = [
+
+  "💎",
+  "👑",
+  "🌹",
+  "❤️",
+  "💖",
+  "💗",
+  "💕",
+  "💘",
+  "💝",
+  "💞",
+  "💟",
+  "🥹",
+  "😭",
+  "🥺",
+  "✨",
+  "⭐",
+  "🌸",
+  "🌷",
+  "🩷",
+  "🫶",
+  "💍",
+  "💌",
+  "👸🏻"
+
+];
 
 
-function createFallingItem(){
+let rainActive =
+  false;
 
-  if(!fallingActive){
+let rainTimer =
+  null;
+
+
+/* =========================
+   CREATE EMOJI
+========================= */
+
+function createEmoji(){
+
+  if(!rainActive)
     return;
-  }
 
+  const emoji =
+    document.createElement(
+      "div"
+    );
 
-  const items=[
-    "💎",
-    "👑",
-    "🌹",
-    "❤️",
-    "💖",
-    "💗",
-    "💕",
-    "💘",
-    "💝",
-    "💞",
-    "💟",
-    "🥹",
-    "😭",
-    "🥺",
-    "✨",
-    "⭐",
-    "🌸",
-    "🌷",
-    "🩷",
-    "🫶",
-    "💍",
-    "💌",
-    "👸🏻"
-  ];
+  emoji.className =
+    "falling";
 
-
-  const item=
-    document.createElement("div");
-
-  item.className="falling";
-
-  item.innerText=
-    items[
+  emoji.innerText =
+    emojiItems[
       Math.floor(
-        Math.random()*
-        items.length
+        Math.random() *
+        emojiItems.length
       )
     ];
 
+  emoji.style.fontSize =
+    (
+      16 +
+      Math.random()*8
+    ) + "px";
 
-  item.style.left=
-    Math.random()*100+"vw";
+  emoji.style.left =
+    (
+      Math.random()*96
+    ) + "vw";
 
+  emoji.style.setProperty(
+    "--rotation",
+    (
+      -180 +
+      Math.random()*360
+    ) + "deg"
+  );
 
-  item.style.fontSize=
-    (20+Math.random()*35)+"px";
+  emoji.style.animationDuration =
+    (
+      1.2 +
+      Math.random()*0.8
+    ) + "s";
 
+  emoji.style.setProperty(
+    "--fall-distance",
+    (
+      window.innerHeight +
+      100
+    ) + "px"
+  );
 
-  item.style.animationDuration=
-    (1.1+Math.random()*1.5)+"s";
-
-
-  document.body.appendChild(item);
-
+  document.body.appendChild(
+    emoji
+  );
 
   setTimeout(
     function(){
-      item.remove();
+
+      emoji.remove();
+
     },
-    3500
+    2300
   );
 
 }
@@ -1309,28 +1475,35 @@ function createFallingItem(){
    START RAIN
 ========================= */
 
-function startFalling(){
+function startEmojiRain(){
 
-  fallingActive=true;
+  rainActive =
+    true;
 
+  if(rainTimer){
 
-  if(fallingTimer){
-    clearInterval(fallingTimer);
+    clearInterval(
+      rainTimer
+    );
+
   }
 
-
-  fallingTimer=
+  rainTimer =
     setInterval(
       function(){
 
-        for(let i=0;i<8;i++){
+        for(
+          let i=0;
+          i<8;
+          i++
+        ){
 
-          createFallingItem();
+          createEmoji();
 
         }
 
       },
-      90
+      70
     );
 
 }
@@ -1340,31 +1513,55 @@ function startFalling(){
    STOP RAIN
 ========================= */
 
-function stopFalling(){
+function stopEmojiRain(){
 
-  fallingActive=false;
+  rainActive =
+    false;
 
+  if(rainTimer){
 
-  if(fallingTimer){
+    clearInterval(
+      rainTimer
+    );
 
-    clearInterval(fallingTimer);
-
-    fallingTimer=null;
+    rainTimer =
+      null;
 
   }
 
-
   document
-  .querySelectorAll(".falling")
+  .querySelectorAll(
+    ".falling"
+  )
   .forEach(
-    function(item){
-      item.remove();
+    function(emoji){
+
+      emoji.remove();
+
     }
   );
 
 
   document
-  .getElementById("continueAfterStop")
+  .getElementById(
+    "stopVoiceBtn"
+  )
+  .classList
+  .add("hidden");
+
+
+  document
+  .getElementById(
+    "stopVoiceResult"
+  )
+  .classList
+  .add("hidden");
+
+
+  document
+  .getElementById(
+    "continueAfterStop"
+  )
   .classList
   .remove("hidden");
 
@@ -1372,58 +1569,50 @@ function stopFalling(){
 
 
 /* =========================
-   MANUAL STOP
-========================= */
-
-document
-.getElementById("manualStopBtn")
-.addEventListener(
-  "click",
-  function(){
-    stopFalling();
-  }
-);
-
-
-/* =========================
    STOP VOICE
 ========================= */
 
-let stopRecognition=null;
-let stopListening=false;
+let stopRecognition =
+  null;
 
+let stopListening =
+  false;
 
 if(SpeechRecognition){
 
-  stopRecognition=
+  stopRecognition =
     new SpeechRecognition();
 
-  stopRecognition.lang="en-US";
-  stopRecognition.continuous=false;
-  stopRecognition.interimResults=true;
+  stopRecognition.lang =
+    "en-US";
+
+  stopRecognition.continuous =
+    false;
+
+  stopRecognition.interimResults =
+    true;
 
 
-  stopRecognition.onstart=function(){
+  stopRecognition.onstart =
+  function(){
 
-    stopListening=true;
+    stopListening =
+      true;
 
     document
-    .getElementById("stopVoiceBtn")
-    .innerText=
-    "🎤 Listening...";
-
-    document
-    .getElementById("stopVoiceResult")
-    .innerText=
-    'Say "STOP"...';
+    .getElementById(
+      "stopVoiceBtn"
+    )
+    .innerText =
+      "🎤 Listening...";
 
   };
 
 
-  stopRecognition.onresult=
+  stopRecognition.onresult =
   function(event){
 
-    let transcript="";
+    let text = "";
 
     for(
       let i=event.resultIndex;
@@ -1431,73 +1620,73 @@ if(SpeechRecognition){
       i++
     ){
 
-      transcript+=
+      text +=
         event.results[i][0]
         .transcript;
 
     }
 
-
-    const clean=
-      transcript
+    const clean =
+      text
       .toLowerCase()
       .replace(/[.,!?]/g,"")
       .trim();
 
-
     document
-    .getElementById("stopVoiceResult")
-    .innerText=
-    'Heard: "'+
-    transcript+
-    '"';
+    .getElementById(
+      "stopVoiceResult"
+    )
+    .innerText =
+      'Heard: "'+
+      text+
+      '"';
 
 
-    if(clean.includes("stop")){
+    if(
+      clean.includes(
+        "stop"
+      )
+    ){
 
       stopRecognition.stop();
 
-      stopListening=false;
-
-      stopFalling();
+      stopEmojiRain();
 
     }
 
   };
 
 
-  stopRecognition.onend=function(){
+  stopRecognition.onend =
+  function(){
 
-    stopListening=false;
+    stopListening =
+      false;
 
-    document
-    .getElementById("stopVoiceBtn")
-    .innerText=
-    "🎤 SAY STOP";
+    const button =
+      document.getElementById(
+        "stopVoiceBtn"
+      );
 
-  };
+    if(
+      !button.classList
+      .contains("hidden")
+    ){
 
+      button.innerText =
+        "🎤 SAY STOP";
 
-  stopRecognition.onerror=function(){
-
-    stopListening=false;
-
-    document
-    .getElementById("stopVoiceBtn")
-    .innerText=
-    "🎤 SAY STOP";
+    }
 
   };
 
 }
 
 
-/* =========================
-   STOP BUTTON
-========================= */
-
 document
-.getElementById("stopVoiceBtn")
+.getElementById(
+  "stopVoiceBtn"
+)
 .addEventListener(
   "click",
   function(){
@@ -1505,10 +1694,11 @@ document
     if(!SpeechRecognition){
 
       alert(
-        "Please use Android Chrome and allow microphone permission."
+        "Chrome mein open karke microphone permission allow karo."
       );
 
       return;
+
     }
 
     if(stopListening){
@@ -1516,9 +1706,14 @@ document
       stopRecognition.stop();
 
       return;
+
     }
 
-    stopRecognition.start();
+    try{
+
+      stopRecognition.start();
+
+    }catch(error){}
 
   }
 );
@@ -1529,7 +1724,9 @@ document
 ========================= */
 
 document
-.getElementById("continueAfterStop")
+.getElementById(
+  "continueAfterStop"
+)
 .addEventListener(
   "click",
   function(){
@@ -1541,72 +1738,89 @@ document
 
 
 /* =========================
-   RING PAGE NO
+   RING NO
 ========================= */
 
-const acceptNo=
-  document.getElementById("acceptNo");
+const acceptNo =
+  document.getElementById(
+    "acceptNo"
+  );
+
+const ringArea =
+  document.getElementById(
+    "ringArea"
+  );
 
 
-function moveRingNo(event){
+function moveRingNo(e){
 
-  event.preventDefault();
-  event.stopPropagation();
+  e.preventDefault();
+  e.stopPropagation();
 
+  const areaWidth =
+    ringArea.clientWidth;
 
-  const image=
-    document.querySelector(".ringCat");
+  const areaHeight =
+    ringArea.clientHeight;
 
+  const buttonWidth =
+    acceptNo.offsetWidth;
 
-  if(!image){
-    return;
-  }
+  const buttonHeight =
+    acceptNo.offsetHeight;
 
+  const padding =
+    8;
 
-  const rect=
-    image.getBoundingClientRect();
+  const maxX =
+    Math.max(
+      padding,
+      areaWidth -
+      buttonWidth -
+      padding
+    );
 
+  const maxY =
+    Math.max(
+      padding,
+      areaHeight -
+      buttonHeight -
+      padding
+    );
 
-  acceptNo.style.position="fixed";
-  acceptNo.style.zIndex="9999999";
+  const x =
+    padding +
+    Math.random() *
+    Math.max(
+      1,
+      maxX - padding
+    );
 
+  const y =
+    padding +
+    Math.random() *
+    Math.max(
+      1,
+      maxY - padding
+    );
 
-  const padding=8;
+  acceptNo.style.position =
+    "absolute";
 
-  const minX=
-    rect.left+padding;
+  acceptNo.style.left =
+    x + "px";
 
-  const maxX=
-    rect.right-
-    acceptNo.offsetWidth-
-    padding;
+  acceptNo.style.top =
+    y + "px";
 
-  const minY=
-    rect.top+padding;
+  acceptNo.style.right =
+    "auto";
 
-  const maxY=
-    rect.bottom-
-    acceptNo.offsetHeight-
-    padding;
+  acceptNo.style.bottom =
+    "auto";
 
-
-  const x=
-    minX+
-    Math.random()*
-    Math.max(1,maxX-minX);
-
-
-  const y=
-    minY+
-    Math.random()*
-    Math.max(1,maxY-minY);
-
-
-  acceptNo.style.left=x+"px";
-  acceptNo.style.top=y+"px";
-
-  acceptNo.innerText=
-    "NO NO NO 😭";
+  acceptNo.style.margin =
+    "0";
 
 }
 
@@ -1625,10 +1839,10 @@ acceptNo.addEventListener(
 
 acceptNo.addEventListener(
   "click",
-  function(event){
+  function(e){
 
-    event.preventDefault();
-    event.stopPropagation();
+    e.preventDefault();
+    e.stopPropagation();
 
   },
   {passive:false}
@@ -1640,7 +1854,9 @@ acceptNo.addEventListener(
 ========================= */
 
 document
-.getElementById("acceptYes")
+.getElementById(
+  "acceptYes"
+)
 .addEventListener(
   "click",
   function(){
@@ -1649,6 +1865,48 @@ document
 
   }
 );
+
+
+/* =========================
+   FINAL VIDEO
+========================= */
+
+const finalVideo =
+  document.getElementById(
+    "finalVideo"
+  );
+
+const originalGoTo =
+  goTo;
+
+goTo =
+  function(number){
+
+    originalGoTo(
+      number
+    );
+
+    if(number===10){
+
+      setTimeout(
+        function(){
+
+          if(finalVideo){
+
+            finalVideo.currentTime =
+              0;
+
+            finalVideo.load();
+
+          }
+
+        },
+        100
+      );
+
+    }
+
+  };
 
 </script>
 
