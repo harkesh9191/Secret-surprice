@@ -1,669 +1,653 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>A Little Surprise 💗</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<style>
-*{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-}
+  <title>A Little Surprise ❤️</title>
 
-html,body{
-  width:100%;
-  height:100%;
-  overflow:hidden;
-  font-family:Arial,sans-serif;
-}
+  <style>
+    * {
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
 
-body{
-  background:#08000d;
-  color:white;
-}
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #ffe3ed, #fff7fa);
+      color: #5b263b;
+      overflow: hidden;
+    }
 
-.screen{
-  position:absolute;
-  inset:0;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  text-align:center;
-  padding:20px;
-  transition:1s ease;
-}
+    .page {
+      width: 100%;
+      min-height: 100vh;
+      padding: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
 
-.hidden{
-  opacity:0;
-  pointer-events:none;
-  transform:scale(1.08);
-}
+    .card {
+      width: 100%;
+      max-width: 430px;
+      background: rgba(255, 255, 255, 0.94);
+      border-radius: 30px;
+      padding: 25px 20px;
+      box-shadow: 0 15px 50px rgba(100, 30, 60, 0.15);
+    }
 
-.label{
-  font-size:13px;
-  letter-spacing:5px;
-  opacity:.65;
-  margin-bottom:20px;
-}
+    .hidden {
+      display: none !important;
+    }
 
-h1{
-  font-size:clamp(34px,9vw,65px);
-  line-height:1.1;
-  text-shadow:0 0 25px #ff4fa3;
-}
+    h1 {
+      font-size: 28px;
+      margin: 12px 0;
+    }
 
-.sub{
-  margin:20px 0 35px;
-  opacity:.75;
-}
+    p {
+      font-size: 17px;
+      line-height: 1.6;
+    }
 
-button{
-  border:0;
-  padding:15px 30px;
-  border-radius:50px;
-  font-size:17px;
-  font-weight:bold;
-  cursor:pointer;
-  background:#ff3f91;
-  color:white;
-  box-shadow:0 0 30px #ff3f9166;
-  margin-top:25px;
-}
+    /* CAT IMAGE */
 
-button:active{
-  transform:scale(.92);
-}
+    .cat {
+      width: 210px;
+      max-width: 75%;
+      max-height: 300px;
+      object-fit: contain;
+      display: block;
+      margin: 0 auto 15px;
+      border-radius: 18px;
+    }
 
-/* OPENING */
-#intro{
-  background:radial-gradient(circle,#521640,#190719 50%,#050008);
-}
+    /* BUTTON AREA */
 
-/* QUESTION */
-#question{
-  background:radial-gradient(circle,#63194f,#19081c 55%,#050008);
-}
+    .buttons {
+      width: 100%;
+      min-height: 75px;
+      margin-top: 25px;
 
-.question{
-  font-size:clamp(30px,8vw,58px);
-  margin-bottom:45px;
-}
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 18px;
+    }
 
-.doors{
-  display:flex;
-  gap:25px;
-}
+    button {
+      border: none;
+      border-radius: 50px;
+      padding: 14px 27px;
+      font-size: 17px;
+      font-weight: bold;
+      touch-action: manipulation;
+      user-select: none;
+    }
 
-.door{
-  width:135px;
-  height:190px;
-  border-radius:14px;
-  background:linear-gradient(145deg,#79275b,#270a25);
-  border:2px solid #ff80bf;
-  box-shadow:0 0 30px #ff3f9155;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  cursor:pointer;
-  transition:.3s;
-}
+    #yesBtn {
+      background: #ff4f81;
+      color: white;
+      box-shadow: 0 7px 20px rgba(255, 79, 129, 0.3);
+    }
 
-.door:hover{
-  transform:translateY(-8px);
-}
+    #noBtn {
+      background: #eeeeee;
+      color: #555;
 
-.door span{
-  font-size:22px;
-  font-weight:bold;
-}
+      position: relative;
+      z-index: 1000;
 
-/* WELCOME */
-#welcome{
-  background:radial-gradient(circle,#7d1d54,#26091f 55%,#08000d);
-}
+      transition:
+        left 0.15s ease,
+        top 0.15s ease,
+        transform 0.15s ease;
+    }
 
-.welcomeText{
-  font-size:clamp(35px,10vw,70px);
-  font-weight:bold;
-  animation:pulse 1.5s infinite;
-}
+    /* NEXT BUTTON */
 
-@keyframes pulse{
-  50%{transform:scale(1.07)}
-}
+    .continueBtn {
+      width: 100%;
+      background: #ff4f81;
+      color: white;
+      margin-top: 8px;
+    }
 
-/* HEARTS */
-.heart{
-  position:absolute;
-  top:-40px;
-  animation:fall linear forwards;
-  pointer-events:none;
-}
+    /* NAME */
 
-@keyframes fall{
-  to{
-    transform:translateY(110vh) rotate(360deg);
-    opacity:0;
-  }
-}
+    .nameInput {
+      width: 100%;
+      padding: 15px;
 
-/* CAT */
-#cat{
-  background:radial-gradient(circle at center,#30204c,#0c0818);
-}
+      border: 2px solid #ffd0df;
+      border-radius: 15px;
 
-.catCharacter{
-  font-size:100px;
-  animation:catDrop 1.5s cubic-bezier(.2,.8,.2,1);
-}
+      outline: none;
+      font-size: 17px;
+      text-align: center;
 
-@keyframes catDrop{
-  from{
-    transform:translateY(-100vh);
-  }
-  to{
-    transform:translateY(0);
-  }
-}
+      margin: 15px 0;
+    }
 
-.letter{
-  width:min(90%,400px);
-  background:#fff6dc;
-  color:#33252b;
-  padding:28px 22px;
-  border-radius:20px;
-  margin-top:20px;
-  box-shadow:0 20px 60px #0009;
-  animation:letterPop 1s ease .7s both;
-}
+    .nameInput:focus {
+      border-color: #ff7fa3;
+    }
 
-@keyframes letterPop{
-  from{
-    opacity:0;
-    transform:scale(.5) rotate(-8deg);
-  }
-  to{
-    opacity:1;
-    transform:scale(1) rotate(0);
-  }
-}
+    /* HEART */
 
-.letter h2{
-  margin-bottom:12px;
-}
+    .heart {
+      font-size: 60px;
+      animation: heartbeat 1s infinite;
+    }
 
-.letter p{
-  line-height:1.5;
-}
+    @keyframes heartbeat {
+      0%, 100% {
+        transform: scale(1);
+      }
 
-input{
-  width:min(90%,300px);
-  padding:15px 20px;
-  border:2px solid #ddd;
-  border-radius:30px;
-  outline:none;
-  margin:18px 0 10px;
-  text-align:center;
-  font-size:16px;
-}
+      50% {
+        transform: scale(1.15);
+      }
+    }
 
-.error{
-  color:#c23a5d;
-  min-height:20px;
-  margin-top:10px;
-}
+    /* SHAYARI */
 
-/* MEMORIES */
-#memories{
-  background:radial-gradient(circle,#342047,#080811);
-}
+    .shayari {
+      font-size: 18px;
+      line-height: 1.9;
+      font-style: italic;
+      margin-top: 20px;
+    }
 
-.memoryTitle{
-  font-size:clamp(30px,8vw,50px);
-  margin-bottom:8px;
-}
+    .small {
+      font-size: 14px;
+      opacity: 0.7;
+      margin-top: 25px;
+    }
 
-.memorySub{
-  opacity:.7;
-  margin-bottom:20px;
-}
+    /* FLOATING HEARTS */
 
-.photoStack{
-  width:min(82vw,340px);
-  height:390px;
-  position:relative;
-  margin-bottom:20px;
-}
+    .floating-heart {
+      position: fixed;
+      bottom: -40px;
 
-.card{
-  position:absolute;
-  inset:0;
-  background:white;
-  padding:10px 10px 55px;
-  color:#222;
-  border-radius:6px;
-  box-shadow:0 20px 50px #0009;
-  transition:1s ease;
-}
+      font-size: 23px;
 
-.card:nth-child(1){
-  transform:rotate(-7deg);
-}
+      pointer-events: none;
+      z-index: 9999;
 
-.card:nth-child(2){
-  transform:rotate(5deg);
-}
+      animation: floatHeart 4s linear forwards;
+    }
 
-.card:nth-child(3){
-  transform:rotate(-2deg);
-}
+    @keyframes floatHeart {
 
-.card img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  background:#ddd;
-}
+      0% {
+        transform: translateY(0);
+        opacity: 1;
+      }
 
-.cardText{
-  position:absolute;
-  bottom:17px;
-  left:0;
-  right:0;
-  font-weight:bold;
-}
+      100% {
+        transform: translateY(-110vh);
+        opacity: 0;
+      }
+    }
 
-.card.gone{
-  transform:translateX(120%) rotate(25deg);
-}
-
-/* FINAL */
-#final{
-  background:linear-gradient(#091722,#05070c);
-}
-
-.road{
-  position:absolute;
-  bottom:0;
-  width:100%;
-  height:27%;
-  background:#17171d;
-  border-top:3px solid #555;
-}
-
-.car{
-  position:absolute;
-  bottom:20%;
-  left:-180px;
-  font-size:90px;
-  animation:drive 4s ease forwards;
-}
-
-@keyframes drive{
-  0%{left:-180px}
-  75%{left:45%}
-  100%{left:38%}
-}
-
-.finalMessage{
-  z-index:5;
-  opacity:0;
-  animation:appear 1s ease 3.5s forwards;
-}
-
-@keyframes appear{
-  to{
-    opacity:1;
-    transform:translateY(-15px);
-  }
-}
-
-@media(max-width:500px){
-  .doors{
-    gap:12px;
-  }
-
-  .door{
-    width:125px;
-    height:175px;
-  }
-
-  .catCharacter{
-    font-size:80px;
-  }
-}
-</style>
+  </style>
 </head>
+
 
 <body>
 
-<!-- OPENING -->
-<section id="intro" class="screen">
 
-  <div class="label">A LITTLE SURPRISE</div>
+  <!-- ============================= -->
+  <!-- SCENE 1 : PROPOSAL -->
+  <!-- ============================= -->
 
-  <h1>
-    Someone has a question<br>
-    for you... 💗
-  </h1>
-
-  <p class="sub">Tap when you're ready.</p>
-
-  <button onclick="openQuestion()">
-    OPEN THE SURPRISE ✨
-  </button>
-
-</section>
-
-
-<!-- YES / NO -->
-<section id="question" class="screen hidden">
-
-  <div class="label">JUST ONE QUESTION</div>
-
-  <div class="question">
-    Can I show you<br>
-    something special? 💗
-  </div>
-
-  <div class="doors">
-
-    <div class="door" onclick="yesAnswer()">
-      <span>YES 💗</span>
-    </div>
-
-    <div class="door" onclick="noAnswer()">
-      <span>NO 👋</span>
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- WELCOME -->
-<section id="welcome" class="screen hidden">
-
-  <div class="welcomeText">
-    YOUR MOST WELCOME<br>
-    MADAM 💗
-  </div>
-
-  <button onclick="continueToCat()">
-    CONTINUE ➜
-  </button>
-
-</section>
-
-
-<!-- CAT + LETTER -->
-<section id="cat" class="screen hidden">
-
-  <div class="catCharacter">🐱</div>
-
-  <div class="letter">
-
-    <h2>🐾 Secret Mission</h2>
-
-    <p>
-      Write the secret name to continue ✨
-    </p>
-
-    <input
-      id="secret"
-      type="text"
-      placeholder="Enter secret name"
-    >
-
-    <br>
-
-    <button onclick="unlock()">
-      UNLOCK 🔐
-    </button>
-
-    <div class="error" id="error"></div>
-
-  </div>
-
-</section>
-
-
-<!-- MEMORIES -->
-<section id="memories" class="screen hidden">
-
-  <div class="memoryTitle">
-    Little Memories 📸
-  </div>
-
-  <div class="memorySub">
-    Some moments worth keeping ✨
-  </div>
-
-  <div class="photoStack">
+  <div class="page" id="scene1">
 
     <div class="card">
-      <img src="photo1.jpg" alt="Memory 1">
-      <div class="cardText">Memory #1 🫶</div>
-    </div>
 
-    <div class="card">
-      <img src="photo2.jpg" alt="Memory 2">
-      <div class="cardText">Memory #2 ✨</div>
-    </div>
+      <!--
+        IMPORTANT:
+        GitHub repo mein apni Pinterest wali
+        cat image ko "cat-paper.png" naam se upload karna.
+      -->
 
-    <div class="card">
-      <img src="photo3.jpg" alt="Memory 3">
-      <div class="cardText">Memory #3 🌸</div>
+      <img
+        class="cat"
+        src="cat-paper.png"
+        alt="Cute cat holding a paper"
+      >
+
+      <h1>
+        Can I propose you? 🥺❤️
+      </h1>
+
+      <p>
+        Ek chhota sa sawaal hai...<br>
+        Soch samajh ke answer dena 😭❤️
+      </p>
+
+
+      <div class="buttons">
+
+        <button id="yesBtn">
+          YES ❤️
+        </button>
+
+        <button id="noBtn">
+          NO 😭
+        </button>
+
+      </div>
+
     </div>
 
   </div>
 
-  <button onclick="nextMemory()">
-    NEXT ➜
-  </button>
-
-</section>
 
 
-<!-- FINAL -->
-<section id="final" class="screen hidden">
+  <!-- ============================= -->
+  <!-- SCENE 2 : NAME -->
+  <!-- ============================= -->
 
-  <div class="road"></div>
+  <div class="page hidden" id="scene2">
 
-  <div class="car">🚗</div>
+    <div class="card">
 
-  <div class="finalMessage">
+      <div class="heart">
+        ❤️
+      </div>
 
-    <h1>BESTIE FOREVER 🫶</h1>
+      <h1>
+        YAYYYY! 🥹❤️
+      </h1>
 
-    <p style="font-size:19px;line-height:1.6;margin-top:20px;">
-      Some people become memories,<br>
-      and some become your favourite memories. ✨
-    </p>
+      <p>
+        Mujhe pata tha tum YES bologe 😭❤️
+      </p>
+
+      <p>
+        Ab ek chhoti si cheez aur...
+      </p>
+
+      <input
+        id="nameInput"
+        class="nameInput"
+        type="text"
+        maxlength="30"
+        placeholder="Apna naam likho ❤️"
+      >
+
+      <button
+        class="continueBtn"
+        id="continueBtn"
+      >
+        Continue 💌
+      </button>
+
+    </div>
 
   </div>
 
-</section>
 
 
-<script>
+  <!-- ============================= -->
+  <!-- SCENE 3 : FINAL -->
+  <!-- ============================= -->
 
-function hide(id){
-  document.getElementById(id).classList.add("hidden");
-}
+  <div class="page hidden" id="scene3">
 
-function show(id){
-  document.getElementById(id).classList.remove("hidden");
-}
+    <div class="card">
 
+      <div class="heart">
+        💗
+      </div>
 
-/* OPENING */
+      <h1 id="finalTitle">
+        For You ❤️
+      </h1>
 
-function openQuestion(){
 
-  hide("intro");
+      <p class="shayari">
 
-  setTimeout(()=>{
-    show("question");
-  },600);
+        Kuch log milte hain,<br>
+        aur zindagi thodi aur khoobsurat
+        lagne lagti hai... 🌸
 
-}
+        <br><br>
 
+        Tumse baat ho toh waqt ka pata
+        nahi chalta,<br>
 
-/* YES */
+        aur baat na ho toh kuch kami si
+        lagti hai. ❤️
 
-function yesAnswer(){
+      </p>
 
-  hide("question");
 
-  setTimeout(()=>{
-    show("welcome");
-    createHearts();
-  },600);
+      <p class="shayari">
 
-}
+        Shayad isi ehsaas ko<br>
 
+        <b>
+          pasand
+        </b>
 
-/* NO */
+        kehte hain... 🥹❤️
 
-function noAnswer(){
+      </p>
 
-  hide("question");
 
-  setTimeout(()=>{
+      <p class="small">
 
-    document.body.innerHTML=`
+        Made with a little courage
+        and a lot of feelings ❤️
 
-      <section class="screen"
-        style="background:#050505">
+      </p>
 
-        <h1>BYE 👋</h1>
+    </div>
 
-      </section>
+  </div>
 
-    `;
 
-  },600);
 
-}
+  <script>
 
 
-/* WELCOME -> CAT */
+    /* =================================
+       ELEMENTS
+    ================================= */
 
-function continueToCat(){
+    const noBtn =
+      document.getElementById("noBtn");
 
-  hide("welcome");
+    const yesBtn =
+      document.getElementById("yesBtn");
 
-  setTimeout(()=>{
-    show("cat");
-  },600);
+    const scene1 =
+      document.getElementById("scene1");
 
-}
+    const scene2 =
+      document.getElementById("scene2");
 
+    const scene3 =
+      document.getElementById("scene3");
 
-/* HEARTS */
+    const continueBtn =
+      document.getElementById("continueBtn");
 
-function createHearts(){
+    const nameInput =
+      document.getElementById("nameInput");
 
-  for(let i=0;i<50;i++){
+    const finalTitle =
+      document.getElementById("finalTitle");
 
-    const heart=document.createElement("div");
 
-    heart.className="heart";
 
-    heart.innerHTML=[
-      "❤️",
-      "💗",
-      "💕",
-      "💖",
-      "✨",
-      "🌸"
-    ][Math.floor(Math.random()*6)];
+    /* =================================
+       NO BUTTON
+       MOBILE TOUCH = RUN AWAY
+    ================================= */
 
-    heart.style.left=Math.random()*100+"vw";
+    function escapeNoButton(event) {
 
-    heart.style.fontSize=
-      (18+Math.random()*25)+"px";
+      /*
+        NO ko click hone se rokna
+      */
 
-    heart.style.animationDuration=
-      (3+Math.random()*4)+"s";
+      event.preventDefault();
+      event.stopPropagation();
 
-    heart.style.animationDelay=
-      Math.random()*2+"s";
 
-    document.getElementById("welcome")
-      .appendChild(heart);
+      /*
+        Screen ke andar safe position
+      */
 
-  }
+      const padding = 15;
 
-}
+      const buttonWidth =
+        noBtn.offsetWidth;
 
+      const buttonHeight =
+        noBtn.offsetHeight;
 
-/* SECRET CODE */
 
-function unlock(){
+      const maxX =
+        window.innerWidth -
+        buttonWidth -
+        padding;
 
-  const value=
-    document.getElementById("secret")
-    .value
-    .trim()
-    .toLowerCase();
 
-  if(value==="harkesh"){
+      const maxY =
+        window.innerHeight -
+        buttonHeight -
+        padding;
 
-    document.getElementById("error").innerText=
-      "ACCESS GRANTED ✨";
 
-    setTimeout(()=>{
+      /*
+        Random position
+      */
 
-      hide("cat");
+      const randomX =
+        padding +
+        Math.random() *
+        Math.max(1, maxX - padding);
 
-      setTimeout(()=>{
-        show("memories");
-      },600);
 
-    },900);
+      const randomY =
+        padding +
+        Math.random() *
+        Math.max(1, maxY - padding);
 
-  }else{
 
-    document.getElementById("error").innerText=
-      "Hmm... that's not the secret code 😼";
+      /*
+        Button ko screen ke upar
+        move karna
+      */
 
-  }
+      noBtn.style.position = "fixed";
 
-}
+      noBtn.style.left =
+        randomX + "px";
 
+      noBtn.style.top =
+        randomY + "px";
 
-/* MEMORIES */
 
-let memory=0;
+      /*
+        Cute temporary text
+      */
 
-function nextMemory(){
+      noBtn.innerText =
+        "NOPE 😭";
 
-  const cards=document.querySelectorAll(".card");
 
-  if(memory<cards.length){
+      setTimeout(function() {
 
-    cards[memory].classList.add("gone");
+        noBtn.innerText =
+          "NO 😭";
 
-    memory++;
+      }, 450);
 
-  }else{
 
-    hide("memories");
+      return false;
+    }
 
-    setTimeout(()=>{
-      show("final");
-    },600);
 
-  }
 
-}
+    /*
+      MOBILE + TABLET + DESKTOP
 
-</script>
+      pointerdown touch ko detect karta hai.
+    */
+
+    noBtn.addEventListener(
+      "pointerdown",
+      escapeNoButton
+    );
+
+
+    /*
+      Extra protection:
+      Agar click somehow trigger ho bhi gaya,
+      tab bhi kuch nahi hoga.
+    */
+
+    noBtn.addEventListener(
+      "click",
+      function(event) {
+
+        event.preventDefault();
+        event.stopPropagation();
+
+        return false;
+
+      }
+    );
+
+
+
+    /* =================================
+       YES BUTTON
+    ================================= */
+
+    yesBtn.addEventListener(
+      "click",
+      function() {
+
+        scene1.classList.add("hidden");
+
+        scene2.classList.remove("hidden");
+
+        createHearts();
+
+      }
+    );
+
+
+
+    /* =================================
+       CONTINUE
+    ================================= */
+
+    continueBtn.addEventListener(
+      "click",
+      function() {
+
+        const name =
+          nameInput.value.trim();
+
+
+        /*
+          Naam nahi hai toh ruk jao
+        */
+
+        if (name === "") {
+
+          nameInput.value = "";
+
+          nameInput.placeholder =
+            "Pehle naam toh likho 🥺❤️";
+
+          nameInput.focus();
+
+          return;
+
+        }
+
+
+        /*
+          Final title
+        */
+
+        finalTitle.textContent =
+          "For " + name + " ❤️";
+
+
+        scene2.classList.add("hidden");
+
+        scene3.classList.remove("hidden");
+
+        createHearts();
+
+      }
+    );
+
+
+
+    /* =================================
+       FLOATING HEARTS
+    ================================= */
+
+    function createHearts() {
+
+      const hearts = [
+        "❤️",
+        "💗",
+        "💕",
+        "💖",
+        "💘"
+      ];
+
+
+      for (
+        let i = 0;
+        i < 15;
+        i++
+      ) {
+
+        const heart =
+          document.createElement("div");
+
+
+        heart.className =
+          "floating-heart";
+
+
+        heart.innerText =
+          hearts[
+            Math.floor(
+              Math.random() *
+              hearts.length
+            )
+          ];
+
+
+        heart.style.left =
+          Math.random() * 100 + "vw";
+
+
+        heart.style.animationDuration =
+          3 +
+          Math.random() * 3 +
+          "s";
+
+
+        document.body.appendChild(
+          heart
+        );
+
+
+        setTimeout(
+          function() {
+
+            heart.remove();
+
+          },
+          6500
+        );
+
+      }
+
+    }
+
+
+  </script>
 
 </body>
 </html>
