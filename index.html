@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 
 <meta charset="UTF-8">
 
 <meta
   name="viewport"
-  content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  content="width=device-width, initial-scale=1.0">
 
 <title>For You ❤️</title>
 
@@ -82,7 +81,7 @@ button{
 #acceptNo{
   background:#eeeeee;
   color:#555;
-  z-index:100000;
+  z-index:9999999999;
   white-space:nowrap;
 }
 
@@ -91,6 +90,13 @@ button{
   background:#ff4f81;
   color:white;
   margin-top:10px;
+}
+
+.stopBtn{
+  background:#222;
+  color:white;
+  margin-top:10px;
+  width:100%;
 }
 
 h1{
@@ -110,7 +116,6 @@ p{
 }
 
 @keyframes heartbeat{
-
   0%,100%{
     transform:scale(1)
   }
@@ -118,7 +123,6 @@ p{
   50%{
     transform:scale(1.15)
   }
-
 }
 
 
@@ -148,9 +152,8 @@ p{
   display:flex;
   justify-content:center;
   align-items:center;
-  overflow:hidden;
+  overflow:visible;
   border-radius:20px;
-  touch-action:none;
 }
 
 .catPaperImage{
@@ -169,7 +172,6 @@ p{
   width:70%;
   text-align:center;
   z-index:20;
-  pointer-events:none;
 }
 
 .proposalText{
@@ -193,11 +195,6 @@ p{
   justify-content:center;
   align-items:center;
   gap:8px;
-  pointer-events:none;
-}
-
-.paperButtons button{
-  pointer-events:auto;
 }
 
 
@@ -259,9 +256,8 @@ p{
   display:flex;
   justify-content:center;
   align-items:center;
-  overflow:hidden;
+  overflow:visible;
   border-radius:20px;
-  touch-action:none;
 }
 
 .ringCat{
@@ -279,26 +275,13 @@ p{
 
 .falling{
   position:fixed;
-
-  top:-30px;
-
+  top:-25px;
   pointer-events:none;
-
+  z-index:999999999;
   user-select:none;
-
-  /*
-    SABSE AAGE
-  */
-  z-index:2147483647;
-
   line-height:1;
-
-  will-change:transform;
-
   animation-name:fallDown;
-
   animation-timing-function:linear;
-
   animation-fill-mode:forwards;
 }
 
@@ -306,18 +289,38 @@ p{
 
   0%{
     transform:
-      translate3d(0,-40px,0)
+      translateY(-30px)
       rotate(0deg);
     opacity:1;
   }
 
   100%{
     transform:
-      translate3d(0,calc(100vh + 80px),0)
+      translateY(115vh)
       rotate(360deg);
     opacity:1;
   }
 
+}
+
+
+/* =========================
+   VIDEO
+========================= */
+
+.finalVideo{
+  width:100%;
+  max-height:75vh;
+  border-radius:20px;
+  display:block;
+  background:#000;
+  object-fit:contain;
+}
+
+.videoText{
+  font-size:18px;
+  line-height:1.7;
+  margin:12px 0;
 }
 
 
@@ -362,12 +365,6 @@ p{
     font-size:14px;
   }
 
-  #noBtn,
-  #acceptNo{
-    font-size:14px;
-    padding:8px 12px;
-  }
-
   h1{
     font-size:25px;
   }
@@ -406,44 +403,24 @@ p{
 
 }
 
-
-/* =========================
-   RING NO BUTTON
-========================= */
-
-.ringArea .paperContent{
-  pointer-events:none;
-}
-
-.ringArea .paperButtons{
-  pointer-events:none;
-}
-
-.ringArea .paperButtons button{
-  pointer-events:auto;
-}
-
 </style>
-
 </head>
 
 <body>
 
 
 <!-- ==================================================
-     PAGE 1
+     PAGE 1 - CAT PAPER
 ================================================== -->
 
 <div class="screen" id="page1">
 
   <div class="card">
 
-    <div
-      class="catPaperArea"
-      id="paperArea">
+    <div class="catPaperArea" id="paperArea">
 
       <img
-        src="cat-blank.jpg"
+        src="cat-paper.jpg"
         class="catPaperImage"
         alt="Cute cat holding paper">
 
@@ -465,17 +442,14 @@ p{
             YES ❤️
           </button>
 
+          <button
+            id="noBtn">
+            NO 😭
+          </button>
+
         </div>
 
       </div>
-
-      <!-- NO ALAG HAI
-           isliye YES ke saath disappear nahi hoga -->
-
-      <button
-        id="noBtn">
-        NO 😭
-      </button>
 
     </div>
 
@@ -485,28 +459,20 @@ p{
 
 
 <!-- ==================================================
-     PAGE 2
+     PAGE 2 - NAME
 ================================================== -->
 
 <div class="screen hidden" id="page2">
 
   <div class="card">
 
-    <div class="heart">
-      ❤️
-    </div>
+    <div class="heart">❤️</div>
 
-    <h1>
-      Yayyy! 🥹❤️
-    </h1>
+    <h1>Yayyy! 🥹❤️</h1>
 
-    <p>
-      Ab ek chhoti si cheez batao...
-    </p>
+    <p>Ab ek chhoti si cheez batao...</p>
 
-    <p>
-      Tumhara naam? ❤️
-    </p>
+    <p>Tumhara naam? ❤️</p>
 
     <input
       id="nameInput"
@@ -526,16 +492,14 @@ p{
 
 
 <!-- ==================================================
-     PAGE 3
+     PAGE 3 - SHAYARI 1
 ================================================== -->
 
 <div class="screen hidden" id="page3">
 
   <div class="card">
 
-    <h1>
-      Bas ek baat kehni thi... ❤️
-    </h1>
+    <h1>Bas ek baat kehni thi... ❤️</h1>
 
     <p class="shayari">
 
@@ -591,16 +555,14 @@ p{
 
 
 <!-- ==================================================
-     PAGE 4
+     PAGE 4 - SHAYARI 2
 ================================================== -->
 
 <div class="screen hidden" id="page4">
 
   <div class="card">
 
-    <h1>
-      Shayad ye one-sided hai... 💗
-    </h1>
+    <h1>Shayad ye one-sided hai... 💗</h1>
 
     <p class="shayari">
 
@@ -655,16 +617,14 @@ p{
 
 
 <!-- ==================================================
-     PAGE 5
+     PAGE 5 - SHAYARI 3
 ================================================== -->
 
 <div class="screen hidden" id="page5">
 
   <div class="card">
 
-    <h1>
-      Aur agar kabhi poochho... ❤️
-    </h1>
+    <h1>Aur agar kabhi poochho... ❤️</h1>
 
     <p class="shayari">
 
@@ -735,32 +695,26 @@ p{
 
 
 <!-- ==================================================
-     PAGE 6
+     PAGE 6 - I LOVE YOU TOO
 ================================================== -->
 
 <div class="screen hidden" id="page6">
 
   <div class="card">
 
-    <div class="heart">
-      ❤️
-    </div>
+    <div class="heart">❤️</div>
 
     <h1>
       Now there's just one thing left... 🥺
     </h1>
 
-    <p>
-      You have to say
-    </p>
+    <p>You have to say</p>
 
     <h1>
       "I love you too" ❤️
     </h1>
 
-    <div class="mic">
-      🎤
-    </div>
+    <div class="mic">🎤</div>
 
     <p
       class="listening"
@@ -786,16 +740,14 @@ p{
 
 
 <!-- ==================================================
-     PAGE 7
+     PAGE 7 - EMOJI RAIN
 ================================================== -->
 
 <div class="screen hidden" id="page7">
 
   <div class="card">
 
-    <div class="heart">
-      ❤️🌹
-    </div>
+    <div class="heart">❤️🌹</div>
 
     <h1>
       You actually said it... 🥹❤️
@@ -811,29 +763,17 @@ p{
 
     <p>
       <strong>
-        Say "STOP" to stop everything.
+        Click STOP to stop everything.
       </strong>
     </p>
 
-    <div class="mic">
-      🎤
-    </div>
-
-    <!-- SIRF MIC WALA STOP -->
+    <!-- MIC STOP REMOVED -->
 
     <button
-      class="nextBtn"
-      id="stopVoiceBtn">
-      🎤 SAY STOP
+      class="stopBtn"
+      id="manualStopBtn">
+      STOP ✋
     </button>
-
-    <p
-      class="voiceResult"
-      id="stopVoiceResult">
-      Tap and say "STOP" ❤️
-    </p>
-
-    <!-- STOP ke baad sirf ye -->
 
     <button
       class="nextBtn hidden"
@@ -847,16 +787,14 @@ p{
 
 
 <!-- ==================================================
-     PAGE 8
+     PAGE 8 - RING
 ================================================== -->
 
 <div class="screen hidden" id="page8">
 
   <div class="card">
 
-    <div
-      class="ringArea"
-      id="ringArea">
+    <div class="ringArea" id="ringArea">
 
       <img
         src="cat-ring.jpg"
@@ -884,16 +822,14 @@ p{
             YES ❤️
           </button>
 
+          <button
+            id="acceptNo">
+            NO 😭
+          </button>
+
         </div>
 
       </div>
-
-      <!-- NO IMAGE KE ANDAR -->
-
-      <button
-        id="acceptNo">
-        NO 😭
-      </button>
 
     </div>
 
@@ -903,16 +839,14 @@ p{
 
 
 <!-- ==================================================
-     PAGE 9
+     PAGE 9 - THANK YOU
 ================================================== -->
 
 <div class="screen hidden" id="page9">
 
   <div class="card">
 
-    <div class="heart">
-      💖
-    </div>
+    <div class="heart">💖</div>
 
     <h1>
       Thank You ❤️
@@ -952,7 +886,7 @@ p{
 
 
 <!-- ==================================================
-     PAGE 10
+     PAGE 10 - FINAL VIDEO
 ================================================== -->
 
 <div class="screen hidden" id="page10">
@@ -963,9 +897,11 @@ p{
       One last thing for you... ❤️
     </h1>
 
-    <p>
+    <p class="videoText">
+
       Before this little story ends,
       I wanted you to see this. 🥹❤️
+
     </p>
 
     <video
@@ -978,9 +914,11 @@ p{
         src="final-video.mp4"
         type="video/mp4">
 
+      Your browser does not support video.
+
     </video>
 
-    <p>
+    <p class="videoText">
       ❤️🌹💍
     </p>
 
@@ -1006,11 +944,7 @@ function goTo(number){
       );
 
     if(page){
-
-      page.classList.add(
-        "hidden"
-      );
-
+      page.classList.add("hidden");
     }
 
   }
@@ -1022,14 +956,13 @@ function goTo(number){
 
   if(target){
 
-    target.classList.remove(
-      "hidden"
-    );
+    target.classList.remove("hidden");
 
-    window.scrollTo(
-      0,
-      0
-    );
+    window.scrollTo({
+      top:0,
+      left:0,
+      behavior:"instant"
+    });
 
   }
 
@@ -1054,28 +987,22 @@ document
 
 /* ==================================================
    NO BUTTON FIX
-   NO KABHI GAYAB NAHI HOGA
-   IMAGE CONTAINER KE ANDAR HI RAHEGA
+   SCREEN KE ANDAR HI RAHEGA
+   KABHI HIDE NAHI HOGA
+   SCROLL NAHI HOGA
 ================================================== */
 
-function moveNoInside(
-  element,
-  area,
-  event
-){
+const noBtn =
+  document.getElementById("noBtn");
 
-  if(event){
+const acceptNo =
+  document.getElementById("acceptNo");
 
-    event.preventDefault();
-    event.stopPropagation();
 
-  }
+function moveNoOnScreen(element,event){
 
-  const areaWidth =
-    area.clientWidth;
-
-  const areaHeight =
-    area.clientHeight;
+  event.preventDefault();
+  event.stopPropagation();
 
   const buttonWidth =
     element.offsetWidth;
@@ -1083,13 +1010,12 @@ function moveNoInside(
   const buttonHeight =
     element.offsetHeight;
 
-  const padding =
-    8;
+  const padding = 8;
 
   const maxX =
     Math.max(
       padding,
-      areaWidth -
+      window.innerWidth -
       buttonWidth -
       padding
     );
@@ -1097,7 +1023,7 @@ function moveNoInside(
   const maxY =
     Math.max(
       padding,
-      areaHeight -
+      window.innerHeight -
       buttonHeight -
       padding
     );
@@ -1119,12 +1045,13 @@ function moveNoInside(
     );
 
   /*
-    IMPORTANT:
-    Area ke relative absolute position.
+    FIXED = viewport ke andar.
+    Isliye image ke bahar bhi ja sakta hai,
+    lekin screen se kabhi bahar nahi jayega.
   */
 
   element.style.position =
-    "absolute";
+    "fixed";
 
   element.style.left =
     x + "px";
@@ -1141,56 +1068,38 @@ function moveNoInside(
   element.style.margin =
     "0";
 
-  /*
-    NO text same rahega
-  */
-
-  element.innerText =
-    "NO 😭";
+  element.style.transform =
+    "none";
 
 }
 
 
-/* ==================================================
-   PAPER NO
-================================================== */
-
-const noBtn =
-  document.getElementById(
-    "noBtn"
-  );
-
-const paperArea =
-  document.getElementById(
-    "paperArea"
-  );
-
-
-function movePaperNo(e){
-
-  moveNoInside(
-    noBtn,
-    paperArea,
-    e
-  );
-
-}
-
+/* PAGE 1 NO */
 
 noBtn.addEventListener(
   "pointerdown",
-  movePaperNo,
-  {
-    passive:false
-  }
+  function(e){
+
+    moveNoOnScreen(
+      noBtn,
+      e
+    );
+
+  },
+  {passive:false}
 );
 
 noBtn.addEventListener(
   "touchstart",
-  movePaperNo,
-  {
-    passive:false
-  }
+  function(e){
+
+    moveNoOnScreen(
+      noBtn,
+      e
+    );
+
+  },
+  {passive:false}
 );
 
 noBtn.addEventListener(
@@ -1200,16 +1109,8 @@ noBtn.addEventListener(
     e.preventDefault();
     e.stopPropagation();
 
-    moveNoInside(
-      noBtn,
-      paperArea,
-      e
-    );
-
   },
-  {
-    passive:false
-  }
+  {passive:false}
 );
 
 
@@ -1264,7 +1165,6 @@ let loveRecognition =
 let loveListening =
   false;
 
-
 if(SpeechRecognition){
 
   loveRecognition =
@@ -1306,8 +1206,7 @@ if(SpeechRecognition){
   loveRecognition.onresult =
   function(event){
 
-    let text =
-      "";
+    let text = "";
 
     for(
       let i=event.resultIndex;
@@ -1482,9 +1381,7 @@ let rainTimer =
 function createEmoji(){
 
   if(!rainActive){
-
     return;
-
   }
 
   const emoji =
@@ -1495,7 +1392,6 @@ function createEmoji(){
   emoji.className =
     "falling";
 
-
   emoji.innerText =
     emojiItems[
       Math.floor(
@@ -1504,81 +1400,45 @@ function createEmoji(){
       )
     ];
 
-
-  /*
-    SMALL EMOJIS
-  */
-
   emoji.style.fontSize =
     (
       10 +
-      Math.random()*8
+      Math.random()*9
     ) + "px";
 
-
-  /*
-    FULL SCREEN WIDTH
-  */
-
   emoji.style.left =
-    (
-      Math.random()*100
-    ) + "vw";
-
-
-  /*
-    FAST RAIN
-  */
+    Math.random()*100+"vw";
 
   emoji.style.animationDuration =
     (
-      1.2 +
-      Math.random()*0.7
+      1.4 +
+      Math.random()*1.0
     ) + "s";
-
-
-  /*
-    RANDOM ROTATION
-  */
-
-  emoji.style.transform =
-    "translateY(-40px)";
-
-
-  /*
-    SCREEN KE SABSE AAGE
-  */
 
   document.body.appendChild(
     emoji
   );
 
-
   setTimeout(
     function(){
 
-      if(emoji.parentNode){
-
-        emoji.remove();
-
-      }
+      emoji.remove();
 
     },
-    2500
+    3000
   );
 
 }
 
 
 /* ==================================================
-   START DENSE EMOJI RAIN
+   START VERY DENSE RAIN
 ================================================== */
 
 function startEmojiRain(){
 
   rainActive =
     true;
-
 
   if(rainTimer){
 
@@ -1588,18 +1448,13 @@ function startEmojiRain(){
 
   }
 
-
   rainTimer =
     setInterval(
       function(){
 
-        /*
-          Dense rain
-        */
-
         for(
           let i=0;
-          i<20;
+          i<28;
           i++
         ){
 
@@ -1608,7 +1463,7 @@ function startEmojiRain(){
         }
 
       },
-      50
+      45
     );
 
 }
@@ -1623,7 +1478,6 @@ function stopEmojiRain(){
   rainActive =
     false;
 
-
   if(rainTimer){
 
     clearInterval(
@@ -1635,10 +1489,6 @@ function stopEmojiRain(){
 
   }
 
-
-  /*
-    Saare emojis remove
-  */
 
   document
   .querySelectorAll(
@@ -1654,31 +1504,15 @@ function stopEmojiRain(){
 
 
   /*
-    MIC STOP BUTTON HIDE
-  */
-
-  const stopButton =
-    document.getElementById(
-      "stopVoiceBtn"
-    );
-
-  stopButton.classList.add(
-    "hidden"
-  );
-
-
-  /*
-    Heard text hide
+    STOP button disappear
   */
 
   document
   .getElementById(
-    "stopVoiceResult"
+    "manualStopBtn"
   )
   .classList
-  .add(
-    "hidden"
-  );
+  .add("hidden");
 
 
   /*
@@ -1690,215 +1524,31 @@ function stopEmojiRain(){
     "continueAfterStop"
   )
   .classList
-  .remove(
-    "hidden"
-  );
+  .remove("hidden");
 
 }
 
 
 /* ==================================================
-   STOP VOICE
-================================================== */
-
-let stopRecognition =
-  null;
-
-let stopListening =
-  false;
-
-
-if(SpeechRecognition){
-
-  stopRecognition =
-    new SpeechRecognition();
-
-  stopRecognition.lang =
-    "en-US";
-
-  stopRecognition.continuous =
-    false;
-
-  stopRecognition.interimResults =
-    true;
-
-
-  stopRecognition.onstart =
-  function(){
-
-    stopListening =
-      true;
-
-    document
-    .getElementById(
-      "stopVoiceBtn"
-    )
-    .innerText =
-      "🎤 Listening...";
-
-  };
-
-
-  stopRecognition.onresult =
-  function(event){
-
-    let text =
-      "";
-
-    for(
-      let i=event.resultIndex;
-      i<event.results.length;
-      i++
-    ){
-
-      text +=
-        event.results[i][0]
-        .transcript;
-
-    }
-
-
-    const clean =
-      text
-      .toLowerCase()
-      .replace(/[.,!?]/g,"")
-      .trim();
-
-
-    document
-    .getElementById(
-      "stopVoiceResult"
-    )
-    .innerText =
-      'Heard: "'+
-      text+
-      '"';
-
-
-    /*
-      STOP recognise hote hi
-      immediately rain stop
-    */
-
-    if(
-      clean.includes(
-        "stop"
-      )
-    ){
-
-      stopRecognition.stop();
-
-      stopEmojiRain();
-
-    }
-
-  };
-
-
-  stopRecognition.onend =
-  function(){
-
-    stopListening =
-      false;
-
-    const button =
-      document.getElementById(
-        "stopVoiceBtn"
-      );
-
-    /*
-      Agar STOP nahi bola,
-      tab button wapas SAY STOP
-    */
-
-    if(
-      !button.classList
-      .contains("hidden")
-    ){
-
-      button.innerText =
-        "🎤 SAY STOP";
-
-    }
-
-  };
-
-
-  /*
-    Recognition error handle
-    taaki button atke nahi
-  */
-
-  stopRecognition.onerror =
-  function(){
-
-    stopListening =
-      false;
-
-    const button =
-      document.getElementById(
-        "stopVoiceBtn"
-      );
-
-    if(
-      !button.classList
-      .contains("hidden")
-    ){
-
-      button.innerText =
-        "🎤 SAY STOP";
-
-    }
-
-  };
-
-}
-
-
-/* ==================================================
-   STOP VOICE BUTTON
+   ONLY CLICK STOP
 ================================================== */
 
 document
 .getElementById(
-  "stopVoiceBtn"
+  "manualStopBtn"
 )
 .addEventListener(
   "click",
   function(){
 
-    if(!SpeechRecognition){
-
-      alert(
-        "Android Chrome mein open karke microphone permission allow karo."
-      );
-
-      return;
-
-    }
-
-
-    if(stopListening){
-
-      stopRecognition.stop();
-
-      return;
-
-    }
-
-
-    try{
-
-      stopRecognition.start();
-
-    }catch(error){}
+    stopEmojiRain();
 
   }
 );
 
 
 /* ==================================================
-   CONTINUE AFTER STOP
+   CONTINUE AFTER EMOJIS
 ================================================== */
 
 document
@@ -1917,45 +1567,33 @@ document
 
 /* ==================================================
    RING NO
-   SAME FIX AS PAPER NO
+   SAME SCREEN FIX
 ================================================== */
-
-const acceptNo =
-  document.getElementById(
-    "acceptNo"
-  );
-
-const ringArea =
-  document.getElementById(
-    "ringArea"
-  );
-
-
-function moveRingNo(e){
-
-  moveNoInside(
-    acceptNo,
-    ringArea,
-    e
-  );
-
-}
-
 
 acceptNo.addEventListener(
   "pointerdown",
-  moveRingNo,
-  {
-    passive:false
-  }
+  function(e){
+
+    moveNoOnScreen(
+      acceptNo,
+      e
+    );
+
+  },
+  {passive:false}
 );
 
 acceptNo.addEventListener(
   "touchstart",
-  moveRingNo,
-  {
-    passive:false
-  }
+  function(e){
+
+    moveNoOnScreen(
+      acceptNo,
+      e
+    );
+
+  },
+  {passive:false}
 );
 
 acceptNo.addEventListener(
@@ -1965,16 +1603,8 @@ acceptNo.addEventListener(
     e.preventDefault();
     e.stopPropagation();
 
-    moveNoInside(
-      acceptNo,
-      ringArea,
-      e
-    );
-
   },
-  {
-    passive:false
-  }
+  {passive:false}
 );
 
 
@@ -1983,9 +1613,7 @@ acceptNo.addEventListener(
 ================================================== */
 
 document
-.getElementById(
-  "acceptYes"
-)
+.getElementById("acceptYes")
 .addEventListener(
   "click",
   function(){
@@ -1994,232 +1622,6 @@ document
 
   }
 );
-
-
-/* ==================================================
-   INITIAL NO POSITIONS
-   IMAGE KE ANDAR HI
-================================================== */
-
-function setInitialNoPositions(){
-
-  /*
-    Paper NO
-  */
-
-  if(
-    noBtn &&
-    paperArea
-  ){
-
-    noBtn.style.position =
-      "absolute";
-
-    noBtn.style.left =
-      Math.max(
-        8,
-        paperArea.clientWidth * 0.58
-      ) + "px";
-
-    noBtn.style.top =
-      Math.max(
-        8,
-        paperArea.clientHeight * 0.68
-      ) + "px";
-
-    noBtn.style.right =
-      "auto";
-
-    noBtn.style.bottom =
-      "auto";
-
-    noBtn.style.margin =
-      "0";
-
-  }
-
-
-  /*
-    Ring NO
-  */
-
-  if(
-    acceptNo &&
-    ringArea
-  ){
-
-    acceptNo.style.position =
-      "absolute";
-
-    acceptNo.style.left =
-      Math.max(
-        8,
-        ringArea.clientWidth * 0.58
-      ) + "px";
-
-    acceptNo.style.top =
-      Math.max(
-        8,
-        ringArea.clientHeight * 0.78
-      ) + "px";
-
-    acceptNo.style.right =
-      "auto";
-
-    acceptNo.style.bottom =
-      "auto";
-
-    acceptNo.style.margin =
-      "0";
-
-  }
-
-}
-
-
-/*
-  Page load ke baad
-*/
-
-window.addEventListener(
-  "load",
-  function(){
-
-    setTimeout(
-      setInitialNoPositions,
-      100
-    );
-
-  }
-);
-
-
-/*
-  Screen resize hone par
-  NO ko safe area ke andar rakho
-*/
-
-window.addEventListener(
-  "resize",
-  function(){
-
-    if(
-      !document
-      .getElementById("page1")
-      .classList
-      .contains("hidden")
-    ){
-
-      keepButtonInside(
-        noBtn,
-        paperArea
-      );
-
-    }
-
-    if(
-      !document
-      .getElementById("page8")
-      .classList
-      .contains("hidden")
-    ){
-
-      keepButtonInside(
-        acceptNo,
-        ringArea
-      );
-
-    }
-
-  }
-);
-
-
-/* ==================================================
-   KEEP NO INSIDE
-================================================== */
-
-function keepButtonInside(
-  element,
-  area
-){
-
-  if(!element || !area){
-
-    return;
-
-  }
-
-  const areaWidth =
-    area.clientWidth;
-
-  const areaHeight =
-    area.clientHeight;
-
-  const buttonWidth =
-    element.offsetWidth;
-
-  const buttonHeight =
-    element.offsetHeight;
-
-  const padding =
-    8;
-
-  let left =
-    parseFloat(
-      element.style.left
-    ) || 0;
-
-  let top =
-    parseFloat(
-      element.style.top
-    ) || 0;
-
-
-  const maxLeft =
-    Math.max(
-      padding,
-      areaWidth -
-      buttonWidth -
-      padding
-    );
-
-  const maxTop =
-    Math.max(
-      padding,
-      areaHeight -
-      buttonHeight -
-      padding
-    );
-
-
-  left =
-    Math.min(
-      Math.max(
-        padding,
-        left
-      ),
-      maxLeft
-    );
-
-
-  top =
-    Math.min(
-      Math.max(
-        padding,
-        top
-      ),
-      maxTop
-    );
-
-
-  element.style.left =
-    left + "px";
-
-  element.style.top =
-    top + "px";
-
-}
 
 </script>
 
