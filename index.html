@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Secret Surprise 💗</title>
+<title>A Little Surprise 💗</title>
 
 <style>
 *{
@@ -13,14 +13,16 @@
 }
 
 body{
+  width:100%;
+  height:100vh;
   overflow:hidden;
   font-family:Arial,sans-serif;
-  background:#090914;
+  background:#08000d;
   color:white;
 }
 
 #app{
-  width:100vw;
+  width:100%;
   height:100vh;
   position:relative;
   overflow:hidden;
@@ -43,254 +45,145 @@ body{
   transform:scale(1.15);
 }
 
+/* INTRO */
+#intro{
+  background:
+    radial-gradient(circle at center,#4b123f 0%,#18071d 45%,#050008 100%);
+}
+
+.small{
+  font-size:15px;
+  letter-spacing:4px;
+  opacity:.7;
+  margin-bottom:18px;
+}
+
 h1{
-  font-size:clamp(30px,9vw,65px);
-  margin-bottom:30px;
+  font-size:clamp(32px,9vw,70px);
+  line-height:1.1;
+  margin-bottom:12px;
+  text-shadow:0 0 25px #ff4fa3;
 }
 
 .subtitle{
-  font-size:17px;
-  opacity:.8;
-  margin-bottom:30px;
+  font-size:16px;
+  opacity:.75;
+  margin-bottom:40px;
 }
 
-button{
-  border:0;
-  padding:15px 30px;
+.start{
+  padding:15px 32px;
+  border:1px solid #ff75b9;
   border-radius:50px;
+  background:#ff3f91;
+  color:white;
   font-size:17px;
-  font-weight:bold;
   cursor:pointer;
-  margin:8px;
-  background:white;
-  color:#151525;
-  box-shadow:0 8px 30px #0006;
+  box-shadow:0 0 30px #ff3f9166;
 }
 
-button:active{
-  transform:scale(.92);
-}
-
-/* DOORS */
-#doorScreen{
+/* PROPOSAL */
+#proposal{
   background:
-    radial-gradient(circle at center,#40305e,#100d20 55%,#05050b);
+    radial-gradient(circle at center,#5b174b,#180817 48%,#050008);
 }
 
-.doorTitle{
-  position:absolute;
-  top:15%;
-  z-index:5;
+.question{
+  font-size:clamp(28px,8vw,58px);
+  margin-bottom:45px;
 }
 
 .doors{
-  position:absolute;
-  inset:0;
   display:flex;
-  z-index:2;
+  gap:25px;
 }
 
 .door{
-  width:50%;
-  height:100%;
-  background:linear-gradient(135deg,#6d315c,#25183b);
-  border:2px solid #ffffff22;
-  transition:2s cubic-bezier(.7,0,.2,1);
+  width:135px;
+  height:190px;
+  border-radius:12px;
+  background:linear-gradient(145deg,#7d275d,#2c0b27);
+  border:2px solid #ff80bf;
+  box-shadow:0 0 25px #ff3f9155;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  cursor:pointer;
+  transition:.3s;
 }
 
-.leftDoor{
-  transform-origin:left;
+.door:hover{
+  transform:translateY(-8px);
+  box-shadow:0 0 40px #ff4fa3aa;
 }
 
-.rightDoor{
-  transform-origin:right;
+.knob{
+  width:10px;
+  height:10px;
+  background:#ffd6e9;
+  border-radius:50%;
+  margin-bottom:25px;
 }
 
-.open .leftDoor{
-  transform:rotateY(-105deg);
+.door span{
+  font-size:22px;
+  font-weight:bold;
 }
 
-.open .rightDoor{
-  transform:rotateY(105deg);
+.hint{
+  margin-top:25px;
+  opacity:.6;
+  font-size:13px;
 }
 
-.doorButtons{
-  position:absolute;
-  z-index:10;
-  bottom:15%;
-}
-
-#noBtn{
-  background:#292936;
-  color:white;
-}
-
-/* WELCOME */
-#welcomeScreen{
+/* YES */
+#yesScreen{
   background:
-    radial-gradient(circle,#702d62,#170d27 60%,#05050b);
+    radial-gradient(circle,#7b174f,#26091f 50%,#08000d);
 }
 
 .welcome{
-  animation:welcomePop 1.5s ease forwards;
-}
-
-@keyframes welcomePop{
-  0%{transform:scale(.2);opacity:0}
-  60%{transform:scale(1.2)}
-  100%{transform:scale(1);opacity:1}
+  font-size:clamp(30px,9vw,65px);
+  font-weight:bold;
+  animation:pulse 1.5s infinite;
 }
 
 .heart{
   position:absolute;
   font-size:25px;
   animation:fall linear forwards;
-  pointer-events:none;
+  top:-50px;
+}
+
+@keyframes pulse{
+  0%,100%{transform:scale(1)}
+  50%{transform:scale(1.08)}
 }
 
 @keyframes fall{
-  from{transform:translateY(-10vh) rotate(0deg);opacity:1}
-  to{transform:translateY(110vh) rotate(360deg);opacity:0}
+  to{
+    transform:translateY(115vh) rotate(360deg);
+    opacity:0;
+  }
 }
 
-/* CAT */
-#catScreen{
-  background:linear-gradient(#11152c,#24122d);
+/* NO */
+#noScreen{
+  background:#050505;
 }
 
-.cat{
-  font-size:90px;
-  animation:catDrop 1.5s ease;
+.bye{
+  font-size:clamp(45px,12vw,90px);
 }
 
-@keyframes catDrop{
-  from{transform:translateY(-100vh)}
-  to{transform:translateY(0)}
-}
-
-.letter{
-  background:#fff8df;
-  color:#30242a;
-  padding:25px;
-  width:min(88%,400px);
-  border-radius:20px;
-  box-shadow:0 15px 50px #0008;
-  margin:20px;
-}
-
-input{
-  width:min(80%,300px);
-  padding:15px;
-  border:0;
-  outline:0;
-  border-radius:30px;
-  text-align:center;
-  font-size:17px;
-  margin:15px;
-}
-
-/* PHOTOS */
-#memoryScreen{
-  background:radial-gradient(circle,#362044,#080812);
-  padding:20px;
-}
-
-.photoStack{
-  width:min(82vw,350px);
-  height:430px;
-  position:relative;
-  margin:20px;
-}
-
-.photo{
-  position:absolute;
-  inset:0;
-  background:#fff;
-  padding:10px 10px 55px;
-  border-radius:5px;
-  color:#222;
-  box-shadow:0 15px 40px #0009;
-  transition:1s;
-}
-
-.photo img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-}
-
-.photo:nth-child(1){
-  transform:rotate(-7deg);
-}
-
-.photo:nth-child(2){
-  transform:rotate(5deg);
-}
-
-.photo:nth-child(3){
-  transform:rotate(-2deg);
-}
-
-.photo.active{
-  transform:translateX(110%) rotate(20deg);
-}
-
-.caption{
-  position:absolute;
-  bottom:15px;
-  left:0;
-  right:0;
-  font-weight:bold;
-}
-
-/* FINAL */
-#finalScreen{
-  background:
-    linear-gradient(#07121e,#080914);
-}
-
-.road{
-  position:absolute;
-  bottom:0;
-  width:100%;
-  height:30%;
-  background:#16161d;
-  border-top:4px solid #444;
-}
-
-.car{
-  position:absolute;
-  bottom:23%;
-  left:-250px;
-  font-size:110px;
-  animation:drive 4s ease forwards;
-}
-
-@keyframes drive{
-  0%{left:-250px}
-  70%{left:45%}
-  100%{left:38%}
-}
-
-.finalText{
-  z-index:5;
-  opacity:0;
-  animation:appear 1s ease 3.5s forwards;
-}
-
-@keyframes appear{
-  to{opacity:1;transform:translateY(-20px)}
-}
-
-.replay{
+.back{
   margin-top:25px;
-}
-
-/* MOBILE */
-@media(max-width:500px){
-  .cat{font-size:75px}
-  .photoStack{height:380px}
-  .car{font-size:85px}
+  padding:12px 25px;
+  border:1px solid #555;
+  border-radius:30px;
+  background:transparent;
+  color:white;
 }
 </style>
 </head>
@@ -299,250 +192,96 @@ input{
 
 <div id="app">
 
-<!-- SCREEN 1 -->
-<section id="doorScreen" class="screen">
+  <!-- INTRO -->
+  <section id="intro" class="screen">
+    <div class="small">A LITTLE SURPRISE</div>
+    <h1>Someone has a question<br>for you... 💗</h1>
+    <div class="subtitle">Tap the button when you're ready.</div>
+    <button class="start" onclick="openProposal()">Open the surprise ✨</button>
+  </section>
 
-  <h1 class="doorTitle">
-    Can I show you<br>
-    something special? ✨
-  </h1>
+  <!-- PROPOSAL -->
+  <section id="proposal" class="screen hidden">
+    <div class="small">JUST ONE QUESTION</div>
 
-  <div class="doors">
-    <div class="door leftDoor"></div>
-    <div class="door rightDoor"></div>
-  </div>
-
-  <div class="doorButtons">
-    <button onclick="openSurprise()">YES ✨</button>
-    <button id="noBtn" onclick="sayBye()">NO 😭</button>
-  </div>
-
-</section>
-
-
-<!-- SCREEN 2 -->
-<section id="welcomeScreen" class="screen hidden">
-
-  <div class="welcome">
-    <h1>YOUR MOST WELCOME, MADAM! 💐</h1>
-    <p class="subtitle">A little surprise made especially for you ✨</p>
-    <button onclick="showCat()">CONTINUE 🐱</button>
-  </div>
-
-</section>
-
-
-<!-- SCREEN 3 -->
-<section id="catScreen" class="screen hidden">
-
-  <div class="cat">🐱</div>
-
-  <div class="letter">
-    <h2>Secret Mission 🔐</h2>
-    <br>
-    <p>There is a secret name hidden here 👀</p>
-    <p>Enter the special code to continue...</p>
-
-    <input id="secretInput" placeholder="Enter secret name">
-
-    <br>
-
-    <button onclick="unlock()">UNLOCK 🔓</button>
-
-    <p id="wrong" style="color:#d66;margin-top:10px;"></p>
-  </div>
-
-</section>
-
-
-<!-- SCREEN 4 -->
-<section id="memoryScreen" class="screen hidden">
-
-  <h1>Our Little Memories 📸</h1>
-
-  <p class="subtitle">Three moments worth keeping forever ✨</p>
-
-  <div class="photoStack">
-
-    <!-- PHOTO 1 -->
-    <div class="photo">
-      <img src="photo1.jpg">
-      <div class="caption">Memory #1 🫶</div>
+    <div class="question">
+      Can I propose you? 💗
     </div>
 
-    <!-- PHOTO 2 -->
-    <div class="photo">
-      <img src="photo2.jpg">
-      <div class="caption">Memory #2 💫</div>
+    <div class="doors">
+
+      <div class="door" onclick="sayYes()">
+        <div class="knob"></div>
+        <span>YES 💗</span>
+      </div>
+
+      <div class="door" onclick="sayNo()">
+        <div class="knob"></div>
+        <span>NO 👋</span>
+      </div>
+
     </div>
 
-    <!-- PHOTO 3 -->
-    <div class="photo">
-      <img src="photo3.jpg">
-      <div class="caption">Memory #3 🌸</div>
+    <div class="hint">Choose one door...</div>
+  </section>
+
+  <!-- YES -->
+  <section id="yesScreen" class="screen hidden">
+    <div class="welcome">
+      YOUR MOST WELCOME<br>
+      MADAM 💗
     </div>
+  </section>
 
-  </div>
-
-  <button onclick="nextPhoto()">NEXT ➜</button>
-
-</section>
-
-
-<!-- SCREEN 5 -->
-<section id="finalScreen" class="screen hidden">
-
-  <div class="road"></div>
-
-  <div class="car">🚗</div>
-
-  <div class="finalText">
-
-    <h1>Hey Bestie! 🫶</h1>
-
-    <p style="font-size:20px;line-height:1.6;">
-      Some people come into life<br>
-      and become unforgettable memories. ✨
-    </p>
-
-    <h2 style="margin-top:25px;">
-      Thank you for being my bestie. 💗
-    </h2>
-
-    <button class="replay" onclick="location.reload()">
-      REPLAY 🔄
-    </button>
-
-  </div>
-
-</section>
+  <!-- NO -->
+  <section id="noScreen" class="screen hidden">
+    <div class="bye">BYE 👋</div>
+  </section>
 
 </div>
 
-
 <script>
 
-const doorScreen=document.getElementById("doorScreen");
-const welcomeScreen=document.getElementById("welcomeScreen");
-const catScreen=document.getElementById("catScreen");
-const memoryScreen=document.getElementById("memoryScreen");
-const finalScreen=document.getElementById("finalScreen");
-
-function openSurprise(){
-
-  doorScreen.classList.add("open");
+function openProposal(){
+  document.getElementById("intro").classList.add("hidden");
 
   setTimeout(()=>{
-
-    doorScreen.classList.add("hidden");
-    welcomeScreen.classList.remove("hidden");
-
-    makeHearts();
-
-  },1500);
+    document.getElementById("proposal").classList.remove("hidden");
+  },500);
 }
 
-
-function sayBye(){
-
-  document.querySelector(".doorTitle").innerHTML=
-  "Okayyy bye bestie 😂👋";
-
-  document.querySelector(".doorButtons").style.display="none";
+function sayYes(){
+  document.getElementById("proposal").classList.add("hidden");
 
   setTimeout(()=>{
-    doorScreen.classList.add("hidden");
-  },2000);
-
+    document.getElementById("yesScreen").classList.remove("hidden");
+    createHearts();
+  },500);
 }
 
+function sayNo(){
+  document.getElementById("proposal").classList.add("hidden");
 
-function makeHearts(){
+  setTimeout(()=>{
+    document.getElementById("noScreen").classList.remove("hidden");
+  },500);
+}
 
-  for(let i=0;i<35;i++){
+function createHearts(){
 
-    const heart=document.createElement("div");
+  for(let i=0;i<45;i++){
+
+    let heart=document.createElement("div");
 
     heart.className="heart";
-    heart.innerHTML=["💗","💖","✨","💕","🌸"]
-      [Math.floor(Math.random()*5)];
+    heart.innerHTML=["❤️","💗","💕","💖","💘"][Math.floor(Math.random()*5)];
 
     heart.style.left=Math.random()*100+"vw";
-    heart.style.animationDuration=(2+Math.random()*4)+"s";
+    heart.style.animationDuration=(3+Math.random()*4)+"s";
     heart.style.animationDelay=Math.random()*2+"s";
 
-    document.body.appendChild(heart);
-
-    setTimeout(()=>heart.remove(),7000);
+    document.getElementById("yesScreen").appendChild(heart);
   }
-}
-
-
-function showCat(){
-
-  welcomeScreen.classList.add("hidden");
-
-  setTimeout(()=>{
-    catScreen.classList.remove("hidden");
-  },700);
-
-}
-
-
-function unlock(){
-
-  const value=document
-    .getElementById("secretInput")
-    .value
-    .trim()
-    .toLowerCase();
-
-  if(value==="harkesh"){
-
-    document.getElementById("wrong").innerHTML=
-      "Access granted! 😼✨";
-
-    setTimeout(()=>{
-
-      catScreen.classList.add("hidden");
-
-      setTimeout(()=>{
-        memoryScreen.classList.remove("hidden");
-      },700);
-
-    },1000);
-
-  }else{
-
-    document.getElementById("wrong").innerHTML=
-      "Nope 😼 Try again!";
-
-  }
-
-}
-
-
-let photoCount=0;
-
-function nextPhoto(){
-
-  const photos=document.querySelectorAll(".photo");
-
-  if(photoCount<photos.length){
-
-    photos[photoCount].classList.add("active");
-    photoCount++;
-
-  }else{
-
-    memoryScreen.classList.add("hidden");
-
-    setTimeout(()=>{
-      finalScreen.classList.remove("hidden");
-    },700);
-
-  }
-
 }
 
 </script>
