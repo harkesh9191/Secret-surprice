@@ -53,10 +53,21 @@ body{
   display:none!important;
 }
 
-
 /* =========================
-   FIRST CAT + PAPER
-   ========================= */
+   FIRST PAGE
+========================= */
+
+.firstTitle{
+  font-size:30px;
+  margin:5px 0 5px;
+}
+
+.firstText{
+  margin:0 0 5px;
+  font-size:17px;
+}
+
+/* CAT + PAPER */
 
 .catPaperArea{
   position:relative;
@@ -71,41 +82,42 @@ body{
   width:100%;
   max-width:510px;
   height:auto;
-  max-height:700px;
+  max-height:690px;
   object-fit:contain;
   display:block;
 }
 
-
 /*
-  YES + NO paper ke upar hain.
-  Agar baad mein paper ke exact centre
-  ko adjust karna ho toh top value change karenge.
+   YES + NO paper ke andar.
+   Paper ki position ke hisaab se top ko adjust
+   kiya ja sakta hai.
 */
 
 .paperButtons{
   position:absolute;
   left:50%;
   top:58%;
-
   transform:translate(-50%,-50%);
 
-  width:65%;
+  width:70%;
 
   display:flex;
   justify-content:center;
   align-items:center;
   gap:12px;
+
+  z-index:20;
 }
 
 .paperButtons button{
-  min-width:95px;
+  min-width:90px;
+  padding:12px 17px;
 }
 
 
 /* =========================
-   NORMAL BUTTONS
-   ========================= */
+   BUTTONS
+========================= */
 
 button{
   border:0;
@@ -127,7 +139,6 @@ button{
 #acceptNo{
   background:#eeeeee;
   color:#555;
-  position:relative;
   z-index:99999;
 }
 
@@ -140,7 +151,7 @@ button{
 
 /* =========================
    TEXT
-   ========================= */
+========================= */
 
 h1{
   font-size:29px;
@@ -160,7 +171,7 @@ p{
 
 /* =========================
    HEART
-   ========================= */
+========================= */
 
 .heart{
   font-size:62px;
@@ -171,7 +182,6 @@ p{
   0%,100%{
     transform:scale(1);
   }
-
   50%{
     transform:scale(1.15);
   }
@@ -180,7 +190,7 @@ p{
 
 /* =========================
    NAME
-   ========================= */
+========================= */
 
 .nameInput{
   width:100%;
@@ -196,7 +206,7 @@ p{
 
 /* =========================
    SHAYARI
-   ========================= */
+========================= */
 
 .pageTitle{
   font-size:27px;
@@ -210,8 +220,8 @@ p{
 
 
 /* =========================
-   REAL PHOTOS
-   ========================= */
+   PHOTOS
+========================= */
 
 .photoArea{
   width:100%;
@@ -220,27 +230,22 @@ p{
   display:flex;
   justify-content:center;
   align-items:center;
-
   gap:10px;
 }
 
 .myPhoto{
   width:47%;
   height:180px;
-
   object-fit:cover;
-
   border-radius:20px;
-
   display:block;
-
   box-shadow:0 5px 18px rgba(80,20,45,.12);
 }
 
 
 /* =========================
    VOICE
-   ========================= */
+========================= */
 
 .mic{
   font-size:70px;
@@ -260,44 +265,28 @@ p{
 
 
 /* =========================
-   FALLING HEARTS / ROSES
-   ========================= */
+   FALLING
+========================= */
 
 .falling{
   position:fixed;
   top:-70px;
-
   pointer-events:none;
-
   z-index:999999;
-
   animation:fallDown linear forwards;
 }
 
 @keyframes fallDown{
-
   0%{
-    transform:
-      translateY(-70px)
-      rotate(0deg);
-
+    transform:translateY(-70px) rotate(0deg);
     opacity:1;
   }
 
   100%{
-    transform:
-      translateY(115vh)
-      rotate(360deg);
-
+    transform:translateY(115vh) rotate(360deg);
     opacity:.95;
   }
-
 }
-
-
-/* =========================
-   STOP
-   ========================= */
 
 .stopBtn{
   background:#222;
@@ -307,24 +296,21 @@ p{
 
 /* =========================
    RING CAT
-   ========================= */
+========================= */
 
 .ringCat{
   width:100%;
   max-width:510px;
   max-height:620px;
-
   object-fit:contain;
-
   margin:0 auto 12px;
-
   display:block;
 }
 
 
 /* =========================
    FINAL
-   ========================= */
+========================= */
 
 .final{
   font-size:19px;
@@ -334,7 +320,7 @@ p{
 
 /* =========================
    MOBILE
-   ========================= */
+========================= */
 
 @media(max-width:600px){
 
@@ -345,25 +331,32 @@ p{
   .card{
     min-height:98vh;
     padding:12px;
-    border-radius:22px;
+  }
+
+  .firstTitle{
+    font-size:25px;
+  }
+
+  .firstText{
+    font-size:15px;
   }
 
   .catPaperImage{
     width:100%;
     max-width:100%;
-    max-height:720px;
+    max-height:700px;
   }
 
   .paperButtons{
     top:58%;
-    width:65%;
-    gap:9px;
+    width:70%;
+    gap:8px;
   }
 
   .paperButtons button{
-    min-width:85px;
-    padding:12px 16px;
-    font-size:15px;
+    min-width:82px;
+    padding:11px 14px;
+    font-size:14px;
   }
 
   h1{
@@ -381,32 +374,38 @@ p{
   .myPhoto{
     height:165px;
   }
-
 }
 </style>
 </head>
-
 
 <body>
 
 
 <!-- ==================================================
-     PAGE 1 — CAT WITH PAPER
-     ================================================== -->
+     PAGE 1
+================================================== -->
 
 <div class="screen" id="page1">
 
   <div class="card">
+
+    <h1 class="firstTitle">
+      Can I propose you? 🥺❤️
+    </h1>
+
+    <p class="firstText">
+      Ek baar dil se answer dena... ❤️
+    </p>
 
     <div class="catPaperArea">
 
       <img
         src="cat-paper.jpg"
         class="catPaperImage"
-        alt="Cute cat holding a paper"
+        alt="Cute cat holding paper"
       >
 
-      <!-- BUTTONS ARE ON THE RECTANGULAR PAPER -->
+      <!-- YES + NO PAPER KE ANDAR -->
 
       <div class="paperButtons">
 
@@ -432,22 +431,17 @@ p{
 </div>
 
 
-
 <!-- ==================================================
-     PAGE 2 — NAME
-     ================================================== -->
+     PAGE 2
+================================================== -->
 
 <div class="screen hidden" id="page2">
 
   <div class="card">
 
-    <div class="heart">
-      ❤️
-    </div>
+    <div class="heart">❤️</div>
 
-    <h1>
-      Yayyy! 🥹❤️
-    </h1>
+    <h1>Yayyy! 🥹❤️</h1>
 
     <p>
       Ab ek chhoti si cheez batao...
@@ -476,10 +470,10 @@ p{
 </div>
 
 
-
 <!-- ==================================================
-     PAGE 3 — SHAYARI 1 + PHOTO 1 + PHOTO 2
-     ================================================== -->
+     PAGE 3
+     PHOTO 1 + PHOTO 2
+================================================== -->
 
 <div class="screen hidden" id="page3">
 
@@ -515,25 +509,21 @@ p{
 
     </p>
 
-
-    <!-- PHOTO 1 + PHOTO 2 -->
-
     <div class="photoArea">
 
       <img
         src="photo1.jpg"
         class="myPhoto"
-        alt="Our memory"
+        alt="Photo 1"
       >
 
       <img
         src="photo2.jpg"
         class="myPhoto"
-        alt="Our memory"
+        alt="Photo 2"
       >
 
     </div>
-
 
     <button
       class="nextBtn"
@@ -547,10 +537,10 @@ p{
 </div>
 
 
-
 <!-- ==================================================
-     PAGE 4 — SHAYARI 2 + PHOTO 3 + PHOTO 4
-     ================================================== -->
+     PAGE 4
+     PHOTO 3 + PHOTO 4
+================================================== -->
 
 <div class="screen hidden" id="page4">
 
@@ -589,25 +579,21 @@ p{
 
     </p>
 
-
-    <!-- PHOTO 3 + PHOTO 4 -->
-
     <div class="photoArea">
 
       <img
         src="photo3.jpg"
         class="myPhoto"
-        alt="Our memory"
+        alt="Photo 3"
       >
 
       <img
         src="photo4.jpg"
         class="myPhoto"
-        alt="Our memory"
+        alt="Photo 4"
       >
 
     </div>
-
 
     <button
       class="nextBtn"
@@ -621,10 +607,10 @@ p{
 </div>
 
 
-
 <!-- ==================================================
-     PAGE 5 — SHAYARI 3 + PHOTO 5 + PHOTO 6
-     ================================================== -->
+     PAGE 5
+     PHOTO 5 + PHOTO 6
+================================================== -->
 
 <div class="screen hidden" id="page5">
 
@@ -677,25 +663,21 @@ p{
 
     </p>
 
-
-    <!-- PHOTO 5 + PHOTO 6 -->
-
     <div class="photoArea">
 
       <img
         src="photo5.jpg"
         class="myPhoto"
-        alt="Our memory"
+        alt="Photo 5"
       >
 
       <img
         src="photo6.jpg"
         class="myPhoto"
-        alt="Our memory"
+        alt="Photo 6"
       >
 
     </div>
-
 
     <button
       class="nextBtn"
@@ -709,18 +691,15 @@ p{
 </div>
 
 
-
 <!-- ==================================================
-     PAGE 6 — SAY I LOVE YOU TOO
-     ================================================== -->
+     PAGE 6 — VOICE
+================================================== -->
 
 <div class="screen hidden" id="page6">
 
   <div class="card">
 
-    <div class="heart">
-      ❤️
-    </div>
+    <div class="heart">❤️</div>
 
     <h1>
       Now there's just one thing left... 🥺
@@ -766,10 +745,9 @@ p{
 </div>
 
 
-
 <!-- ==================================================
-     PAGE 7 — FALLING HEARTS + ROSES
-     ================================================== -->
+     PAGE 7 — FALLING
+================================================== -->
 
 <div class="screen hidden" id="page7">
 
@@ -816,10 +794,9 @@ p{
 </div>
 
 
-
 <!-- ==================================================
      PAGE 8 — RING CAT
-     ================================================== -->
+================================================== -->
 
 <div class="screen hidden" id="page8">
 
@@ -839,7 +816,7 @@ p{
       One last little question... 🥺
     </p>
 
-    <div class="buttons">
+    <div class="paperButtons">
 
       <button
         class="yes"
@@ -861,10 +838,9 @@ p{
 </div>
 
 
-
 <!-- ==================================================
-     PAGE 9 — FINAL
-     ================================================== -->
+     PAGE 9
+================================================== -->
 
 <div class="screen hidden" id="page9">
 
@@ -908,13 +884,11 @@ p{
 </div>
 
 
-
 <script>
 
-
-/* ==================================================
-   PAGE NAVIGATION
-   ================================================== */
+/* =========================
+   PAGE CHANGE
+========================= */
 
 function goTo(number){
 
@@ -935,68 +909,69 @@ function goTo(number){
   if(target){
     target.classList.remove("hidden");
   }
-
 }
 
 
-
-/* ==================================================
+/* =========================
    NO BUTTON
-   Works on MOBILE TOUCH
-   ================================================== */
+   PAPER KE ANDAR HI MOVE
+========================= */
 
-function moveNoButton(button,event){
+function moveNoInsidePaper(button,event){
 
   if(event){
-
     event.preventDefault();
     event.stopPropagation();
-
   }
 
+  const area =
+    button.closest(".paperButtons");
 
-  const margin = 10;
+  const buttons =
+    area.querySelectorAll("button");
 
+  const areaWidth =
+    area.clientWidth;
+
+  const areaHeight =
+    area.clientHeight;
+
+  /*
+    NO ko paper ke andar hi random jagah
+    move karenge.
+  */
 
   const maxX =
-    window.innerWidth -
-    button.offsetWidth -
-    margin;
-
+    Math.max(
+      0,
+      areaWidth -
+      button.offsetWidth
+    );
 
   const maxY =
-    window.innerHeight -
-    button.offsetHeight -
-    margin;
-
+    Math.max(
+      0,
+      areaHeight -
+      button.offsetHeight
+    );
 
   const x =
-    margin +
-    Math.random() *
-    Math.max(
-      1,
-      maxX-margin
-    );
-
+    Math.random()*maxX;
 
   const y =
-    margin +
-    Math.random() *
-    Math.max(
-      1,
-      maxY-margin
-    );
+    Math.random()*maxY;
 
+  /*
+    Pehle button absolute hota hai.
+    Isliye woh gayab nahi hoga.
+  */
 
-  button.style.position="fixed";
-
+  button.style.position="absolute";
   button.style.left=x+"px";
-
   button.style.top=y+"px";
-
+  button.style.transform="none";
 
   return false;
-
 }
 
 
@@ -1005,354 +980,254 @@ function moveNoButton(button,event){
 const noBtn =
   document.getElementById("noBtn");
 
-
 noBtn.addEventListener(
   "pointerdown",
   function(event){
-
-    moveNoButton(
+    moveNoInsidePaper(
       noBtn,
       event
     );
-
   },
-  {
-    passive:false
-  }
+  {passive:false}
 );
-
 
 noBtn.addEventListener(
   "touchstart",
   function(event){
-
-    moveNoButton(
+    moveNoInsidePaper(
       noBtn,
       event
     );
-
   },
-  {
-    passive:false
-  }
+  {passive:false}
 );
-
 
 noBtn.addEventListener(
   "click",
   function(event){
-
     event.preventDefault();
-
     event.stopPropagation();
-
   },
-  {
-    passive:false
+  {passive:false}
+);
+
+
+/* =========================
+   YES
+========================= */
+
+document
+.getElementById("yesBtn")
+.addEventListener(
+  "click",
+  function(){
+    goTo(2);
   }
 );
 
 
-
-/* ==================================================
-   FIRST YES
-   ================================================== */
-
-document
-  .getElementById("yesBtn")
-  .addEventListener(
-    "click",
-    function(){
-
-      goTo(2);
-
-    }
-  );
-
-
-
-/* ==================================================
+/* =========================
    NAME
-   ================================================== */
+========================= */
 
 document
-  .getElementById("nameNext")
-  .addEventListener(
-    "click",
-    function(){
+.getElementById("nameNext")
+.addEventListener(
+  "click",
+  function(){
 
-      const name =
-        document
-        .getElementById("nameInput")
-        .value
-        .trim();
+    const name =
+      document
+      .getElementById("nameInput")
+      .value
+      .trim();
 
+    if(name===""){
 
-      if(name===""){
+      document
+      .getElementById("nameInput")
+      .placeholder =
+      "Pehle naam toh likho 🥺❤️";
 
-        document
-        .getElementById("nameInput")
-        .placeholder =
-        "Pehle naam toh likho 🥺❤️";
-
-        return;
-
-      }
-
-
-      goTo(3);
-
+      return;
     }
-  );
+
+    goTo(3);
+  }
+);
 
 
-
-/* ==================================================
-   VOICE RECOGNITION
-   ================================================== */
+/* =========================
+   VOICE
+========================= */
 
 const SpeechRecognition =
   window.SpeechRecognition ||
   window.webkitSpeechRecognition;
 
-
 let recognition=null;
-
 let listening=false;
-
 
 if(SpeechRecognition){
 
   recognition =
     new SpeechRecognition();
 
-
-  recognition.lang =
-    "en-US";
-
-
-  recognition.continuous =
-    false;
-
-
-  recognition.interimResults =
-    true;
-
-
-  recognition.onstart =
-    function(){
-
-      listening=true;
-
-
-      document
-        .getElementById(
-          "listeningText"
-        )
-        .innerText =
-        "🎤 Listening... Say it ❤️";
-
-
-      document
-        .getElementById(
-          "voiceBtn"
-        )
-        .innerText =
-        "🎤 Listening...";
-
-    };
-
-
-  recognition.onresult =
-    function(event){
-
-      let transcript="";
-
-
-      for(
-        let i=event.resultIndex;
-        i<event.results.length;
-        i++
-      ){
-
-        transcript +=
-          event.results[i][0]
-          .transcript;
-
-      }
-
-
-      const clean =
-        transcript
-        .toLowerCase()
-        .replace(/[.,!?]/g,"")
-        .trim();
-
-
-      document
-        .getElementById(
-          "voiceResult"
-        )
-        .innerText =
-        'Heard: "'+
-        transcript+
-        '"';
-
-
-      const phrases=[
-
-        "i love you too",
-        "i love you to",
-        "i love u too",
-        "i love you two",
-        "love you too"
-
-      ];
-
-
-      for(
-        const phrase of phrases
-      ){
-
-        if(
-          clean.includes(phrase)
-        ){
-
-          recognition.stop();
-
-          listening=false;
-
-
-          document
-            .getElementById(
-              "listeningText"
-            )
-            .innerText =
-            "❤️ I heard you...";
-
-
-          setTimeout(
-            function(){
-
-              goTo(7);
-
-              startFalling();
-
-            },
-            600
-          );
-
-
-          break;
-
-        }
-
-      }
-
-    };
-
-
-  recognition.onend =
-    function(){
-
-      listening=false;
-
-
-      document
-        .getElementById(
-          "voiceBtn"
-        )
-        .innerText =
-        "🎤 SAY IT";
-
-    };
-
-
-  recognition.onerror =
-    function(){
-
-      listening=false;
-
-
-      document
-        .getElementById(
-          "voiceBtn"
-        )
-        .innerText =
-        "🎤 TRY AGAIN";
-
-
-      document
-        .getElementById(
-          "listeningText"
-        )
-        .innerText =
-        "Couldn't hear that. Try again ❤️";
-
-    };
-
-}
-
-
-
-/* ==================================================
-   VOICE BUTTON
-   ================================================== */
-
-document
-  .getElementById("voiceBtn")
-  .addEventListener(
-    "click",
-    function(){
-
-      if(!SpeechRecognition){
-
-        alert(
-          "Please use Android Chrome for voice recognition."
-        );
-
-        return;
-
-      }
-
-
-      if(listening){
+  recognition.lang="en-US";
+  recognition.continuous=false;
+  recognition.interimResults=true;
+
+  recognition.onstart=function(){
+
+    listening=true;
+
+    document
+    .getElementById("listeningText")
+    .innerText =
+    "🎤 Listening... Say it ❤️";
+
+    document
+    .getElementById("voiceBtn")
+    .innerText =
+    "🎤 Listening...";
+
+  };
+
+  recognition.onresult=function(event){
+
+    let transcript="";
+
+    for(
+      let i=event.resultIndex;
+      i<event.results.length;
+      i++
+    ){
+
+      transcript +=
+        event.results[i][0].transcript;
+    }
+
+    const clean =
+      transcript
+      .toLowerCase()
+      .replace(/[.,!?]/g,"")
+      .trim();
+
+    document
+    .getElementById("voiceResult")
+    .innerText =
+    'Heard: "'+
+    transcript+
+    '"';
+
+    const phrases=[
+      "i love you too",
+      "i love you to",
+      "i love u too",
+      "i love you two",
+      "love you too"
+    ];
+
+    for(
+      const phrase of phrases
+    ){
+
+      if(clean.includes(phrase)){
 
         recognition.stop();
 
-        return;
+        listening=false;
 
-      }
-
-
-      document
-        .getElementById(
-          "voiceResult"
-        )
+        document
+        .getElementById("listeningText")
         .innerText =
-        "Listening...";
+        "❤️ I heard you...";
 
+        setTimeout(
+          function(){
 
-      recognition.start();
+            goTo(7);
+            startFalling();
 
+          },
+          600
+        );
+
+        break;
+      }
     }
-  );
+  };
+
+  recognition.onend=function(){
+
+    listening=false;
+
+    document
+    .getElementById("voiceBtn")
+    .innerText =
+    "🎤 SAY IT";
+  };
+
+  recognition.onerror=function(){
+
+    listening=false;
+
+    document
+    .getElementById("voiceBtn")
+    .innerText =
+    "🎤 TRY AGAIN";
+
+    document
+    .getElementById("listeningText")
+    .innerText =
+    "Couldn't hear that. Try again ❤️";
+  };
+}
 
 
+/* VOICE BUTTON */
 
-/* ==================================================
-   FALLING HEARTS + ROSES
-   ================================================== */
+document
+.getElementById("voiceBtn")
+.addEventListener(
+  "click",
+  function(){
+
+    if(!SpeechRecognition){
+
+      alert(
+        "Please use Android Chrome for voice recognition."
+      );
+
+      return;
+    }
+
+    if(listening){
+
+      recognition.stop();
+      return;
+    }
+
+    document
+    .getElementById("voiceResult")
+    .innerText =
+    "Listening...";
+
+    recognition.start();
+  }
+);
+
+
+/* =========================
+   FALLING HEARTS / ROSES
+========================= */
 
 let fallingTimer=null;
-
 let fallingActive=false;
-
 
 function startFalling(){
 
   fallingActive=true;
-
 
   fallingTimer =
     setInterval(
@@ -1362,247 +1237,173 @@ function startFalling(){
           return;
         }
 
-
         const items=[
-
-          "❤️",
-          "❤️",
-          "❤️",
-          "❤️",
-          "💗",
-          "💖",
-          "💕",
-          "💘",
-          "🌹",
-          "🌹",
-          "🌹",
-          "🌹",
-          "😭",
-          "😭",
-          "🥹"
-
+          "❤️","❤️","❤️","❤️",
+          "💗","💖","💕","💘",
+          "🌹","🌹","🌹","🌹",
+          "😭","😭","🥹"
         ];
 
-
         const item =
-          document.createElement(
-            "div"
-          );
+          document.createElement("div");
 
-
-        item.className =
-          "falling";
-
+        item.className="falling";
 
         item.innerText =
           items[
             Math.floor(
-              Math.random() *
+              Math.random()*
               items.length
             )
           ];
 
-
         item.style.left =
           Math.random()*100+"vw";
 
-
         item.style.fontSize =
           (
-            20 +
+            20+
             Math.random()*30
           )+"px";
 
-
         item.style.animationDuration =
           (
-            2 +
+            2+
             Math.random()*2.5
           )+"s";
 
-
-        document.body.appendChild(
-          item
-        );
-
+        document.body.appendChild(item);
 
         setTimeout(
           function(){
-
             item.remove();
-
           },
           6000
         );
 
-
       },
       55
     );
-
 }
 
 
-
-/* ==================================================
-   STOP FALLING
-   ================================================== */
+/* =========================
+   STOP
+========================= */
 
 function stopFalling(){
 
   fallingActive=false;
 
-
   if(fallingTimer){
 
-    clearInterval(
-      fallingTimer
-    );
-
+    clearInterval(fallingTimer);
     fallingTimer=null;
-
   }
 
-
   document
-    .querySelectorAll(
-      ".falling"
-    )
-    .forEach(
-      function(item){
-
-        item.remove();
-
-      }
-    );
-
+  .querySelectorAll(".falling")
+  .forEach(
+    function(item){
+      item.remove();
+    }
+  );
 }
 
 
 document
-  .getElementById(
-    "stopBtn"
-  )
-  .addEventListener(
-    "click",
-    function(){
+.getElementById("stopBtn")
+.addEventListener(
+  "click",
+  function(){
 
-      stopFalling();
+    stopFalling();
 
+    document
+    .getElementById("stopBtn")
+    .innerText =
+    "STOPPED ❤️";
 
-      document
-        .getElementById(
-          "stopBtn"
-        )
-        .innerText =
-        "STOPPED ❤️";
-
-
-      document
-        .getElementById(
-          "continueAfterStop"
-        )
-        .classList
-        .remove("hidden");
-
-    }
-  );
+    document
+    .getElementById("continueAfterStop")
+    .classList
+    .remove("hidden");
+  }
+);
 
 
-
-/* ==================================================
-   CONTINUE → RING
-   ================================================== */
+/* =========================
+   CONTINUE
+========================= */
 
 document
-  .getElementById(
-    "continueAfterStop"
-  )
-  .addEventListener(
-    "click",
-    function(){
-
-      goTo(8);
-
-    }
-  );
+.getElementById("continueAfterStop")
+.addEventListener(
+  "click",
+  function(){
+    goTo(8);
+  }
+);
 
 
-
-/* ==================================================
+/* =========================
    RING PAGE NO
-   ================================================== */
+   PAPER/AREA KE ANDAR MOVE
+========================= */
 
 const acceptNo =
-  document.getElementById(
-    "acceptNo"
-  );
-
+  document.getElementById("acceptNo");
 
 acceptNo.addEventListener(
   "pointerdown",
   function(event){
 
-    moveNoButton(
+    moveNoInsidePaper(
       acceptNo,
       event
     );
 
   },
-  {
-    passive:false
-  }
+  {passive:false}
 );
-
 
 acceptNo.addEventListener(
   "touchstart",
   function(event){
 
-    moveNoButton(
+    moveNoInsidePaper(
       acceptNo,
       event
     );
 
   },
-  {
-    passive:false
-  }
+  {passive:false}
 );
-
 
 acceptNo.addEventListener(
   "click",
   function(event){
 
     event.preventDefault();
-
     event.stopPropagation();
 
   },
-  {
-    passive:false
-  }
+  {passive:false}
 );
 
 
-
-/* ==================================================
+/* =========================
    RING YES
-   ================================================== */
+========================= */
 
 document
-  .getElementById(
-    "acceptYes"
-  )
-  .addEventListener(
-    "click",
-    function(){
-
-      goTo(9);
-
-    }
-  );
+.getElementById("acceptYes")
+.addEventListener(
+  "click",
+  function(){
+    goTo(9);
+  }
+);
 
 </script>
 
