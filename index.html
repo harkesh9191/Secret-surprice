@@ -53,21 +53,10 @@ body{
   display:none!important;
 }
 
+
 /* =========================
-   FIRST PAGE
+   CAT + PAPER
 ========================= */
-
-.firstTitle{
-  font-size:30px;
-  margin:5px 0 5px;
-}
-
-.firstText{
-  margin:0 0 5px;
-  font-size:17px;
-}
-
-/* CAT + PAPER */
 
 .catPaperArea{
   position:relative;
@@ -82,36 +71,56 @@ body{
   width:100%;
   max-width:510px;
   height:auto;
-  max-height:690px;
+  max-height:700px;
   object-fit:contain;
   display:block;
 }
 
+
 /*
-   YES + NO paper ke andar.
-   Paper ki position ke hisaab se top ko adjust
-   kiya ja sakta hai.
+   YE POORA CONTENT CAT KE PAPER KE ANDAR HAI
 */
 
-.paperButtons{
+.paperContent{
   position:absolute;
+
   left:50%;
   top:58%;
+
   transform:translate(-50%,-50%);
 
   width:70%;
 
+  text-align:center;
+
+  z-index:20;
+}
+
+.proposalText{
+  font-size:18px;
+  font-weight:bold;
+  margin-bottom:12px;
+  color:#542337;
+  white-space:nowrap;
+}
+
+.paperButtons{
+  position:relative;
+
+  width:100%;
+  min-height:55px;
+
   display:flex;
   justify-content:center;
   align-items:center;
-  gap:12px;
+  gap:10px;
 
   z-index:20;
 }
 
 .paperButtons button{
-  min-width:90px;
-  padding:12px 17px;
+  min-width:82px;
+  padding:11px 15px;
 }
 
 
@@ -139,7 +148,7 @@ button{
 #acceptNo{
   background:#eeeeee;
   color:#555;
-  z-index:99999;
+  z-index:999999;
 }
 
 .nextBtn{
@@ -182,6 +191,7 @@ p{
   0%,100%{
     transform:scale(1);
   }
+
   50%{
     transform:scale(1.15);
   }
@@ -230,15 +240,20 @@ p{
   display:flex;
   justify-content:center;
   align-items:center;
+
   gap:10px;
 }
 
 .myPhoto{
   width:47%;
   height:180px;
+
   object-fit:cover;
+
   border-radius:20px;
+
   display:block;
+
   box-shadow:0 5px 18px rgba(80,20,45,.12);
 }
 
@@ -265,28 +280,43 @@ p{
 
 
 /* =========================
-   FALLING
+   FALLING HEARTS / ROSES
 ========================= */
 
 .falling{
   position:fixed;
   top:-70px;
+
   pointer-events:none;
+
   z-index:999999;
+
   animation:fallDown linear forwards;
 }
 
 @keyframes fallDown{
+
   0%{
-    transform:translateY(-70px) rotate(0deg);
+    transform:
+      translateY(-70px)
+      rotate(0deg);
+
     opacity:1;
   }
 
   100%{
-    transform:translateY(115vh) rotate(360deg);
+    transform:
+      translateY(115vh)
+      rotate(360deg);
+
     opacity:.95;
   }
 }
+
+
+/* =========================
+   STOP
+========================= */
 
 .stopBtn{
   background:#222;
@@ -302,8 +332,11 @@ p{
   width:100%;
   max-width:510px;
   max-height:620px;
+
   object-fit:contain;
+
   margin:0 auto 12px;
+
   display:block;
 }
 
@@ -331,14 +364,7 @@ p{
   .card{
     min-height:98vh;
     padding:12px;
-  }
-
-  .firstTitle{
-    font-size:25px;
-  }
-
-  .firstText{
-    font-size:15px;
+    border-radius:22px;
   }
 
   .catPaperImage{
@@ -347,15 +373,24 @@ p{
     max-height:700px;
   }
 
-  .paperButtons{
+  .paperContent{
+    width:72%;
     top:58%;
-    width:70%;
-    gap:8px;
+  }
+
+  .proposalText{
+    font-size:15px;
+    margin-bottom:8px;
+  }
+
+  .paperButtons{
+    min-height:50px;
+    gap:7px;
   }
 
   .paperButtons button{
-    min-width:82px;
-    padding:11px 14px;
+    min-width:76px;
+    padding:10px 12px;
     font-size:14px;
   }
 
@@ -382,20 +417,12 @@ p{
 
 
 <!-- ==================================================
-     PAGE 1
+     PAGE 1 — CAT PROPOSAL
 ================================================== -->
 
 <div class="screen" id="page1">
 
   <div class="card">
-
-    <h1 class="firstTitle">
-      Can I propose you? 🥺❤️
-    </h1>
-
-    <p class="firstText">
-      Ek baar dil se answer dena... ❤️
-    </p>
 
     <div class="catPaperArea">
 
@@ -405,22 +432,29 @@ p{
         alt="Cute cat holding paper"
       >
 
-      <!-- YES + NO PAPER KE ANDAR -->
+      <!-- PAPER KE ANDAR -->
+      <div class="paperContent">
 
-      <div class="paperButtons">
+        <div class="proposalText">
+          Can I propose you? ❤️
+        </div>
 
-        <button
-          class="yes"
-          id="yesBtn"
-        >
-          YES ❤️
-        </button>
+        <div class="paperButtons">
 
-        <button
-          id="noBtn"
-        >
-          NO 😭
-        </button>
+          <button
+            class="yes"
+            id="yesBtn"
+          >
+            YES ❤️
+          </button>
+
+          <button
+            id="noBtn"
+          >
+            NO 😭
+          </button>
+
+        </div>
 
       </div>
 
@@ -432,16 +466,20 @@ p{
 
 
 <!-- ==================================================
-     PAGE 2
+     PAGE 2 — NAME
 ================================================== -->
 
 <div class="screen hidden" id="page2">
 
   <div class="card">
 
-    <div class="heart">❤️</div>
+    <div class="heart">
+      ❤️
+    </div>
 
-    <h1>Yayyy! 🥹❤️</h1>
+    <h1>
+      Yayyy! 🥹❤️
+    </h1>
 
     <p>
       Ab ek chhoti si cheez batao...
@@ -471,8 +509,7 @@ p{
 
 
 <!-- ==================================================
-     PAGE 3
-     PHOTO 1 + PHOTO 2
+     PAGE 3 — SHAYARI + PHOTO 1 + PHOTO 2
 ================================================== -->
 
 <div class="screen hidden" id="page3">
@@ -538,8 +575,7 @@ p{
 
 
 <!-- ==================================================
-     PAGE 4
-     PHOTO 3 + PHOTO 4
+     PAGE 4 — SHAYARI + PHOTO 3 + PHOTO 4
 ================================================== -->
 
 <div class="screen hidden" id="page4">
@@ -608,8 +644,7 @@ p{
 
 
 <!-- ==================================================
-     PAGE 5
-     PHOTO 5 + PHOTO 6
+     PAGE 5 — SHAYARI + PHOTO 5 + PHOTO 6
 ================================================== -->
 
 <div class="screen hidden" id="page5">
@@ -692,14 +727,16 @@ p{
 
 
 <!-- ==================================================
-     PAGE 6 — VOICE
+     PAGE 6 — I LOVE YOU TOO
 ================================================== -->
 
 <div class="screen hidden" id="page6">
 
   <div class="card">
 
-    <div class="heart">❤️</div>
+    <div class="heart">
+      ❤️
+    </div>
 
     <h1>
       Now there's just one thing left... 🥺
@@ -746,7 +783,7 @@ p{
 
 
 <!-- ==================================================
-     PAGE 7 — FALLING
+     PAGE 7 — FALLING HEARTS + ROSES
 ================================================== -->
 
 <div class="screen hidden" id="page7">
@@ -839,7 +876,7 @@ p{
 
 
 <!-- ==================================================
-     PAGE 9
+     PAGE 9 — FINAL
 ================================================== -->
 
 <div class="screen hidden" id="page9">
@@ -887,7 +924,7 @@ p{
 <script>
 
 /* =========================
-   PAGE CHANGE
+   PAGE NAVIGATION
 ========================= */
 
 function goTo(number){
@@ -900,7 +937,6 @@ function goTo(number){
     if(page){
       page.classList.add("hidden");
     }
-
   }
 
   const target =
@@ -914,68 +950,53 @@ function goTo(number){
 
 /* =========================
    NO BUTTON
-   PAPER KE ANDAR HI MOVE
+   SCREEN PAR KAHIN BHI BHAAGEGA
 ========================= */
 
-function moveNoInsidePaper(button,event){
+function moveNoButton(button,event){
 
   if(event){
     event.preventDefault();
     event.stopPropagation();
   }
 
-  const area =
-    button.closest(".paperButtons");
+  button.style.position="fixed";
 
-  const buttons =
-    area.querySelectorAll("button");
-
-  const areaWidth =
-    area.clientWidth;
-
-  const areaHeight =
-    area.clientHeight;
-
-  /*
-    NO ko paper ke andar hi random jagah
-    move karenge.
-  */
+  button.style.zIndex="999999";
 
   const maxX =
-    Math.max(
-      0,
-      areaWidth -
-      button.offsetWidth
-    );
+    window.innerWidth -
+    button.offsetWidth -
+    10;
 
   const maxY =
-    Math.max(
-      0,
-      areaHeight -
-      button.offsetHeight
-    );
+    window.innerHeight -
+    button.offsetHeight -
+    10;
 
   const x =
-    Math.random()*maxX;
+    10 +
+    Math.random() *
+    Math.max(1,maxX);
 
   const y =
-    Math.random()*maxY;
+    10 +
+    Math.random() *
+    Math.max(1,maxY);
 
-  /*
-    Pehle button absolute hota hai.
-    Isliye woh gayab nahi hoga.
-  */
-
-  button.style.position="absolute";
   button.style.left=x+"px";
+
   button.style.top=y+"px";
-  button.style.transform="none";
+
+  button.innerText="NO NO NO 😭";
 
   return false;
 }
 
 
-/* FIRST NO */
+/* =========================
+   FIRST NO
+========================= */
 
 const noBtn =
   document.getElementById("noBtn");
@@ -983,32 +1004,45 @@ const noBtn =
 noBtn.addEventListener(
   "pointerdown",
   function(event){
-    moveNoInsidePaper(
+
+    moveNoButton(
       noBtn,
       event
     );
+
   },
-  {passive:false}
+  {
+    passive:false
+  }
 );
 
 noBtn.addEventListener(
   "touchstart",
   function(event){
-    moveNoInsidePaper(
+
+    moveNoButton(
       noBtn,
       event
     );
+
   },
-  {passive:false}
+  {
+    passive:false
+  }
 );
 
 noBtn.addEventListener(
   "click",
   function(event){
+
     event.preventDefault();
+
     event.stopPropagation();
+
   },
-  {passive:false}
+  {
+    passive:false
+  }
 );
 
 
@@ -1021,7 +1055,9 @@ document
 .addEventListener(
   "click",
   function(){
+
     goTo(2);
+
   }
 );
 
@@ -1053,12 +1089,13 @@ document
     }
 
     goTo(3);
+
   }
 );
 
 
 /* =========================
-   VOICE
+   VOICE RECOGNITION
 ========================= */
 
 const SpeechRecognition =
@@ -1066,6 +1103,7 @@ const SpeechRecognition =
   window.webkitSpeechRecognition;
 
 let recognition=null;
+
 let listening=false;
 
 if(SpeechRecognition){
@@ -1074,8 +1112,11 @@ if(SpeechRecognition){
     new SpeechRecognition();
 
   recognition.lang="en-US";
+
   recognition.continuous=false;
+
   recognition.interimResults=true;
+
 
   recognition.onstart=function(){
 
@@ -1093,6 +1134,7 @@ if(SpeechRecognition){
 
   };
 
+
   recognition.onresult=function(event){
 
     let transcript="";
@@ -1104,7 +1146,8 @@ if(SpeechRecognition){
     ){
 
       transcript +=
-        event.results[i][0].transcript;
+        event.results[i][0]
+        .transcript;
     }
 
     const clean =
@@ -1120,13 +1163,17 @@ if(SpeechRecognition){
     transcript+
     '"';
 
+
     const phrases=[
+
       "i love you too",
       "i love you to",
       "i love u too",
       "i love you two",
       "love you too"
+
     ];
+
 
     for(
       const phrase of phrases
@@ -1147,6 +1194,7 @@ if(SpeechRecognition){
           function(){
 
             goTo(7);
+
             startFalling();
 
           },
@@ -1158,6 +1206,7 @@ if(SpeechRecognition){
     }
   };
 
+
   recognition.onend=function(){
 
     listening=false;
@@ -1166,7 +1215,9 @@ if(SpeechRecognition){
     .getElementById("voiceBtn")
     .innerText =
     "🎤 SAY IT";
+
   };
+
 
   recognition.onerror=function(){
 
@@ -1181,11 +1232,14 @@ if(SpeechRecognition){
     .getElementById("listeningText")
     .innerText =
     "Couldn't hear that. Try again ❤️";
+
   };
 }
 
 
-/* VOICE BUTTON */
+/* =========================
+   VOICE BUTTON
+========================= */
 
 document
 .getElementById("voiceBtn")
@@ -1205,6 +1259,7 @@ document
     if(listening){
 
       recognition.stop();
+
       return;
     }
 
@@ -1214,16 +1269,19 @@ document
     "Listening...";
 
     recognition.start();
+
   }
 );
 
 
 /* =========================
-   FALLING HEARTS / ROSES
+   FALLING HEARTS + ROSES
 ========================= */
 
 let fallingTimer=null;
+
 let fallingActive=false;
+
 
 function startFalling(){
 
@@ -1238,10 +1296,23 @@ function startFalling(){
         }
 
         const items=[
-          "❤️","❤️","❤️","❤️",
-          "💗","💖","💕","💘",
-          "🌹","🌹","🌹","🌹",
-          "😭","😭","🥹"
+
+          "❤️",
+          "❤️",
+          "❤️",
+          "❤️",
+          "💗",
+          "💖",
+          "💕",
+          "💘",
+          "🌹",
+          "🌹",
+          "🌹",
+          "🌹",
+          "😭",
+          "😭",
+          "🥹"
+
         ];
 
         const item =
@@ -1252,7 +1323,7 @@ function startFalling(){
         item.innerText =
           items[
             Math.floor(
-              Math.random()*
+              Math.random() *
               items.length
             )
           ];
@@ -1276,7 +1347,9 @@ function startFalling(){
 
         setTimeout(
           function(){
+
             item.remove();
+
           },
           6000
         );
@@ -1297,7 +1370,10 @@ function stopFalling(){
 
   if(fallingTimer){
 
-    clearInterval(fallingTimer);
+    clearInterval(
+      fallingTimer
+    );
+
     fallingTimer=null;
   }
 
@@ -1305,7 +1381,9 @@ function stopFalling(){
   .querySelectorAll(".falling")
   .forEach(
     function(item){
+
       item.remove();
+
     }
   );
 }
@@ -1328,6 +1406,7 @@ document
     .getElementById("continueAfterStop")
     .classList
     .remove("hidden");
+
   }
 );
 
@@ -1341,54 +1420,66 @@ document
 .addEventListener(
   "click",
   function(){
+
     goTo(8);
+
   }
 );
 
 
 /* =========================
    RING PAGE NO
-   PAPER/AREA KE ANDAR MOVE
+   SCREEN PAR BHAAGEGA
 ========================= */
 
 const acceptNo =
   document.getElementById("acceptNo");
 
+
 acceptNo.addEventListener(
   "pointerdown",
   function(event){
 
-    moveNoInsidePaper(
+    moveNoButton(
       acceptNo,
       event
     );
 
   },
-  {passive:false}
+  {
+    passive:false
+  }
 );
+
 
 acceptNo.addEventListener(
   "touchstart",
   function(event){
 
-    moveNoInsidePaper(
+    moveNoButton(
       acceptNo,
       event
     );
 
   },
-  {passive:false}
+  {
+    passive:false
+  }
 );
+
 
 acceptNo.addEventListener(
   "click",
   function(event){
 
     event.preventDefault();
+
     event.stopPropagation();
 
   },
-  {passive:false}
+  {
+    passive:false
+  }
 );
 
 
@@ -1401,7 +1492,9 @@ document
 .addEventListener(
   "click",
   function(){
+
     goTo(9);
+
   }
 );
 
