@@ -3,15 +3,21 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>For You ❤️</title>
 
 <style>
+
+/* =========================
+   BASIC
+========================= */
+
 *{
   box-sizing:border-box;
   -webkit-tap-highlight-color:transparent;
 }
 
-html,body{
+html{
   margin:0;
   padding:0;
   width:100%;
@@ -19,34 +25,67 @@ html,body{
 }
 
 body{
+  margin:0;
+  padding:0;
+  width:100%;
+  min-height:100%;
+
   font-family:Arial,sans-serif;
-  background:linear-gradient(135deg,#ffdce8,#fff5f8);
+
+  background:linear-gradient(
+    135deg,
+    #ffdce8,
+    #fff5f8
+  );
+
   color:#542337;
-  overflow:hidden;
+
+  overflow-x:hidden;
+  overflow-y:auto;
 }
+
+
+/* =========================
+   PAGES
+========================= */
 
 .screen{
   width:100%;
   min-height:100vh;
+
   padding:8px;
+
   display:flex;
   justify-content:center;
   align-items:center;
+
+  overflow:visible;
 }
 
 .card{
   width:100%;
   max-width:520px;
+
   min-height:96vh;
+  height:auto;
+
   background:rgba(255,255,255,.97);
+
   border-radius:25px;
+
   padding:15px;
+
   text-align:center;
-  box-shadow:0 15px 50px rgba(80,20,45,.16);
+
+  box-shadow:
+    0 15px 50px
+    rgba(80,20,45,.16);
+
   display:flex;
   flex-direction:column;
   justify-content:center;
-  overflow:hidden;
+
+  overflow:visible;
 }
 
 .hidden{
@@ -55,31 +94,40 @@ body{
 
 
 /* =========================
+   FIRST PAGE
    CAT + PAPER
 ========================= */
 
 .catPaperArea{
   position:relative;
+
   width:100%;
+
   display:flex;
   justify-content:center;
   align-items:center;
+
   margin:auto;
+
+  overflow:visible;
 }
 
 .catPaperImage{
   width:100%;
   max-width:510px;
+
   height:auto;
   max-height:700px;
+
   object-fit:contain;
+
   display:block;
 }
 
 
-/*
-   YE POORA CONTENT CAT KE PAPER KE ANDAR HAI
-*/
+/* =========================
+   PAPER CONTENT
+========================= */
 
 .paperContent{
   position:absolute;
@@ -87,7 +135,8 @@ body{
   left:50%;
   top:58%;
 
-  transform:translate(-50%,-50%);
+  transform:
+    translate(-50%,-50%);
 
   width:70%;
 
@@ -98,9 +147,13 @@ body{
 
 .proposalText{
   font-size:18px;
+
   font-weight:bold;
+
   margin-bottom:12px;
+
   color:#542337;
+
   white-space:nowrap;
 }
 
@@ -108,11 +161,14 @@ body{
   position:relative;
 
   width:100%;
+
   min-height:55px;
 
   display:flex;
+
   justify-content:center;
   align-items:center;
+
   gap:10px;
 
   z-index:20;
@@ -120,6 +176,7 @@ body{
 
 .paperButtons button{
   min-width:82px;
+
   padding:11px 15px;
 }
 
@@ -130,12 +187,19 @@ body{
 
 button{
   border:0;
+
   border-radius:50px;
+
   padding:14px 24px;
+
   font-size:17px;
+
   font-weight:bold;
+
   cursor:pointer;
+
   touch-action:manipulation;
+
   user-select:none;
 }
 
@@ -147,14 +211,20 @@ button{
 #noBtn,
 #acceptNo{
   background:#eeeeee;
+
   color:#555;
+
   z-index:999999;
 }
 
 .nextBtn{
   width:100%;
+
   background:#ff4f81;
+
   color:white;
+
+  margin-top:10px;
 }
 
 
@@ -164,7 +234,9 @@ button{
 
 h1{
   font-size:29px;
+
   line-height:1.3;
+
   margin:10px 0;
 }
 
@@ -174,6 +246,7 @@ h2{
 
 p{
   font-size:17px;
+
   line-height:1.8;
 }
 
@@ -184,10 +257,13 @@ p{
 
 .heart{
   font-size:62px;
-  animation:heartbeat 1s infinite;
+
+  animation:
+    heartbeat 1s infinite;
 }
 
 @keyframes heartbeat{
+
   0%,100%{
     transform:scale(1);
   }
@@ -204,12 +280,21 @@ p{
 
 .nameInput{
   width:100%;
+
   padding:16px;
+
   margin:20px 0;
-  border:2px solid #ffd0df;
+
+  border:
+    2px solid
+    #ffd0df;
+
   border-radius:15px;
+
   outline:none;
+
   font-size:17px;
+
   text-align:center;
 }
 
@@ -224,8 +309,12 @@ p{
 
 .shayari{
   font-size:18px;
+
   line-height:1.9;
+
   font-style:italic;
+
+  margin-bottom:10px;
 }
 
 
@@ -235,9 +324,11 @@ p{
 
 .photoArea{
   width:100%;
+
   margin:12px 0 18px;
 
   display:flex;
+
   justify-content:center;
   align-items:center;
 
@@ -246,6 +337,7 @@ p{
 
 .myPhoto{
   width:47%;
+
   height:180px;
 
   object-fit:cover;
@@ -254,7 +346,9 @@ p{
 
   display:block;
 
-  box-shadow:0 5px 18px rgba(80,20,45,.12);
+  box-shadow:
+    0 5px 18px
+    rgba(80,20,45,.12);
 }
 
 
@@ -264,34 +358,42 @@ p{
 
 .mic{
   font-size:70px;
+
   margin:12px;
 }
 
 .listening{
   color:#ff4f81;
+
   font-weight:bold;
 }
 
 .voiceResult{
   min-height:25px;
+
   font-size:14px;
+
   opacity:.7;
 }
 
 
 /* =========================
-   FALLING HEARTS / ROSES
+   FALLING
 ========================= */
 
 .falling{
   position:fixed;
+
   top:-70px;
 
   pointer-events:none;
 
   z-index:999999;
 
-  animation:fallDown linear forwards;
+  animation:
+    fallDown
+    linear
+    forwards;
 }
 
 @keyframes fallDown{
@@ -320,6 +422,7 @@ p{
 
 .stopBtn{
   background:#222;
+
   color:white;
 }
 
@@ -330,12 +433,15 @@ p{
 
 .ringCat{
   width:100%;
+
   max-width:510px;
+
   max-height:620px;
 
   object-fit:contain;
 
-  margin:0 auto 12px;
+  margin:
+    0 auto 12px;
 
   display:block;
 }
@@ -347,6 +453,7 @@ p{
 
 .final{
   font-size:19px;
+
   line-height:2;
 }
 
@@ -357,40 +464,68 @@ p{
 
 @media(max-width:600px){
 
+  body{
+    overflow-x:hidden;
+
+    overflow-y:auto;
+  }
+
   .screen{
-    padding:5px;
+    min-height:100vh;
+
+    height:auto;
+
+    padding:8px 5px;
+
+    align-items:flex-start;
+
+    overflow:visible;
   }
 
   .card{
-    min-height:98vh;
+    min-height:96vh;
+
+    height:auto;
+
     padding:12px;
+
     border-radius:22px;
+
+    overflow:visible;
   }
 
   .catPaperImage{
     width:100%;
+
     max-width:100%;
+
     max-height:700px;
   }
 
   .paperContent{
     width:72%;
+
     top:58%;
   }
 
   .proposalText{
     font-size:15px;
+
     margin-bottom:8px;
   }
 
   .paperButtons{
     min-height:50px;
+
     gap:7px;
   }
 
   .paperButtons button{
     min-width:76px;
-    padding:10px 12px;
+
+    padding:
+      10px 12px;
+
     font-size:14px;
   }
 
@@ -404,23 +539,31 @@ p{
 
   .shayari{
     font-size:16.5px;
+
+    line-height:1.85;
   }
 
   .myPhoto{
     height:165px;
   }
 }
+
 </style>
 </head>
+
 
 <body>
 
 
 <!-- ==================================================
-     PAGE 1 — CAT PROPOSAL
+     PAGE 1
+     CAT PROPOSAL
 ================================================== -->
 
-<div class="screen" id="page1">
+<div
+  class="screen"
+  id="page1"
+>
 
   <div class="card">
 
@@ -432,12 +575,13 @@ p{
         alt="Cute cat holding paper"
       >
 
-      <!-- PAPER KE ANDAR -->
+
       <div class="paperContent">
 
         <div class="proposalText">
           Can I propose you? ❤️
         </div>
+
 
         <div class="paperButtons">
 
@@ -447,6 +591,7 @@ p{
           >
             YES ❤️
           </button>
+
 
           <button
             id="noBtn"
@@ -465,11 +610,16 @@ p{
 </div>
 
 
+
 <!-- ==================================================
-     PAGE 2 — NAME
+     PAGE 2
+     NAME
 ================================================== -->
 
-<div class="screen hidden" id="page2">
+<div
+  class="screen hidden"
+  id="page2"
+>
 
   <div class="card">
 
@@ -489,12 +639,14 @@ p{
       Tumhara naam? ❤️
     </p>
 
+
     <input
       id="nameInput"
       class="nameInput"
       maxlength="30"
       placeholder="Apna naam likho..."
     >
+
 
     <button
       id="nameNext"
@@ -508,17 +660,23 @@ p{
 </div>
 
 
+
 <!-- ==================================================
-     PAGE 3 — SHAYARI + PHOTO 1 + PHOTO 2
+     PAGE 3
+     SHAYARI + PHOTOS
 ================================================== -->
 
-<div class="screen hidden" id="page3">
+<div
+  class="screen hidden"
+  id="page3"
+>
 
   <div class="card">
 
     <h1 class="pageTitle">
       Bas ek baat kehni thi... ❤️
     </h1>
+
 
     <p class="shayari">
 
@@ -546,6 +704,7 @@ p{
 
     </p>
 
+
     <div class="photoArea">
 
       <img
@@ -562,6 +721,7 @@ p{
 
     </div>
 
+
     <button
       class="nextBtn"
       onclick="goTo(4)"
@@ -574,17 +734,22 @@ p{
 </div>
 
 
+
 <!-- ==================================================
-     PAGE 4 — SHAYARI + PHOTO 3 + PHOTO 4
+     PAGE 4
 ================================================== -->
 
-<div class="screen hidden" id="page4">
+<div
+  class="screen hidden"
+  id="page4"
+>
 
   <div class="card">
 
     <h1 class="pageTitle">
       Shayad ye one-sided hai... 💗
     </h1>
+
 
     <p class="shayari">
 
@@ -615,6 +780,7 @@ p{
 
     </p>
 
+
     <div class="photoArea">
 
       <img
@@ -631,6 +797,7 @@ p{
 
     </div>
 
+
     <button
       class="nextBtn"
       onclick="goTo(5)"
@@ -643,17 +810,22 @@ p{
 </div>
 
 
+
 <!-- ==================================================
-     PAGE 5 — SHAYARI + PHOTO 5 + PHOTO 6
+     PAGE 5
 ================================================== -->
 
-<div class="screen hidden" id="page5">
+<div
+  class="screen hidden"
+  id="page5"
+>
 
   <div class="card">
 
     <h1 class="pageTitle">
       Aur agar kabhi poochho... ❤️
     </h1>
+
 
     <p class="shayari">
 
@@ -698,6 +870,7 @@ p{
 
     </p>
 
+
     <div class="photoArea">
 
       <img
@@ -714,6 +887,7 @@ p{
 
     </div>
 
+
     <button
       class="nextBtn"
       onclick="goTo(6)"
@@ -726,11 +900,16 @@ p{
 </div>
 
 
+
 <!-- ==================================================
-     PAGE 6 — I LOVE YOU TOO
+     PAGE 6
+     VOICE
 ================================================== -->
 
-<div class="screen hidden" id="page6">
+<div
+  class="screen hidden"
+  id="page6"
+>
 
   <div class="card">
 
@@ -738,9 +917,11 @@ p{
       ❤️
     </div>
 
+
     <h1>
       Now there's just one thing left... 🥺
     </h1>
+
 
     <p>
       <strong>
@@ -748,13 +929,16 @@ p{
       </strong>
     </p>
 
+
     <h1>
       "I love you too" ❤️
     </h1>
 
+
     <div class="mic">
       🎤
     </div>
+
 
     <p
       class="listening"
@@ -763,12 +947,14 @@ p{
       Tap the button and say it ❤️
     </p>
 
+
     <button
       class="nextBtn"
       id="voiceBtn"
     >
       🎤 SAY IT
     </button>
+
 
     <p
       class="voiceResult"
@@ -782,11 +968,16 @@ p{
 </div>
 
 
+
 <!-- ==================================================
-     PAGE 7 — FALLING HEARTS + ROSES
+     PAGE 7
+     FALLING
 ================================================== -->
 
-<div class="screen hidden" id="page7">
+<div
+  class="screen hidden"
+  id="page7"
+>
 
   <div class="card">
 
@@ -794,17 +985,21 @@ p{
       😭❤️🌹
     </div>
 
+
     <h1>
       You actually said it... 🥹❤️
     </h1>
+
 
     <p>
       Now look what you've done... 😭
     </p>
 
+
     <h2>
       Everything is falling for you. ❤️🌹
     </h2>
+
 
     <p>
       <strong>
@@ -812,12 +1007,14 @@ p{
       </strong>
     </p>
 
+
     <button
       class="stopBtn"
       id="stopBtn"
     >
       STOP ✋
     </button>
+
 
     <button
       class="nextBtn hidden"
@@ -831,11 +1028,16 @@ p{
 </div>
 
 
+
 <!-- ==================================================
-     PAGE 8 — RING CAT
+     PAGE 8
+     RING
 ================================================== -->
 
-<div class="screen hidden" id="page8">
+<div
+  class="screen hidden"
+  id="page8"
+>
 
   <div class="card">
 
@@ -845,13 +1047,16 @@ p{
       alt="Cute cat holding a ring"
     >
 
+
     <h1>
       Can you accept? 💍❤️
     </h1>
 
+
     <p>
       One last little question... 🥺
     </p>
+
 
     <div class="paperButtons">
 
@@ -861,6 +1066,7 @@ p{
       >
         YES ❤️
       </button>
+
 
       <button
         id="acceptNo"
@@ -875,11 +1081,15 @@ p{
 </div>
 
 
+
 <!-- ==================================================
-     PAGE 9 — FINAL
+     PAGE 9
 ================================================== -->
 
-<div class="screen hidden" id="page9">
+<div
+  class="screen hidden"
+  id="page9"
+>
 
   <div class="card">
 
@@ -887,9 +1097,11 @@ p{
       💖
     </div>
 
+
     <h1>
       Thank You ❤️
     </h1>
+
 
     <p class="final">
 
@@ -912,6 +1124,7 @@ p{
 
     </p>
 
+
     <h2>
       ❤️🌹
     </h2>
@@ -921,85 +1134,140 @@ p{
 </div>
 
 
+
 <script>
 
-/* =========================
+/* ==================================================
    PAGE NAVIGATION
-========================= */
+================================================== */
 
 function goTo(number){
 
-  for(let i=1;i<=9;i++){
+  for(
+    let i=1;
+    i<=9;
+    i++
+  ){
 
     const page =
-      document.getElementById("page"+i);
+      document.getElementById(
+        "page"+i
+      );
 
     if(page){
-      page.classList.add("hidden");
+
+      page.classList.add(
+        "hidden"
+      );
+
     }
+
   }
+
 
   const target =
-    document.getElementById("page"+number);
+    document.getElementById(
+      "page"+number
+    );
+
 
   if(target){
-    target.classList.remove("hidden");
+
+    target.classList.remove(
+      "hidden"
+    );
+
+    window.scrollTo({
+      top:0,
+      behavior:"instant"
+    });
+
   }
+
 }
 
 
-/* =========================
-   NO BUTTON
-   SCREEN PAR KAHIN BHI BHAAGEGA
-========================= */
 
-function moveNoButton(button,event){
+/* ==================================================
+   NO BUTTON
+   MOBILE TOUCH + DESKTOP CLICK
+================================================== */
+
+function moveNoButton(
+  button,
+  event
+){
 
   if(event){
+
     event.preventDefault();
+
     event.stopPropagation();
+
   }
+
 
   button.style.position="fixed";
 
   button.style.zIndex="999999";
+
 
   const maxX =
     window.innerWidth -
     button.offsetWidth -
     10;
 
+
   const maxY =
     window.innerHeight -
     button.offsetHeight -
     10;
 
+
   const x =
     10 +
     Math.random() *
-    Math.max(1,maxX);
+    Math.max(
+      1,
+      maxX
+    );
+
 
   const y =
     10 +
     Math.random() *
-    Math.max(1,maxY);
+    Math.max(
+      1,
+      maxY
+    );
 
-  button.style.left=x+"px";
 
-  button.style.top=y+"px";
+  button.style.left =
+    x+"px";
 
-  button.innerText="NO NO NO 😭";
+
+  button.style.top =
+    y+"px";
+
+
+  button.innerText =
+    "NO NO NO 😭";
+
 
   return false;
 }
 
 
-/* =========================
+
+/* ==================================================
    FIRST NO
-========================= */
+================================================== */
 
 const noBtn =
-  document.getElementById("noBtn");
+  document.getElementById(
+    "noBtn"
+  );
+
 
 noBtn.addEventListener(
   "pointerdown",
@@ -1016,6 +1284,7 @@ noBtn.addEventListener(
   }
 );
 
+
 noBtn.addEventListener(
   "touchstart",
   function(event){
@@ -1030,6 +1299,7 @@ noBtn.addEventListener(
     passive:false
   }
 );
+
 
 noBtn.addEventListener(
   "click",
@@ -1046,12 +1316,15 @@ noBtn.addEventListener(
 );
 
 
-/* =========================
+
+/* ==================================================
    YES
-========================= */
+================================================== */
 
 document
-.getElementById("yesBtn")
+.getElementById(
+  "yesBtn"
+)
 .addEventListener(
   "click",
   function(){
@@ -1062,31 +1335,40 @@ document
 );
 
 
-/* =========================
+
+/* ==================================================
    NAME
-========================= */
+================================================== */
 
 document
-.getElementById("nameNext")
+.getElementById(
+  "nameNext"
+)
 .addEventListener(
   "click",
   function(){
 
     const name =
       document
-      .getElementById("nameInput")
+      .getElementById(
+        "nameInput"
+      )
       .value
       .trim();
+
 
     if(name===""){
 
       document
-      .getElementById("nameInput")
+      .getElementById(
+        "nameInput"
+      )
       .placeholder =
       "Pehle naam toh likho 🥺❤️";
 
       return;
     }
+
 
     goTo(3);
 
@@ -1094,50 +1376,68 @@ document
 );
 
 
-/* =========================
+
+/* ==================================================
    VOICE RECOGNITION
-========================= */
+================================================== */
 
 const SpeechRecognition =
   window.SpeechRecognition ||
   window.webkitSpeechRecognition;
 
+
 let recognition=null;
 
 let listening=false;
+
 
 if(SpeechRecognition){
 
   recognition =
     new SpeechRecognition();
 
-  recognition.lang="en-US";
 
-  recognition.continuous=false;
-
-  recognition.interimResults=true;
+  recognition.lang =
+    "en-US";
 
 
-  recognition.onstart=function(){
+  recognition.continuous =
+    false;
+
+
+  recognition.interimResults =
+    true;
+
+
+  recognition.onstart =
+  function(){
 
     listening=true;
 
+
     document
-    .getElementById("listeningText")
+    .getElementById(
+      "listeningText"
+    )
     .innerText =
     "🎤 Listening... Say it ❤️";
 
+
     document
-    .getElementById("voiceBtn")
+    .getElementById(
+      "voiceBtn"
+    )
     .innerText =
     "🎤 Listening...";
 
   };
 
 
-  recognition.onresult=function(event){
+  recognition.onresult =
+  function(event){
 
     let transcript="";
+
 
     for(
       let i=event.resultIndex;
@@ -1148,16 +1448,24 @@ if(SpeechRecognition){
       transcript +=
         event.results[i][0]
         .transcript;
+
     }
+
 
     const clean =
       transcript
       .toLowerCase()
-      .replace(/[.,!?]/g,"")
+      .replace(
+        /[.,!?]/g,
+        ""
+      )
       .trim();
 
+
     document
-    .getElementById("voiceResult")
+    .getElementById(
+      "voiceResult"
+    )
     .innerText =
     'Heard: "'+
     transcript+
@@ -1176,19 +1484,29 @@ if(SpeechRecognition){
 
 
     for(
-      const phrase of phrases
+      const phrase
+      of phrases
     ){
 
-      if(clean.includes(phrase)){
+      if(
+        clean.includes(
+          phrase
+        )
+      ){
 
         recognition.stop();
 
+
         listening=false;
 
+
         document
-        .getElementById("listeningText")
+        .getElementById(
+          "listeningText"
+        )
         .innerText =
         "❤️ I heard you...";
+
 
         setTimeout(
           function(){
@@ -1201,72 +1519,100 @@ if(SpeechRecognition){
           600
         );
 
+
         break;
+
       }
+
     }
+
   };
 
 
-  recognition.onend=function(){
+  recognition.onend =
+  function(){
 
     listening=false;
 
+
     document
-    .getElementById("voiceBtn")
+    .getElementById(
+      "voiceBtn"
+    )
     .innerText =
     "🎤 SAY IT";
 
   };
 
 
-  recognition.onerror=function(){
+  recognition.onerror =
+  function(){
 
     listening=false;
 
+
     document
-    .getElementById("voiceBtn")
+    .getElementById(
+      "voiceBtn"
+    )
     .innerText =
     "🎤 TRY AGAIN";
 
+
     document
-    .getElementById("listeningText")
+    .getElementById(
+      "listeningText"
+    )
     .innerText =
     "Couldn't hear that. Try again ❤️";
 
   };
+
 }
 
 
-/* =========================
+
+/* ==================================================
    VOICE BUTTON
-========================= */
+================================================== */
 
 document
-.getElementById("voiceBtn")
+.getElementById(
+  "voiceBtn"
+)
 .addEventListener(
   "click",
   function(){
 
-    if(!SpeechRecognition){
+    if(
+      !SpeechRecognition
+    ){
 
       alert(
         "Please use Android Chrome for voice recognition."
       );
 
       return;
+
     }
+
 
     if(listening){
 
       recognition.stop();
 
       return;
+
     }
 
+
     document
-    .getElementById("voiceResult")
+    .getElementById(
+      "voiceResult"
+    )
     .innerText =
     "Listening...";
+
 
     recognition.start();
 
@@ -1274,9 +1620,10 @@ document
 );
 
 
-/* =========================
-   FALLING HEARTS + ROSES
-========================= */
+
+/* ==================================================
+   FALLING
+================================================== */
 
 let fallingTimer=null;
 
@@ -1287,13 +1634,17 @@ function startFalling(){
 
   fallingActive=true;
 
+
   fallingTimer =
     setInterval(
       function(){
 
-        if(!fallingActive){
+        if(
+          !fallingActive
+        ){
           return;
         }
+
 
         const items=[
 
@@ -1315,10 +1666,16 @@ function startFalling(){
 
         ];
 
-        const item =
-          document.createElement("div");
 
-        item.className="falling";
+        const item =
+          document.createElement(
+            "div"
+          );
+
+
+        item.className =
+          "falling";
+
 
         item.innerText =
           items[
@@ -1328,22 +1685,37 @@ function startFalling(){
             )
           ];
 
+
         item.style.left =
-          Math.random()*100+"vw";
+          Math.random() *
+          100 +
+          "vw";
+
 
         item.style.fontSize =
           (
-            20+
-            Math.random()*30
-          )+"px";
+            20 +
+            Math.random() *
+            30
+          ) +
+          "px";
+
 
         item.style.animationDuration =
           (
-            2+
-            Math.random()*2.5
-          )+"s";
+            2 +
+            Math.random() *
+            2.5
+          ) +
+          "s";
 
-        document.body.appendChild(item);
+
+        document
+        .body
+        .appendChild(
+          item
+        );
+
 
         setTimeout(
           function(){
@@ -1357,16 +1729,19 @@ function startFalling(){
       },
       55
     );
+
 }
 
 
-/* =========================
+
+/* ==================================================
    STOP
-========================= */
+================================================== */
 
 function stopFalling(){
 
   fallingActive=false;
+
 
   if(fallingTimer){
 
@@ -1375,10 +1750,14 @@ function stopFalling(){
     );
 
     fallingTimer=null;
+
   }
 
+
   document
-  .querySelectorAll(".falling")
+  .querySelectorAll(
+    ".falling"
+  )
   .forEach(
     function(item){
 
@@ -1386,37 +1765,51 @@ function stopFalling(){
 
     }
   );
+
 }
 
 
 document
-.getElementById("stopBtn")
+.getElementById(
+  "stopBtn"
+)
 .addEventListener(
   "click",
   function(){
 
     stopFalling();
 
+
     document
-    .getElementById("stopBtn")
+    .getElementById(
+      "stopBtn"
+    )
     .innerText =
     "STOPPED ❤️";
 
+
     document
-    .getElementById("continueAfterStop")
+    .getElementById(
+      "continueAfterStop"
+    )
     .classList
-    .remove("hidden");
+    .remove(
+      "hidden"
+    );
 
   }
 );
 
 
-/* =========================
-   CONTINUE
-========================= */
+
+/* ==================================================
+   CONTINUE AFTER STOP
+================================================== */
 
 document
-.getElementById("continueAfterStop")
+.getElementById(
+  "continueAfterStop"
+)
 .addEventListener(
   "click",
   function(){
@@ -1427,13 +1820,15 @@ document
 );
 
 
-/* =========================
+
+/* ==================================================
    RING PAGE NO
-   SCREEN PAR BHAAGEGA
-========================= */
+================================================== */
 
 const acceptNo =
-  document.getElementById("acceptNo");
+  document.getElementById(
+    "acceptNo"
+  );
 
 
 acceptNo.addEventListener(
@@ -1483,12 +1878,15 @@ acceptNo.addEventListener(
 );
 
 
-/* =========================
+
+/* ==================================================
    RING YES
-========================= */
+================================================== */
 
 document
-.getElementById("acceptYes")
+.getElementById(
+  "acceptYes"
+)
 .addEventListener(
   "click",
   function(){
