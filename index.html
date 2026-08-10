@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
 <meta charset="UTF-8">
 
 <meta name="viewport"
-content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+content="width=device-width,
+initial-scale=1.0,
+maximum-scale=1.0,
+user-scalable=no">
 
 <title>For You ❤️</title>
 
@@ -58,6 +60,7 @@ body{
   padding:12px;
   text-align:center;
   box-shadow:0 15px 50px rgba(80,20,45,.16);
+
   display:flex;
   flex-direction:column;
   justify-content:center;
@@ -117,7 +120,9 @@ p{
   left:50%;
   top:64%;
   transform:translate(-50%,-50%);
-  width:73%;
+
+  width:74%;
+
   text-align:center;
   z-index:20;
 }
@@ -134,27 +139,40 @@ p{
   margin-bottom:8px;
 }
 
-/* YES + NO EXACT SAME LEVEL */
+
+/*
+   YES + NO
+   START SAME LEVEL
+*/
 
 .paperButtons{
+  position:relative;
+
+  width:100%;
+  min-height:46px;
+
   display:flex;
   justify-content:center;
   align-items:center;
+
   gap:9px;
-  width:100%;
-  min-height:45px;
 }
 
 #noBtn{
   position:relative;
+
   left:auto;
   top:auto;
   right:auto;
   bottom:auto;
+
   margin:0;
+
   background:#eeeeee;
   color:#555;
+
   z-index:50;
+
   white-space:nowrap;
 }
 
@@ -165,16 +183,21 @@ p{
 
 .photoArea{
   width:100%;
+
   display:flex;
-  gap:8px;
   justify-content:center;
+
+  gap:8px;
+
   margin:12px 0;
 }
 
 .myPhoto{
   width:48%;
   height:180px;
+
   object-fit:cover;
+
   border-radius:18px;
 }
 
@@ -204,7 +227,6 @@ p{
 ========================= */
 
 #page7{
-  position:relative;
   overflow:visible;
 }
 
@@ -212,7 +234,7 @@ p{
   position:fixed;
 
   left:0;
-  top:-60px;
+  top:-70px;
 
   pointer-events:none;
   user-select:none;
@@ -234,6 +256,7 @@ p{
     transform:
       translate3d(0,-70px,0)
       rotate(0deg);
+
     opacity:1;
   }
 
@@ -241,9 +264,9 @@ p{
     transform:
       translate3d(0,var(--distance),0)
       rotate(var(--rotation));
+
     opacity:1;
   }
-
 }
 
 
@@ -251,38 +274,26 @@ p{
    CELEBRATION
 ========================= */
 
-#celebrationPage{
-  position:relative;
-  overflow:hidden;
-}
-
-.celebrationCard{
-  position:relative;
-  z-index:5;
-}
-
 .celebrateEmoji{
   position:fixed;
 
   left:50%;
   top:45%;
 
-  font-size:25px;
-
   pointer-events:none;
 
   z-index:9999999999;
 
   animation:
-    burst 1.5s ease-out forwards;
+    celebrateBurst 1.6s ease-out forwards;
 }
 
-@keyframes burst{
+@keyframes celebrateBurst{
 
   0%{
     transform:
       translate(-50%,-50%)
-      scale(.2)
+      scale:.2)
       rotate(0deg);
 
     opacity:1;
@@ -295,11 +306,10 @@ p{
         calc(-50% + var(--y))
       )
       scale(1.2)
-      rotate(var(--rotate));
+      rotate(var(--rotation));
 
     opacity:0;
   }
-
 }
 
 
@@ -309,46 +319,63 @@ p{
 
 #ringArea{
   position:relative;
+
   width:100%;
+
   overflow:hidden;
+
   border-radius:20px;
 }
 
 .ringCat{
   width:100%;
   height:auto;
+
   display:block;
 }
 
 .ringContent{
   position:absolute;
+
   left:50%;
   top:78%;
+
   transform:translate(-50%,-50%);
-  width:73%;
+
+  width:74%;
+
   text-align:center;
+
   z-index:20;
 }
 
 .ringButtons{
+  position:relative;
+
+  width:100%;
+  min-height:46px;
+
   display:flex;
   justify-content:center;
   align-items:center;
+
   gap:9px;
-  width:100%;
-  min-height:45px;
 }
 
 #acceptNo{
   position:relative;
+
   left:auto;
   top:auto;
-  right:auto;
-  bottom:auto;
+
   margin:0;
+
   background:#eeeeee;
   color:#555;
+
   z-index:50;
+
+  white-space:nowrap;
 }
 
 
@@ -358,6 +385,7 @@ p{
 
 #page10{
   position:fixed;
+
   inset:0;
 
   width:100vw;
@@ -396,13 +424,16 @@ p{
   .screen{
     min-height:100vh;
     min-height:100dvh;
+
     padding:4px;
+
     align-items:flex-start;
   }
 
   .card{
     min-height:98vh;
     min-height:98dvh;
+
     padding:10px;
   }
 
@@ -436,19 +467,6 @@ p{
   .myPhoto{
     height:165px;
   }
-
-}
-
-
-/* =========================
-   STOP STATUS
-========================= */
-
-#stopStatus{
-  min-height:24px;
-  color:#ff4f81;
-  font-weight:bold;
-  font-size:14px;
 }
 
 </style>
@@ -458,11 +476,11 @@ p{
 <body>
 
 
-<!-- =================================
+<!-- =================================================
      PAGE 1
-================================= -->
+================================================= -->
 
-<div class="screen" id="page1">
+<section class="screen" id="page1">
 
   <div class="card">
 
@@ -483,13 +501,11 @@ p{
           Soch samajh ke answer dena 🥺❤️
         </div>
 
-        <!-- YES + NO SAME LEVEL -->
-
         <div class="paperButtons">
 
           <button
-            class="yes"
-            id="yesBtn">
+            id="yesBtn"
+            class="yes">
             YES ❤️
           </button>
 
@@ -506,21 +522,19 @@ p{
 
   </div>
 
-</div>
+</section>
 
 
-<!-- =================================
+<!-- =================================================
      PAGE 2
      THANK YOU + CELEBRATION
-================================= -->
+================================================= -->
 
-<div
-  class="screen hidden"
-  id="celebrationPage">
+<section class="screen hidden" id="page2">
 
-  <div class="card celebrationCard">
+  <div class="card">
 
-    <div style="font-size:70px;">
+    <div style="font-size:65px;">
       💖
     </div>
 
@@ -529,39 +543,36 @@ p{
     </h1>
 
     <p>
-      Mera proposal accept karne ke
-      liye bahut bahut dhanyawaad. 🥹❤️
+      Mera proposal accept karne ke liye
+      bahut bahut dhanyawaad. 🥹❤️
     </p>
 
-    <p style="
-      font-size:19px;
-      font-weight:bold;
-    ">
+    <p style="font-size:19px;font-weight:bold;">
       Tum meri crush se bhi zyada
-      special ho... 🌹
+      special ho... 🌹✨
     </p>
 
     <p>
-      Aaj ka ye moment main
-      hamesha yaad rakhunga. ✨
+      Aaj ka ye beautiful moment
+      main hamesha yaad rakhunga. 💖
     </p>
 
     <button
-      class="nextBtn"
-      id="celebrationNext">
+      id="celebrationNext"
+      class="nextBtn">
       NEXT 💌
     </button>
 
   </div>
 
-</div>
+</section>
 
 
-<!-- =================================
+<!-- =================================================
      PAGE 3
-================================= -->
+================================================= -->
 
-<div class="screen hidden" id="page3">
+<section class="screen hidden" id="page3">
 
   <div class="card">
 
@@ -605,14 +616,14 @@ p{
 
   </div>
 
-</div>
+</section>
 
 
-<!-- =================================
+<!-- =================================================
      PAGE 4
-================================= -->
+================================================= -->
 
-<div class="screen hidden" id="page4">
+<section class="screen hidden" id="page4">
 
   <div class="card">
 
@@ -654,14 +665,14 @@ p{
 
   </div>
 
-</div>
+</section>
 
 
-<!-- =================================
+<!-- =================================================
      PAGE 5
-================================= -->
+================================================= -->
 
-<div class="screen hidden" id="page5">
+<section class="screen hidden" id="page5">
 
   <div class="card">
 
@@ -709,15 +720,15 @@ p{
 
   </div>
 
-</div>
+</section>
 
 
-<!-- =================================
+<!-- =================================================
      PAGE 6
      I LOVE YOU TOO
-================================= -->
+================================================= -->
 
-<div class="screen hidden" id="page6">
+<section class="screen hidden" id="page6">
 
   <div class="card">
 
@@ -756,15 +767,15 @@ p{
 
   </div>
 
-</div>
+</section>
 
 
-<!-- =================================
+<!-- =================================================
      PAGE 7
      EMOJI RAIN
-================================= -->
+================================================= -->
 
-<div class="screen hidden" id="page7">
+<section class="screen hidden" id="page7">
 
   <div class="card">
 
@@ -803,15 +814,15 @@ p{
 
   </div>
 
-</div>
+</section>
 
 
-<!-- =================================
+<!-- =================================================
      PAGE 8
      RING
-================================= -->
+================================================= -->
 
-<div class="screen hidden" id="page8">
+<section class="screen hidden" id="page8">
 
   <div class="card">
 
@@ -831,8 +842,6 @@ p{
         <div class="answerText">
           Soch samajh ke answer dena 🥺
         </div>
-
-        <!-- YES + NO SAME LEVEL -->
 
         <div class="ringButtons">
 
@@ -855,14 +864,14 @@ p{
 
   </div>
 
-</div>
+</section>
 
 
-<!-- =================================
+<!-- =================================================
      PAGE 9
-================================= -->
+================================================= -->
 
-<div class="screen hidden" id="page9">
+<section class="screen hidden" id="page9">
 
   <div class="card">
 
@@ -892,14 +901,15 @@ p{
 
   </div>
 
-</div>
+</section>
 
 
-<!-- =================================
-     PAGE 10 VIDEO
-================================= -->
+<!-- =================================================
+     PAGE 10
+     FINAL VIDEO
+================================================= -->
 
-<div
+<section
   class="screen hidden"
   id="page10">
 
@@ -916,67 +926,56 @@ p{
 
   </video>
 
-</div>
+</section>
 
 
 <script>
 
-/* =================================
-   PAGE CHANGE
-================================= */
+/* =================================================
+   PAGE SYSTEM
+================================================= */
 
-function goTo(n){
+function goTo(number){
 
-  for(let i=1;i<=10;i++){
+  /*
+    Hide EVERY page
+  */
 
-    const page=
-      document.getElementById(
-        "page"+i
-      );
+  document
+    .querySelectorAll(".screen")
+    .forEach(function(page){
 
-    if(page){
       page.classList.add("hidden");
-    }
 
-  }
+    });
 
-  const celebration=
+
+  /*
+    Show requested page
+  */
+
+  const target=
     document.getElementById(
-      "celebrationPage"
+      "page"+number
     );
 
-  if(n===2){
+  if(target){
 
-    celebration.classList.remove(
+    target.classList.remove(
       "hidden"
     );
 
-    startCelebration();
-
   }
-  else{
 
-    const page=
-      document.getElementById(
-        "page"+n
-      );
-
-    if(page){
-      page.classList.remove(
-        "hidden"
-      );
-    }
-
-  }
 
   window.scrollTo(0,0);
 
 }
 
 
-/* =================================
+/* =================================================
    PAGE 1 YES
-================================= */
+================================================= */
 
 document
 .getElementById("yesBtn")
@@ -986,14 +985,15 @@ document
 
     goTo(2);
 
+    startCelebration();
+
   }
 );
 
 
-/* =================================
+/* =================================================
    PAPER NO
-   ONLY PAPER KE ANDAR
-================================= */
+================================================= */
 
 const noBtn=
   document.getElementById(
@@ -1006,36 +1006,56 @@ const paperArea=
   );
 
 
-function movePaperNo(e){
+function movePaperNo(event){
 
-  e.preventDefault();
-  e.stopPropagation();
+  event.preventDefault();
+  event.stopPropagation();
+
 
   const area=
     paperArea.getBoundingClientRect();
 
-  const btn=
+  const button=
     noBtn.getBoundingClientRect();
 
+
+  /*
+    Paper ke andar hi maximum area
+  */
+
   const maxX=
-    area.width-
-    btn.width-
-    8;
+    Math.max(
+      8,
+      area.width-
+      button.width-
+      8
+    );
 
   const maxY=
-    area.height-
-    btn.height-
-    8;
+    Math.max(
+      8,
+      area.height-
+      button.height-
+      8
+    );
+
 
   const x=
     8+
     Math.random()*
-    Math.max(1,maxX-8);
+    Math.max(
+      1,
+      maxX-8
+    );
 
   const y=
     8+
     Math.random()*
-    Math.max(1,maxY-8);
+    Math.max(
+      1,
+      maxY-8
+    );
+
 
   noBtn.style.position=
     "absolute";
@@ -1055,18 +1075,13 @@ noBtn.addEventListener(
   {passive:false}
 );
 
-noBtn.addEventListener(
-  "touchstart",
-  movePaperNo,
-  {passive:false}
-);
 
-
-/* =================================
-   CELEBRATION BURST
-================================= */
+/* =================================================
+   CELEBRATION
+================================================= */
 
 const celebrationItems=[
+
   "🎉",
   "✨",
   "💖",
@@ -1079,19 +1094,19 @@ const celebrationItems=[
   "💍",
   "🩷",
   "🫶"
+
 ];
 
 
 function startCelebration(){
 
   /*
-    Multiple bursts
-    like sparkling celebration
+    6 separate bursts
   */
 
   for(
     let burst=0;
-    burst<5;
+    burst<6;
     burst++
   ){
 
@@ -1100,7 +1115,7 @@ function startCelebration(){
 
         for(
           let i=0;
-          i<22;
+          i<24;
           i++
         ){
 
@@ -1109,7 +1124,7 @@ function startCelebration(){
         }
 
       },
-      burst*350
+      burst*300
     );
 
   }
@@ -1119,15 +1134,15 @@ function startCelebration(){
 
 function createCelebrationEmoji(){
 
-  const e=
+  const emoji=
     document.createElement(
       "div"
     );
 
-  e.className=
+  emoji.className=
     "celebrateEmoji";
 
-  e.innerText=
+  emoji.innerText=
     celebrationItems[
       Math.floor(
         Math.random()*
@@ -1142,29 +1157,25 @@ function createCelebrationEmoji(){
 
   const distance=
     100+
-    Math.random()*280;
-
-  const x=
-    Math.cos(angle)*
-    distance;
-
-  const y=
-    Math.sin(angle)*
-    distance;
+    Math.random()*300;
 
 
-  e.style.setProperty(
+  emoji.style.setProperty(
     "--x",
-    x+"px"
+    Math.cos(angle)*
+    distance+
+    "px"
   );
 
-  e.style.setProperty(
+  emoji.style.setProperty(
     "--y",
-    y+"px"
+    Math.sin(angle)*
+    distance+
+    "px"
   );
 
-  e.style.setProperty(
-    "--rotate",
+  emoji.style.setProperty(
+    "--rotation",
     (
       -360+
       Math.random()*720
@@ -1172,13 +1183,22 @@ function createCelebrationEmoji(){
   );
 
 
-  document.body.appendChild(e);
+  emoji.style.fontSize=
+    (
+      20+
+      Math.random()*18
+    )+"px";
+
+
+  document.body.appendChild(
+    emoji
+  );
 
 
   setTimeout(
     function(){
 
-      e.remove();
+      emoji.remove();
 
     },
     1700
@@ -1187,9 +1207,9 @@ function createCelebrationEmoji(){
 }
 
 
-/* =================================
+/* =================================================
    CELEBRATION NEXT
-================================= */
+================================================= */
 
 document
 .getElementById(
@@ -1205,40 +1225,45 @@ document
 );
 
 
-/* =================================
-   I LOVE YOU TOO VOICE
-================================= */
+/* =================================================
+   SPEECH RECOGNITION
+================================================= */
 
 const SpeechRecognition=
   window.SpeechRecognition ||
   window.webkitSpeechRecognition;
 
-let loveRec=null;
-let loveRunning=false;
+
+/* =================================================
+   I LOVE YOU TOO
+================================================= */
+
+let loveRecognition=null;
+let loveListening=false;
 
 
 if(SpeechRecognition){
 
-  loveRec=
+  loveRecognition=
     new SpeechRecognition();
 
-  loveRec.lang=
+  loveRecognition.lang=
     "en-US";
 
-  loveRec.continuous=
+  loveRecognition.continuous=
     false;
 
-  loveRec.interimResults=
+  loveRecognition.interimResults=
     true;
 
-  loveRec.maxAlternatives=
+  loveRecognition.maxAlternatives=
     5;
 
 
-  loveRec.onstart=
+  loveRecognition.onstart=
   function(){
 
-    loveRunning=true;
+    loveListening=true;
 
     document
     .getElementById(
@@ -1246,7 +1271,6 @@ if(SpeechRecognition){
     )
     .innerText=
       "🎤 Listening...";
-
 
     document
     .getElementById(
@@ -1258,10 +1282,11 @@ if(SpeechRecognition){
   };
 
 
-  loveRec.onresult=
+  loveRecognition.onresult=
   function(event){
 
-    let text="";
+    let transcript="";
+
 
     for(
       let i=0;
@@ -1269,7 +1294,7 @@ if(SpeechRecognition){
       i++
     ){
 
-      text+=
+      transcript+=
         event.results[i][0]
         .transcript+
         " ";
@@ -1278,7 +1303,7 @@ if(SpeechRecognition){
 
 
     const clean=
-      text
+      transcript
       .toLowerCase()
       .replace(/[.,!?]/g," ")
       .replace(/\s+/g," ")
@@ -1291,7 +1316,7 @@ if(SpeechRecognition){
     )
     .innerText=
       'Heard: "'+
-      text.trim()+
+      transcript.trim()+
       '"';
 
 
@@ -1313,15 +1338,17 @@ if(SpeechRecognition){
       )
     ){
 
-      loveRec.stop();
+      loveRecognition.stop();
 
       setTimeout(
         function(){
 
-          goTo(2);
+          goTo(7);
+
+          startRain();
 
         },
-        250
+        200
       );
 
     }
@@ -1329,10 +1356,10 @@ if(SpeechRecognition){
   };
 
 
-  loveRec.onerror=
+  loveRecognition.onerror=
   function(){
 
-    loveRunning=false;
+    loveListening=false;
 
     document
     .getElementById(
@@ -1344,10 +1371,10 @@ if(SpeechRecognition){
   };
 
 
-  loveRec.onend=
+  loveRecognition.onend=
   function(){
 
-    loveRunning=false;
+    loveListening=false;
 
     document
     .getElementById(
@@ -1372,7 +1399,7 @@ document
     if(!SpeechRecognition){
 
       alert(
-        "Chrome mein open karo."
+        "Voice ke liye Chrome use karo."
       );
 
       return;
@@ -1380,9 +1407,9 @@ document
     }
 
 
-    if(loveRunning){
+    if(loveListening){
 
-      loveRec.stop();
+      loveRecognition.stop();
 
       return;
 
@@ -1391,17 +1418,17 @@ document
 
     try{
 
-      loveRec.start();
+      loveRecognition.start();
 
-    }catch(e){}
+    }catch(error){}
 
   }
 );
 
 
-/* =================================
-   EMOJI RAIN
-================================= */
+/* =================================================
+   EMOJI LIST
+================================================= */
 
 const emojiItems=[
 
@@ -1436,19 +1463,27 @@ let rainActive=false;
 let rainTimer=null;
 
 
-function createEmoji(){
+/* =================================================
+   CREATE RAIN EMOJI
+================================================= */
 
-  if(!rainActive)return;
+function createRainEmoji(){
+
+  if(!rainActive){
+    return;
+  }
 
 
-  const e=
+  const emoji=
     document.createElement(
       "div"
     );
 
-  e.className="falling";
+  emoji.className=
+    "falling";
 
-  e.innerText=
+
+  emoji.innerText=
     emojiItems[
       Math.floor(
         Math.random()*
@@ -1457,19 +1492,27 @@ function createEmoji(){
     ];
 
 
-  e.style.fontSize=
+  /*
+    Medium size
+  */
+
+  emoji.style.fontSize=
     (
       17+
-      Math.random()*8
+      Math.random()*9
     )+"px";
 
 
-  e.style.left=
+  /*
+    Entire screen width
+  */
+
+  emoji.style.left=
     Math.random()*97+
     "vw";
 
 
-  e.style.setProperty(
+  emoji.style.setProperty(
     "--rotation",
     (
       -180+
@@ -1478,40 +1521,60 @@ function createEmoji(){
   );
 
 
-  e.style.animationDuration=
+  /*
+    Fast falling
+  */
+
+  emoji.style.animationDuration=
     (
       1.0+
-      Math.random()*0.7
+      Math.random()*0.8
     )+"s";
 
 
-  e.style.setProperty(
+  /*
+    Top se bottom edge
+  */
+
+  emoji.style.setProperty(
     "--distance",
     (
       window.innerHeight+
-      130
+      140
     )+"px"
   );
 
 
-  document.body.appendChild(e);
+  /*
+    BODY par add:
+    card ke piche nahi jayega
+  */
+
+  document.body.appendChild(
+    emoji
+  );
 
 
   setTimeout(
     function(){
 
-      e.remove();
+      emoji.remove();
 
     },
-    2000
+    2100
   );
 
 }
 
 
+/* =================================================
+   START RAIN
+================================================= */
+
 function startRain(){
 
   rainActive=true;
+
 
   if(rainTimer){
 
@@ -1523,7 +1586,7 @@ function startRain(){
 
 
   /*
-    VERY FAST RAIN
+    Full screen dense rain
   */
 
   rainTimer=
@@ -1532,11 +1595,11 @@ function startRain(){
 
         for(
           let i=0;
-          i<10;
+          i<11;
           i++
         ){
 
-          createEmoji();
+          createRainEmoji();
 
         }
 
@@ -1547,9 +1610,9 @@ function startRain(){
 }
 
 
-/* =================================
+/* =================================================
    STOP RAIN
-================================= */
+================================================= */
 
 function stopRain(){
 
@@ -1567,21 +1630,25 @@ function stopRain(){
   }
 
 
+  /*
+    Existing emojis remove
+  */
+
   document
   .querySelectorAll(
     ".falling"
   )
   .forEach(
-    function(e){
+    function(emoji){
 
-      e.remove();
+      emoji.remove();
 
     }
   );
 
 
   /*
-    STOP disappears
+    STOP button completely hide
   */
 
   document
@@ -1609,7 +1676,7 @@ function stopRain(){
 
 
   /*
-    ONLY CONTINUE
+    Only CONTINUE
   */
 
   document
@@ -1622,36 +1689,36 @@ function stopRain(){
 }
 
 
-/* =================================
-   STOP VOICE
-================================= */
+/* =================================================
+   STOP SPEECH
+================================================= */
 
-let stopRec=null;
-let stopRunning=false;
+let stopRecognition=null;
+let stopListening=false;
 
 
 if(SpeechRecognition){
 
-  stopRec=
+  stopRecognition=
     new SpeechRecognition();
 
-  stopRec.lang=
+  stopRecognition.lang=
     "en-US";
 
-  stopRec.continuous=
+  stopRecognition.continuous=
     false;
 
-  stopRec.interimResults=
+  stopRecognition.interimResults=
     true;
 
-  stopRec.maxAlternatives=
+  stopRecognition.maxAlternatives=
     5;
 
 
-  stopRec.onstart=
+  stopRecognition.onstart=
   function(){
 
-    stopRunning=true;
+    stopListening=true;
 
     document
     .getElementById(
@@ -1670,10 +1737,15 @@ if(SpeechRecognition){
   };
 
 
-  stopRec.onresult=
+  stopRecognition.onresult=
   function(event){
 
-    let text="";
+    let transcript="";
+
+
+    /*
+      Interim + final dono read
+    */
 
     for(
       let i=0;
@@ -1681,7 +1753,7 @@ if(SpeechRecognition){
       i++
     ){
 
-      text+=
+      transcript+=
         event.results[i][0]
         .transcript+
         " ";
@@ -1690,7 +1762,7 @@ if(SpeechRecognition){
 
 
     const clean=
-      text
+      transcript
       .toLowerCase()
       .replace(/[.,!?]/g," ")
       .replace(/\s+/g," ")
@@ -1703,23 +1775,23 @@ if(SpeechRecognition){
     )
     .innerText=
       'Heard: "'+
-      text.trim()+
+      transcript.trim()+
       '"';
 
 
     /*
-      STOP immediately
+      STOP detect
+      immediately
     */
 
     if(
-      clean==="stop" ||
       clean.includes("stop") ||
       clean.includes("stopp") ||
       clean.includes("stop it") ||
       clean.includes("please stop")
     ){
 
-      stopRec.stop();
+      stopRecognition.stop();
 
       stopRain();
 
@@ -1728,17 +1800,10 @@ if(SpeechRecognition){
   };
 
 
-  stopRec.onerror=
+  stopRecognition.onerror=
   function(){
 
-    stopRunning=false;
-
-    document
-    .getElementById(
-      "stopResult"
-    )
-    .innerText=
-      "Mic permission allow karo aur phir STOP bolo 🎤";
+    stopListening=false;
 
     document
     .getElementById(
@@ -1747,26 +1812,40 @@ if(SpeechRecognition){
     .innerText=
       "🎤 SAY STOP";
 
+    document
+    .getElementById(
+      "stopResult"
+    )
+    .innerText=
+      "Mic permission allow karo 🎤";
+
   };
 
 
-  stopRec.onend=
+  stopRecognition.onend=
   function(){
 
-    stopRunning=false;
+    stopListening=false;
 
-    const btn=
+
+    const button=
       document.getElementById(
         "stopVoiceBtn"
       );
 
+
+    /*
+      STOP already pressed nahi hua
+      toh button normal rahe
+    */
+
     if(
-      !btn.classList.contains(
+      !button.classList.contains(
         "hidden"
       )
     ){
 
-      btn.innerText=
+      button.innerText=
         "🎤 SAY STOP";
 
     }
@@ -1775,6 +1854,10 @@ if(SpeechRecognition){
 
 }
 
+
+/* =================================================
+   STOP BUTTON
+================================================= */
 
 document
 .getElementById(
@@ -1787,7 +1870,7 @@ document
     if(!SpeechRecognition){
 
       alert(
-        "Chrome mein open karo."
+        "Voice ke liye Chrome use karo."
       );
 
       return;
@@ -1795,9 +1878,9 @@ document
     }
 
 
-    if(stopRunning){
+    if(stopListening){
 
-      stopRec.stop();
+      stopRecognition.stop();
 
       return;
 
@@ -1806,17 +1889,17 @@ document
 
     try{
 
-      stopRec.start();
+      stopRecognition.start();
 
-    }catch(e){}
+    }catch(error){}
 
   }
 );
 
 
-/* =================================
+/* =================================================
    CONTINUE AFTER STOP
-================================= */
+================================================= */
 
 document
 .getElementById(
@@ -1832,9 +1915,9 @@ document
 );
 
 
-/* =================================
+/* =================================================
    RING NO
-================================= */
+================================================= */
 
 const acceptNo=
   document.getElementById(
@@ -1847,36 +1930,51 @@ const ringArea=
   );
 
 
-function moveRingNo(e){
+function moveRingNo(event){
 
-  e.preventDefault();
-  e.stopPropagation();
+  event.preventDefault();
+  event.stopPropagation();
+
 
   const area=
     ringArea.getBoundingClientRect();
 
-  const btn=
+  const button=
     acceptNo.getBoundingClientRect();
 
+
   const maxX=
-    area.width-
-    btn.width-
-    8;
+    Math.max(
+      8,
+      area.width-
+      button.width-
+      8
+    );
 
   const maxY=
-    area.height-
-    btn.height-
-    8;
+    Math.max(
+      8,
+      area.height-
+      button.height-
+      8
+    );
+
 
   const x=
     8+
     Math.random()*
-    Math.max(1,maxX-8);
+    Math.max(
+      1,
+      maxX-8
+    );
 
   const y=
     8+
     Math.random()*
-    Math.max(1,maxY-8);
+    Math.max(
+      1,
+      maxY-8
+    );
 
 
   acceptNo.style.position=
@@ -1897,16 +1995,10 @@ acceptNo.addEventListener(
   {passive:false}
 );
 
-acceptNo.addEventListener(
-  "touchstart",
-  moveRingNo,
-  {passive:false}
-);
 
-
-/* =================================
+/* =================================================
    RING YES
-================================= */
+================================================= */
 
 document
 .getElementById(
@@ -1920,6 +2012,22 @@ document
 
   }
 );
+
+
+/* =================================================
+   FINAL VIDEO
+================================================= */
+
+const finalVideo=
+  document.getElementById(
+    "finalVideo"
+  );
+
+
+/*
+   Page 9 ka NEXT directly
+   page 10 par jaata hai.
+*/
 
 </script>
 
