@@ -1,12 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!DOCTYPE html><html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>For You ❤️</title><style>
 
-<title>For You ❤️</title>
-
-<style>
 *{
   box-sizing:border-box;
   -webkit-tap-highlight-color:transparent;
@@ -383,425 +377,39 @@ p{
   }
 
 }
-</style>
-</head>
 
-<body>
-
-
-<!-- ==================================================
+</style></head><body><!-- ==================================================
      PAGE 1 - CAT PAPER
-================================================== -->
+================================================== --><div class="screen" id="page1">  <div class="card"><div class="catPaperArea" id="paperArea">
 
-<div class="screen" id="page1">
-
-<div class="card">
-
-  <div class="catPaperArea" id="paperArea">
-
-    <img
-      src="cat-paper.jpg"
-      class="catPaperImage"
-      alt="Cute cat holding paper"
-    >
-
-    <div class="paperContent">
-
-      <div class="proposalText">
-        Can I propose you? ❤️
-      </div>
-
-      <div class="answerText">
-        Soch samajh ke answer dena 🥺❤️
-      </div>
-
-      <div class="paperButtons">
-
-        <button
-          class="yes"
-          id="yesBtn">
-          YES ❤️
-        </button>
-
-        <button
-          id="noBtn">
-          NO 😭
-        </button>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</div>
-
-</div>
-
-
-<!-- ==================================================
-     PAGE 2 - NAME
-================================================== -->
-
-<div class="screen hidden" id="page2">
-
-<div class="card">
-
-  <div class="heart">❤️</div>
-
-  <h1>Yayyy! 🥹❤️</h1>
-
-  <p>Ab ek chhoti si cheez batao...</p>
-
-  <p>Tumhara naam? ❤️</p>
-
-  <input
-    id="nameInput"
-    class="nameInput"
-    maxlength="30"
-    placeholder="Apna naam likho..."
+  <img
+    src="cat-blank.jpg"
+    class="catPaperImage"
+    alt="Cute cat holding paper"
   >
 
-  <button
-    id="nameNext"
-    class="nextBtn">
-    NEXT 💌
-  </button>
-
-</div>
-
-</div>
-
-
-<!-- ==================================================
-     PAGE 3 - SHAYARI 1
-================================================== -->
-
-<div class="screen hidden" id="page3">
-
-<div class="card">
-
-  <h1>Bas ek baat kehni thi... ❤️</h1>
-
-  <p class="shayari">
-
-    Pata nahi kab tum meri
-    itni favourite person ban gayi,
-
-    bas itna pata hai ki tumhari
-    ek smile bhi mera poora din
-    achha kar deti hai. ❤️
-
-    <br><br>
-
-    Tumhe shayad iska ehsaas bhi
-    nahi hoga,
-
-    lekin meri chhoti si duniya mein
-    tumhari jagah thodi zyada
-    special hai. 🥹
-
-    <br><br>
-
-    Shayad main tumhe jitna
-    notice karta hoon,
-
-    tumhe uska andaaza bhi
-    nahi hai. ❤️
-
-  </p>
-
-  <div class="photoArea">
-
-    <img src="photo1.jpg" class="myPhoto" alt="Photo 1">
-    <img src="photo2.jpg" class="myPhoto" alt="Photo 2">
-
-  </div>
-
-  <button
-    class="nextBtn"
-    onclick="goTo(4)">
-    NEXT ❤️
-  </button>
-
-</div>
-
-</div>
-
-
-<!-- ==================================================
-     PAGE 4 - SHAYARI 2
-================================================== -->
-
-<div class="screen hidden" id="page4">
-
-<div class="card">
-
-  <h1>Shayad ye one-sided hai... 💗</h1>
-
-  <p class="shayari">
-
-    Mujhe nahi pata tumhare dil mein
-    mere liye kuch hai bhi ya nahi,
-
-    aur sach kahun toh maine kabhi
-    tumse kuch expect bhi nahi kiya. 🌸
-
-    <br><br>
-
-    Bas tum khush raho,
-
-    chahe meri wajah se ya kisi
-    aur ki wajah se,
-
-    kyunki tumhe khush dekhna hi
-    shayad meri sabse cute
-    si problem hai. ❤️
-
-    <br><br>
-
-    Kabhi kabhi tumse baat karna bhi
-    mere liye poore din ka
-    favourite moment ban jaata hai. 🥹
-
-  </p>
-
-  <div class="photoArea">
-
-    <img src="photo3.jpg" class="myPhoto" alt="Photo 3">
-    <img src="photo4.jpg" class="myPhoto" alt="Photo 4">
-
-  </div>
-
-  <button
-    class="nextBtn"
-    onclick="goTo(5)">
-    NEXT 🥹
-  </button>
-
-</div>
-
-</div>
-
-
-<!-- ==================================================
-     PAGE 5 - SHAYARI 3
-================================================== -->
-
-<div class="screen hidden" id="page5">
-
-<div class="card">
-
-  <h1>Aur agar kabhi poochho... ❤️</h1>
-
-  <p class="shayari">
-
-    Ki tum mujhe itni pasand
-    kyun ho,
-
-    toh shayad mere paas koi
-    perfect answer nahi hoga. 🥹
-
-    <br><br>
-
-    Bas tum ho, isliye ho.
-
-    Tumhari baatein,
-    tumhari smile,
-    tumhara woh simple sa
-    andaaz...
-
-    sab kuch thoda sa
-    zyada achha lagta hai. ❤️
-
-    <br><br>
-
-    Aur haan...
-
-    main ye nahi keh raha ki tumhe
-    bhi mujhe pasand karna hi padega.
-
-    <br><br>
-
-    Bas dil mein jo tha,
-    aaj keh diya. 🌷
-
-    <br><br>
-
-    Maybe this is just my
-    little one-sided story...
-
-    but honestly, I wouldn't want
-    to change the way I feel
-    about you. ❤️
-
-  </p>
-
-  <div class="photoArea">
-
-    <img src="photo5.jpg" class="myPhoto" alt="Photo 5">
-    <img src="photo6.jpg" class="myPhoto" alt="Photo 6">
-
-  </div>
-
-  <button
-    class="nextBtn"
-    onclick="goTo(6)">
-    CONTINUE 💌
-  </button>
-
-</div>
-
-</div>
-
-
-<!-- ==================================================
-     PAGE 6 - I LOVE YOU TOO
-================================================== -->
-
-<div class="screen hidden" id="page6">
-
-<div class="card">
-
-  <div class="heart">❤️</div>
-
-  <h1>
-    Now there's just one thing left... 🥺
-  </h1>
-
-  <p>You have to say</p>
-
-  <h1>
-    "I love you too" ❤️
-  </h1>
-
-  <div class="mic">🎤</div>
-
-  <p
-    class="listening"
-    id="listeningText">
-    Tap the button and say it ❤️
-  </p>
-
-  <button
-    class="nextBtn"
-    id="voiceBtn">
-    🎤 SAY IT
-  </button>
-
-  <p
-    class="voiceResult"
-    id="voiceResult">
-    Waiting for your voice...
-  </p>
-
-</div>
-
-</div>
-
-
-<!-- ==================================================
-     PAGE 7 - EMOJI RAIN
-================================================== -->
-
-<div class="screen hidden" id="page7">
-
-<div class="card">
-
-  <div class="heart">❤️🌹</div>
-
-  <h1>
-    You actually said it... 🥹❤️
-  </h1>
-
-  <p>
-    Now look what you've done... 😭
-  </p>
-
-  <h2>
-    Everything is falling for you. ❤️🌹
-  </h2>
-
-  <p>
-    <strong>
-      Say "STOP" to stop everything.
-    </strong>
-  </p>
-
-  <div class="mic">🎤</div>
-
-  <button
-    class="nextBtn"
-    id="stopVoiceBtn">
-    🎤 SAY STOP
-  </button>
-
-  <p
-    class="voiceResult"
-    id="stopVoiceResult">
-    Tap and say "STOP" ❤️
-  </p>
-
-  <button
-    class="stopBtn"
-    id="manualStopBtn">
-    STOP ✋
-  </button>
-
-  <button
-    class="nextBtn hidden"
-    id="continueAfterStop">
-    CONTINUE 💍
-  </button>
-
-</div>
-
-</div>
-
-
-<!-- ==================================================
-     PAGE 8 - RING
-================================================== -->
-
-<div class="screen hidden" id="page8">
-
-<div class="card">
-
-  <div class="ringArea" id="ringArea">
-
-    <img
-      src="cat-ring.jpg"
-      class="ringCat"
-      id="ringImage"
-      alt="Cute cat holding a ring"
-    >
-
-    <div
-      class="paperContent"
-      style="top:78%;">
-
-      <div class="proposalText">
-        Can you accept? 💍❤️
-      </div>
-
-      <div class="answerText">
-        One last little question... 🥺
-      </div>
-
-      <div class="paperButtons">
-
-        <button
-          class="yes"
-          id="acceptYes">
-          YES ❤️
-        </button>
-
-        <button
-          id="acceptNo">
-          NO 😭
-        </button>
-
-      </div>
+  <div class="paperContent">
+
+    <div class="proposalText">
+      Can I propose you? ❤️
+    </div>
+
+    <div class="answerText">
+      Soch samajh ke answer dena 🥺❤️
+    </div>
+
+    <div class="paperButtons">
+
+      <button
+        class="yes"
+        id="yesBtn">
+        YES ❤️
+      </button>
+
+      <button
+        id="noBtn">
+        NO 😭
+      </button>
 
     </div>
 
@@ -809,97 +417,389 @@ p{
 
 </div>
 
+  </div></div><!-- ==================================================
+     PAGE 2 - NAME
+================================================== --><div class="screen hidden" id="page2">  <div class="card"><div class="heart">❤️</div>
+
+<h1>Yayyy! 🥹❤️</h1>
+
+<p>Ab ek chhoti si cheez batao...</p>
+
+<p>Tumhara naam? ❤️</p>
+
+<input
+  id="nameInput"
+  class="nameInput"
+  maxlength="30"
+  placeholder="Apna naam likho..."
+>
+
+<button
+  id="nameNext"
+  class="nextBtn">
+  NEXT 💌
+</button>
+
+  </div></div><!-- ==================================================
+     PAGE 3 - SHAYARI 1
+================================================== --><div class="screen hidden" id="page3">  <div class="card"><h1>Bas ek baat kehni thi... ❤️</h1>
+
+<p class="shayari">
+
+  Pata nahi kab tum meri
+  itni favourite person ban gayi,
+
+  bas itna pata hai ki tumhari
+  ek smile bhi mera poora din
+  achha kar deti hai. ❤️
+
+  <br><br>
+
+  Tumhe shayad iska ehsaas bhi
+  nahi hoga,
+
+  lekin meri chhoti si duniya mein
+  tumhari jagah thodi zyada
+  special hai. 🥹
+
+  <br><br>
+
+  Shayad main tumhe jitna
+  notice karta hoon,
+
+  tumhe uska andaaza bhi
+  nahi hai. ❤️
+
+</p>
+
+<div class="photoArea">
+
+  <img
+    src="photo1.jpg"
+    class="myPhoto"
+    alt="Photo 1">
+
+  <img
+    src="photo2.jpg"
+    class="myPhoto"
+    alt="Photo 2">
+
 </div>
 
+<button
+  class="nextBtn"
+  onclick="goTo(4)">
+  NEXT ❤️
+</button>
 
-<!-- ==================================================
+  </div></div><!-- ==================================================
+     PAGE 4 - SHAYARI 2
+================================================== --><div class="screen hidden" id="page4">  <div class="card"><h1>Shayad ye one-sided hai... 💗</h1>
+
+<p class="shayari">
+
+  Mujhe nahi pata tumhare dil mein
+  mere liye kuch hai bhi ya nahi,
+
+  aur sach kahun toh maine kabhi
+  tumse kuch expect bhi nahi kiya. 🌸
+
+  <br><br>
+
+  Bas tum khush raho,
+
+  chahe meri wajah se ya kisi
+  aur ki wajah se,
+
+  kyunki tumhe khush dekhna hi
+  shayad meri sabse cute
+  si problem hai. ❤️
+
+  <br><br>
+
+  Kabhi kabhi tumse baat karna bhi
+  mere liye poore din ka
+  favourite moment ban jaata hai. 🥹
+
+</p>
+
+<div class="photoArea">
+
+  <img
+    src="photo3.jpg"
+    class="myPhoto"
+    alt="Photo 3">
+
+  <img
+    src="photo4.jpg"
+    class="myPhoto"
+    alt="Photo 4">
+
+</div>
+
+<button
+  class="nextBtn"
+  onclick="goTo(5)">
+  NEXT 🥹
+</button>
+
+  </div></div><!-- ==================================================
+     PAGE 5 - SHAYARI 3
+================================================== --><div class="screen hidden" id="page5">  <div class="card"><h1>Aur agar kabhi poochho... ❤️</h1>
+
+<p class="shayari">
+
+  Ki tum mujhe itni pasand
+  kyun ho,
+
+  toh shayad mere paas koi
+  perfect answer nahi hoga. 🥹
+
+  <br><br>
+
+  Bas tum ho, isliye ho.
+
+  Tumhari baatein,
+  tumhari smile,
+  tumhara woh simple sa
+  andaaz...
+
+  sab kuch thoda sa
+  zyada achha lagta hai. ❤️
+
+  <br><br>
+
+  Aur haan...
+
+  main ye nahi keh raha ki tumhe
+  bhi mujhe pasand karna hi padega.
+
+  <br><br>
+
+  Bas dil mein jo tha,
+  aaj keh diya. 🌷
+
+  <br><br>
+
+  Maybe this is just my
+  little one-sided story...
+
+  but honestly, I wouldn't want
+  to change the way I feel
+  about you. ❤️
+
+</p>
+
+<div class="photoArea">
+
+  <img
+    src="photo5.jpg"
+    class="myPhoto"
+    alt="Photo 5">
+
+  <img
+    src="photo6.jpg"
+    class="myPhoto"
+    alt="Photo 6">
+
+</div>
+
+<button
+  class="nextBtn"
+  onclick="goTo(6)">
+  CONTINUE 💌
+</button>
+
+  </div></div><!-- ==================================================
+     PAGE 6 - I LOVE YOU TOO
+================================================== --><div class="screen hidden" id="page6">  <div class="card"><div class="heart">❤️</div>
+
+<h1>
+  Now there's just one thing left... 🥺
+</h1>
+
+<p>You have to say</p>
+
+<h1>
+  "I love you too" ❤️
+</h1>
+
+<div class="mic">🎤</div>
+
+<p
+  class="listening"
+  id="listeningText">
+  Tap the button and say it ❤️
+</p>
+
+<button
+  class="nextBtn"
+  id="voiceBtn">
+  🎤 SAY IT
+</button>
+
+<p
+  class="voiceResult"
+  id="voiceResult">
+  Waiting for your voice...
+</p>
+
+  </div></div><!-- ==================================================
+     PAGE 7 - EMOJI RAIN
+================================================== --><div class="screen hidden" id="page7">  <div class="card"><div class="heart">❤️🌹</div>
+
+<h1>
+  You actually said it... 🥹❤️
+</h1>
+
+<p>
+  Now look what you've done... 😭
+</p>
+
+<h2>
+  Everything is falling for you. ❤️🌹
+</h2>
+
+<p>
+  <strong>
+    Say "STOP" to stop everything.
+  </strong>
+</p>
+
+<div class="mic">🎤</div>
+
+<button
+  class="nextBtn"
+  id="stopVoiceBtn">
+  🎤 SAY STOP
+</button>
+
+<p
+  class="voiceResult"
+  id="stopVoiceResult">
+  Tap and say "STOP" ❤️
+</p>
+
+<button
+  class="stopBtn"
+  id="manualStopBtn">
+  STOP ✋
+</button>
+
+<button
+  class="nextBtn hidden"
+  id="continueAfterStop">
+  CONTINUE 💍
+</button>
+
+  </div></div><!-- ==================================================
+     PAGE 8 - RING
+================================================== --><div class="screen hidden" id="page8">  <div class="card"><div class="ringArea" id="ringArea">
+
+  <img
+    src="cat-ring.jpg"
+    class="ringCat"
+    id="ringImage"
+    alt="Cute cat holding a ring"
+  >
+
+  <div
+    class="paperContent"
+    style="top:78%;">
+
+    <div class="proposalText">
+      Can you accept? 💍❤️
+    </div>
+
+    <div class="answerText">
+      One last little question... 🥺
+    </div>
+
+    <div class="paperButtons">
+
+      <button
+        class="yes"
+        id="acceptYes">
+        YES ❤️
+      </button>
+
+      <button
+        id="acceptNo">
+        NO 😭
+      </button>
+
+    </div>
+
+  </div>
+
+</div>
+
+  </div></div><!-- ==================================================
      PAGE 9 - THANK YOU
-================================================== -->
+================================================== --><div class="screen hidden" id="page9">  <div class="card"><div class="heart">💖</div>
 
-<div class="screen hidden" id="page9">
+<h1>
+  Thank You ❤️
+</h1>
 
-<div class="card">
+<p>
 
-  <div class="heart">💖</div>
+  I don't know what the future holds...
 
-  <h1>
-    Thank You ❤️
-  </h1>
+  <br><br>
 
-  <p>
+  but I'm really happy that I got
+  to tell you how I feel. 🌸
 
-    I don't know what the future holds...
+  <br><br>
 
-    <br><br>
+  Some feelings are simply too
+  beautiful to keep hidden. ❤️
 
-    but I'm really happy that I got
-    to tell you how I feel. 🌸
+  <br><br>
 
-    <br><br>
+  Whatever your answer,
+  you'll always be a very special
+  person to me. 🥹
 
-    Some feelings are simply too
-    beautiful to keep hidden. ❤️
+</p>
 
-    <br><br>
+<button
+  class="nextBtn"
+  onclick="goTo(10)">
+  NEXT ❤️
+</button>
 
-    Whatever your answer,
-    you'll always be a very special
-    person to me. 🥹
-
-  </p>
-
-  <button
-    class="nextBtn"
-    onclick="goTo(10)">
-    NEXT ❤️
-  </button>
-
-</div>
-
-</div>
-
-
-<!-- ==================================================
+  </div></div><!-- ==================================================
      PAGE 10 - FINAL VIDEO
-================================================== -->
+================================================== --><div class="screen hidden" id="page10">  <div class="card"><h1>
+  One last thing for you... ❤️
+</h1>
 
-<div class="screen hidden" id="page10">
+<p class="videoText">
+  Before this little story ends,
+  I wanted you to see this. 🥹❤️
+</p>
 
-<div class="card">
+<video
+  class="finalVideo"
+  controls
+  playsinline
+  preload="metadata">
 
-  <h1>
-    One last thing for you... ❤️
-  </h1>
+  <source
+    src="final-video.mp4"
+    type="video/mp4">
 
-  <p class="videoText">
-    Before this little story ends,
-    I wanted you to see this. 🥹❤️
-  </p>
+  Your browser does not support video.
 
-  <video
-    class="finalVideo"
-    controls
-    playsinline
-    preload="metadata">
+</video>
 
-    <source
-      src="final-video.mp4"
-      type="video/mp4">
+<p class="videoText">
+  ❤️🌹💍
+</p>
 
-    Your browser does not support video.
-
-  </video>
-
-  <p class="videoText">
-    ❤️🌹💍
-  </p>
-
-</div>
-
-</div>
-
-
-<script>
+  </div></div><script>
 
 
 /* ==================================================
@@ -946,15 +846,17 @@ document
 .addEventListener(
   "click",
   function(){
+
     goTo(2);
+
   }
 );
 
 
 /* ==================================================
-   PAGE 1 NO
-   NEVER DISAPPEARS
-   ALWAYS STAYS INSIDE CAT IMAGE
+   NO BUTTON FIX
+   ALWAYS VISIBLE
+   ALWAYS INSIDE IMAGE CONTAINER
 ================================================== */
 
 const noBtn =
@@ -964,13 +866,24 @@ const paperArea =
   document.getElementById("paperArea");
 
 
-function moveNoInside(element, area, event){
+function moveNoInside(
+  element,
+  area,
+  event
+){
 
   event.preventDefault();
   event.stopPropagation();
 
-  const areaRect =
-    area.getBoundingClientRect();
+  /*
+    Container ki actual dimensions.
+  */
+
+  const areaWidth =
+    area.clientWidth;
+
+  const areaHeight =
+    area.clientHeight;
 
   const buttonWidth =
     element.offsetWidth;
@@ -979,56 +892,97 @@ function moveNoInside(element, area, event){
     element.offsetHeight;
 
   /*
-    Padding so button never touches
-    the exact edge.
+    Image ke edge se safe gap.
   */
 
-  const padding = 8;
+  const padding = 12;
 
-  const availableWidth =
+  /*
+    Button ko kabhi container
+    ke bahar nahi jaane dena.
+  */
+
+  const maxX =
     Math.max(
-      1,
-      areaRect.width -
+      padding,
+      areaWidth -
       buttonWidth -
-      padding*2
+      padding
     );
 
-  const availableHeight =
+  const maxY =
     Math.max(
-      1,
-      areaRect.height -
+      padding,
+      areaHeight -
       buttonHeight -
-      padding*2
+      padding
     );
 
   const x =
     padding +
-    Math.random()*availableWidth;
+    Math.random() *
+    Math.max(
+      1,
+      maxX - padding
+    );
 
   const y =
     padding +
-    Math.random()*availableHeight;
+    Math.random() *
+    Math.max(
+      1,
+      maxY - padding
+    );
 
   /*
     IMPORTANT:
-    position is absolute relative to
-    the image container.
+    Absolute position container
+    ke relative rahegi.
   */
 
-  element.style.position="absolute";
+  element.style.position =
+    "absolute";
 
-  element.style.left=x+"px";
-  element.style.top=y+"px";
+  element.style.left =
+    x + "px";
 
-  element.style.right="auto";
-  element.style.bottom="auto";
+  element.style.top =
+    y + "px";
 
-  element.style.margin="0";
+  element.style.right =
+    "auto";
 
-  element.innerText="NO NO 😭";
+  element.style.bottom =
+    "auto";
+
+  element.style.margin =
+    "0";
+
+  /*
+    NO kabhi invisible nahi hoga.
+  */
+
+  element.style.display =
+    "block";
+
+  element.style.visibility =
+    "visible";
+
+  element.style.opacity =
+    "1";
+
+  element.style.zIndex =
+    "1000";
+
+  element.innerText =
+    "NO 😭";
 
 }
 
+
+/* ==================================================
+   PAPER NO
+================================================== */
 
 function movePaperNo(e){
 
@@ -1039,7 +993,6 @@ function movePaperNo(e){
   );
 
 }
-
 
 noBtn.addEventListener(
   "pointerdown",
@@ -1076,9 +1029,13 @@ document
   function(){
 
     const input =
-      document.getElementById("nameInput");
+      document.getElementById(
+        "nameInput"
+      );
 
-    if(input.value.trim()===""){
+    if(
+      input.value.trim()===""
+    ){
 
       input.placeholder =
         "Pehle naam toh likho 🥺❤️";
@@ -1106,31 +1063,44 @@ const SpeechRecognition =
    I LOVE YOU TOO
 ================================================== */
 
-let loveRecognition = null;
-let loveListening = false;
+let loveRecognition =
+  null;
+
+let loveListening =
+  false;
 
 if(SpeechRecognition){
 
   loveRecognition =
     new SpeechRecognition();
 
-  loveRecognition.lang="en-US";
-  loveRecognition.continuous=false;
-  loveRecognition.interimResults=true;
+  loveRecognition.lang =
+    "en-US";
+
+  loveRecognition.continuous =
+    false;
+
+  loveRecognition.interimResults =
+    true;
 
 
   loveRecognition.onstart =
   function(){
 
-    loveListening=true;
+    loveListening =
+      true;
 
     document
-    .getElementById("listeningText")
+    .getElementById(
+      "listeningText"
+    )
     .innerText =
       "🎤 Listening... Say I love you too ❤️";
 
     document
-    .getElementById("voiceBtn")
+    .getElementById(
+      "voiceBtn"
+    )
     .innerText =
       "🎤 Listening...";
 
@@ -1140,7 +1110,7 @@ if(SpeechRecognition){
   loveRecognition.onresult =
   function(event){
 
-    let text="";
+    let text = "";
 
     for(
       let i=event.resultIndex;
@@ -1149,7 +1119,8 @@ if(SpeechRecognition){
     ){
 
       text +=
-        event.results[i][0].transcript;
+        event.results[i][0]
+        .transcript;
 
     }
 
@@ -1159,11 +1130,14 @@ if(SpeechRecognition){
       .replace(/[.,!?]/g,"")
       .trim();
 
-
     document
-    .getElementById("voiceResult")
+    .getElementById(
+      "voiceResult"
+    )
     .innerText =
-      'Heard: "'+text+'"';
+      'Heard: "'+
+      text+
+      '"';
 
 
     const phrases = [
@@ -1180,7 +1154,9 @@ if(SpeechRecognition){
     const matched =
       phrases.some(
         phrase =>
-          clean.includes(phrase)
+          clean.includes(
+            phrase
+          )
       );
 
 
@@ -1207,10 +1183,13 @@ if(SpeechRecognition){
   loveRecognition.onend =
   function(){
 
-    loveListening=false;
+    loveListening =
+      false;
 
     document
-    .getElementById("voiceBtn")
+    .getElementById(
+      "voiceBtn"
+    )
     .innerText =
       "🎤 SAY IT";
 
@@ -1286,8 +1265,11 @@ const emojiItems = [
 ];
 
 
-let rainActive=false;
-let rainTimer=null;
+let rainActive =
+  false;
+
+let rainTimer =
+  null;
 
 
 /* ==================================================
@@ -1303,43 +1285,35 @@ function createEmoji(){
   const emoji =
     document.createElement("div");
 
-  emoji.className="falling";
+  emoji.className =
+    "falling";
 
   emoji.innerText =
     emojiItems[
       Math.floor(
-        Math.random()*
+        Math.random() *
         emojiItems.length
       )
     ];
 
-
-  /*
-    VERY SMALL EMOJIS
-  */
-
   emoji.style.fontSize =
-    (10 + Math.random()*9)+"px";
-
-
-  /*
-    FULL MOBILE WIDTH
-  */
+    (
+      10 +
+      Math.random()*9
+    )+"px";
 
   emoji.style.left =
     Math.random()*100+"vw";
 
-
-  /*
-    FAST
-  */
-
   emoji.style.animationDuration =
-    (1.4 + Math.random()*1.0)+"s";
+    (
+      1.4 +
+      Math.random()*1.0
+    )+"s";
 
-
-  document.body.appendChild(emoji);
-
+  document.body.appendChild(
+    emoji
+  );
 
   setTimeout(
     function(){
@@ -1359,22 +1333,24 @@ function createEmoji(){
 
 function startEmojiRain(){
 
-  rainActive=true;
+  rainActive =
+    true;
 
   if(rainTimer){
-    clearInterval(rainTimer);
+    clearInterval(
+      rainTimer
+    );
   }
 
   rainTimer =
     setInterval(
       function(){
 
-        /*
-          28 tiny emojis
-          every 45 milliseconds
-        */
-
-        for(let i=0;i<28;i++){
+        for(
+          let i=0;
+          i<28;
+          i++
+        ){
 
           createEmoji();
 
@@ -1393,16 +1369,19 @@ function startEmojiRain(){
 
 function stopEmojiRain(){
 
-  rainActive=false;
+  rainActive =
+    false;
 
   if(rainTimer){
 
-    clearInterval(rainTimer);
+    clearInterval(
+      rainTimer
+    );
 
-    rainTimer=null;
+    rainTimer =
+      null;
 
   }
-
 
   document
   .querySelectorAll(".falling")
@@ -1414,33 +1393,31 @@ function stopEmojiRain(){
     }
   );
 
-
-  /*
-    STOP CONTROLS DISAPPEAR
-  */
-
   document
-  .getElementById("stopVoiceBtn")
+  .getElementById(
+    "stopVoiceBtn"
+  )
   .classList
   .add("hidden");
 
   document
-  .getElementById("manualStopBtn")
+  .getElementById(
+    "manualStopBtn"
+  )
   .classList
   .add("hidden");
 
   document
-  .getElementById("stopVoiceResult")
+  .getElementById(
+    "stopVoiceResult"
+  )
   .classList
   .add("hidden");
 
-
-  /*
-    ONLY CONTINUE REMAINS
-  */
-
   document
-  .getElementById("continueAfterStop")
+  .getElementById(
+    "continueAfterStop"
+  )
   .classList
   .remove("hidden");
 
@@ -1467,26 +1444,37 @@ document
    STOP VOICE
 ================================================== */
 
-let stopRecognition=null;
-let stopListening=false;
+let stopRecognition =
+  null;
+
+let stopListening =
+  false;
 
 if(SpeechRecognition){
 
   stopRecognition =
     new SpeechRecognition();
 
-  stopRecognition.lang="en-US";
-  stopRecognition.continuous=false;
-  stopRecognition.interimResults=true;
+  stopRecognition.lang =
+    "en-US";
+
+  stopRecognition.continuous =
+    false;
+
+  stopRecognition.interimResults =
+    true;
 
 
   stopRecognition.onstart =
   function(){
 
-    stopListening=true;
+    stopListening =
+      true;
 
     document
-    .getElementById("stopVoiceBtn")
+    .getElementById(
+      "stopVoiceBtn"
+    )
     .innerText =
       "🎤 Listening...";
 
@@ -1496,7 +1484,7 @@ if(SpeechRecognition){
   stopRecognition.onresult =
   function(event){
 
-    let text="";
+    let text = "";
 
     for(
       let i=event.resultIndex;
@@ -1505,10 +1493,10 @@ if(SpeechRecognition){
     ){
 
       text +=
-        event.results[i][0].transcript;
+        event.results[i][0]
+        .transcript;
 
     }
-
 
     const clean =
       text
@@ -1516,14 +1504,19 @@ if(SpeechRecognition){
       .replace(/[.,!?]/g,"")
       .trim();
 
-
     document
-    .getElementById("stopVoiceResult")
+    .getElementById(
+      "stopVoiceResult"
+    )
     .innerText =
-      'Heard: "'+text+'"';
+      'Heard: "'+
+      text+
+      '"';
 
 
-    if(clean.includes("stop")){
+    if(
+      clean.includes("stop")
+    ){
 
       stopRecognition.stop();
 
@@ -1537,13 +1530,17 @@ if(SpeechRecognition){
   stopRecognition.onend =
   function(){
 
-    stopListening=false;
+    stopListening =
+      false;
 
     const button =
-      document.getElementById("stopVoiceBtn");
+      document.getElementById(
+        "stopVoiceBtn"
+      );
 
     if(
-      !button.classList.contains("hidden")
+      !button.classList
+      .contains("hidden")
     ){
 
       button.innerText =
@@ -1576,7 +1573,6 @@ document
 
     }
 
-
     if(stopListening){
 
       stopRecognition.stop();
@@ -1584,7 +1580,6 @@ document
       return;
 
     }
-
 
     stopRecognition.start();
 
@@ -1610,15 +1605,19 @@ document
 
 /* ==================================================
    RING NO
-   NEVER DISAPPEARS
-   STAYS INSIDE RING IMAGE
+   ALWAYS VISIBLE
+   ALWAYS INSIDE RING IMAGE
 ================================================== */
 
 const acceptNo =
-  document.getElementById("acceptNo");
+  document.getElementById(
+    "acceptNo"
+  );
 
 const ringArea =
-  document.getElementById("ringArea");
+  document.getElementById(
+    "ringArea"
+  );
 
 
 function moveRingNo(e){
@@ -1671,7 +1670,5 @@ document
   }
 );
 
-</script>
-
-</body>
+</script></body>
 </html>
