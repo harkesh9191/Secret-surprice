@@ -1,9 +1,10 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>A Little Surprise 💗</title>
+<title>Secret Surprise 💗</title>
 
 <style>
 *{
@@ -12,20 +13,16 @@
   padding:0;
 }
 
-body{
+html,body{
   width:100%;
-  height:100vh;
+  height:100%;
   overflow:hidden;
   font-family:Arial,sans-serif;
-  background:#08000d;
-  color:white;
 }
 
-#app{
-  width:100%;
-  height:100vh;
-  position:relative;
-  overflow:hidden;
+body{
+  background:#08000d;
+  color:white;
 }
 
 .screen{
@@ -33,63 +30,67 @@ body{
   inset:0;
   display:flex;
   flex-direction:column;
-  align-items:center;
   justify-content:center;
+  align-items:center;
   text-align:center;
+  padding:20px;
   transition:1s ease;
 }
 
 .hidden{
   opacity:0;
   pointer-events:none;
-  transform:scale(1.15);
+  transform:scale(1.1);
 }
 
-/* INTRO */
+/* OPENING */
 #intro{
   background:
-    radial-gradient(circle at center,#4b123f 0%,#18071d 45%,#050008 100%);
+  radial-gradient(circle at center,#521640,#190719 50%,#050008);
 }
 
-.small{
-  font-size:15px;
-  letter-spacing:4px;
-  opacity:.7;
-  margin-bottom:18px;
+.label{
+  font-size:13px;
+  letter-spacing:5px;
+  opacity:.65;
+  margin-bottom:20px;
 }
 
 h1{
-  font-size:clamp(32px,9vw,70px);
+  font-size:clamp(34px,9vw,65px);
   line-height:1.1;
-  margin-bottom:12px;
   text-shadow:0 0 25px #ff4fa3;
 }
 
-.subtitle{
-  font-size:16px;
+.sub{
+  margin:20px 0 35px;
   opacity:.75;
-  margin-bottom:40px;
 }
 
-.start{
-  padding:15px 32px;
-  border:1px solid #ff75b9;
+button{
+  border:0;
+  padding:15px 30px;
   border-radius:50px;
+  font-size:17px;
+  font-weight:bold;
+  cursor:pointer;
   background:#ff3f91;
   color:white;
-  font-size:17px;
-  cursor:pointer;
   box-shadow:0 0 30px #ff3f9166;
 }
 
-/* PROPOSAL */
-#proposal{
+button:active{
+  transform:scale(.92);
+}
+
+/* QUESTION */
+#question{
   background:
-    radial-gradient(circle at center,#5b174b,#180817 48%,#050008);
+    radial-gradient(circle,#63194f,#19081c 55%,#050008);
 }
 
 .question{
-  font-size:clamp(28px,8vw,58px);
+  font-size:clamp(30px,8vw,58px);
   margin-bottom:45px;
 }
 
@@ -101,12 +102,11 @@ h1{
 .door{
   width:135px;
   height:190px;
-  border-radius:12px;
-  background:linear-gradient(145deg,#7d275d,#2c0b27);
+  border-radius:14px;
+  background:linear-gradient(145deg,#79275b,#270a25);
   border:2px solid #ff80bf;
-  box-shadow:0 0 25px #ff3f9155;
+  box-shadow:0 0 30px #ff3f9155;
   display:flex;
-  flex-direction:column;
   justify-content:center;
   align-items:center;
   cursor:pointer;
@@ -115,15 +115,6 @@ h1{
 
 .door:hover{
   transform:translateY(-8px);
-  box-shadow:0 0 40px #ff4fa3aa;
-}
-
-.knob{
-  width:10px;
-  height:10px;
-  background:#ffd6e9;
-  border-radius:50%;
-  margin-bottom:25px;
 }
 
 .door span{
@@ -131,160 +122,323 @@ h1{
   font-weight:bold;
 }
 
-.hint{
-  margin-top:25px;
-  opacity:.6;
-  font-size:13px;
-}
-
-/* YES */
-#yesScreen{
+/* WELCOME */
+#welcome{
   background:
-    radial-gradient(circle,#7b174f,#26091f 50%,#08000d);
+    radial-gradient(circle,#7d1d54,#26091f 55%,#08000d);
 }
 
-.welcome{
-  font-size:clamp(30px,9vw,65px);
+.welcomeText{
+  font-size:clamp(35px,10vw,70px);
   font-weight:bold;
   animation:pulse 1.5s infinite;
 }
 
-.heart{
-  position:absolute;
-  font-size:25px;
-  animation:fall linear forwards;
-  top:-50px;
+@keyframes pulse{
+  50%{transform:scale(1.07)}
 }
 
-@keyframes pulse{
-  0%,100%{transform:scale(1)}
-  50%{transform:scale(1.08)}
+/* HEARTS */
+.heart{
+  position:absolute;
+  top:-40px;
+  animation:fall linear forwards;
+  pointer-events:none;
 }
 
 @keyframes fall{
   to{
-    transform:translateY(115vh) rotate(360deg);
+    transform:translateY(110vh) rotate(360deg);
     opacity:0;
   }
 }
 
-/* NO */
-#noScreen{
-  background:#050505;
+/* CAT */
+#cat{
+  background:
+    radial-gradient(circle at center,#30204c,#0c0818);
 }
 
-.bye{
-  font-size:clamp(45px,12vw,90px);
+.catCharacter{
+  font-size:100px;
+  animation:catDrop 1.5s cubic-bezier(.2,.8,.2,1);
 }
 
-.back{
-  margin-top:25px;
-  padding:12px 25px;
-  border:1px solid #555;
+@keyframes catDrop{
+  from{
+    transform:translateY(-100vh);
+  }
+  to{
+    transform:translateY(0);
+  }
+}
+
+.letter{
+  width:min(90%,400px);
+  background:#fff6dc;
+  color:#33252b;
+  padding:28px 22px;
+  border-radius:20px;
+  margin-top:20px;
+  box-shadow:0 20px 60px #0009;
+  animation:letterPop 1s ease .7s both;
+}
+
+@keyframes letterPop{
+  from{
+    opacity:0;
+    transform:scale(.5) rotate(-8deg);
+  }
+  to{
+    opacity:1;
+    transform:scale(1) rotate(0);
+  }
+}
+
+.letter h2{
+  margin-bottom:12px;
+}
+
+.letter p{
+  line-height:1.5;
+}
+
+input{
+  width:min(90%,300px);
+  padding:15px 20px;
+  border:2px solid #ddd;
   border-radius:30px;
-  background:transparent;
-  color:white;
+  outline:none;
+  margin:18px 0 10px;
+  text-align:center;
+  font-size:16px;
+}
+
+.error{
+  color:#c23a5d;
+  min-height:20px;
+}
+
+/* MEMORIES */
+#memories{
+  background:
+    radial-gradient(circle,#342047,#080811);
+}
+
+.memoryTitle{
+  font-size:clamp(30px,8vw,50px);
+  margin-bottom:8px;
+}
+
+.memorySub{
+  opacity:.7;
+  margin-bottom:20px;
+}
+
+.photoStack{
+  width:min(82vw,340px);
+  height:390px;
+  position:relative;
+  margin-bottom:20px;
+}
+
+.card{
+  position:absolute;
+  inset:0;
+  background:white;
+  padding:10px 10px 55px;
+  color:#222;
+  border-radius:6px;
+  box-shadow:0 20px 50px #0009;
+  transition:1s ease;
+}
+
+.card:nth-child(1){
+  transform:rotate(-7deg);
+}
+
+.card:nth-child(2){
+  transform:rotate(5deg);
+}
+
+.card:nth-child(3){
+  transform:rotate(-2deg);
+}
+
+.card img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  background:#ddd;
+}
+
+.cardText{
+  position:absolute;
+  bottom:17px;
+  left:0;
+  right:0;
+  font-weight:bold;
+}
+
+.card.gone{
+  transform:translateX(120%) rotate(25deg);
+}
+
+.next{
+  padding:12px 28px;
+}
+
+/* FINAL */
+#final{
+  background:linear-gradient(#091722,#05070c);
+}
+
+.road{
+  position:absolute;
+  bottom:0;
+  width:100%;
+  height:27%;
+  background:#17171d;
+  border-top:3px solid #555;
+}
+
+.car{
+  position:absolute;
+  bottom:20%;
+  left:-180px;
+  font-size:90px;
+  animation:drive 4s ease forwards;
+}
+
+@keyframes drive{
+  0%{left:-180px}
+  75%{left:45%}
+  100%{left:38%}
+}
+
+.finalMessage{
+  z-index:5;
+  opacity:0;
+  animation:appear 1s ease 3.5s forwards;
+}
+
+@keyframes appear{
+  to{
+    opacity:1;
+    transform:translateY(-15px);
+  }
 }
 </style>
 </head>
 
 <body>
 
-<div id="app">
+<!-- 1. OPENING -->
+<section id="intro" class="screen">
 
-  <!-- INTRO -->
-  <section id="intro" class="screen">
-    <div class="small">A LITTLE SURPRISE</div>
-    <h1>Someone has a question<br>for you... 💗</h1>
-    <div class="subtitle">Tap the button when you're ready.</div>
-    <button class="start" onclick="openProposal()">Open the surprise ✨</button>
-  </section>
+  <div class="label">A LITTLE SURPRISE</div>
 
-  <!-- PROPOSAL -->
-  <section id="proposal" class="screen hidden">
-    <div class="small">JUST ONE QUESTION</div>
+  <h1>Someone has a question<br>for you... 💗</h1>
 
-    <div class="question">
-      Can I propose you? 💗
+  <p class="sub">Tap when you're ready.</p>
+
+  <button onclick="openQuestion()">
+    OPEN THE SURPRISE ✨
+  </button>
+
+</section>
+
+
+<!-- 2. QUESTION -->
+<section id="question" class="screen hidden">
+
+  <div class="label">JUST ONE QUESTION</div>
+
+  <div class="question">
+    Can I show you<br>something special? 💗
+  </div>
+
+  <div class="doors">
+
+    <div class="door" onclick="yesAnswer()">
+      <span>YES 💗</span>
     </div>
 
-    <div class="doors">
-
-      <div class="door" onclick="sayYes()">
-        <div class="knob"></div>
-        <span>YES 💗</span>
-      </div>
-
-      <div class="door" onclick="sayNo()">
-        <div class="knob"></div>
-        <span>NO 👋</span>
-      </div>
-
+    <div class="door" onclick="noAnswer()">
+      <span>NO 👋</span>
     </div>
 
-    <div class="hint">Choose one door...</div>
-  </section>
+  </div>
 
-  <!-- YES -->
-  <section id="yesScreen" class="screen hidden">
-    <div class="welcome">
-      YOUR MOST WELCOME<br>
-      MADAM 💗
+</section>
+
+
+<!-- 3. WELCOME -->
+<section id="welcome" class="screen hidden">
+
+  <div class="welcomeText">
+    YOUR MOST WELCOME<br>
+    MADAM 💗
+  </div>
+
+</section>
+
+
+<!-- 4. CAT + LETTER -->
+<section id="cat" class="screen hidden">
+
+  <div class="catCharacter">🐱</div>
+
+  <div class="letter">
+
+    <h2>🐾 Secret Mission</h2>
+
+    <p>
+      Write the secret name to continue ✨
+    </p>
+
+    <input
+      id="secret"
+      type="text"
+      placeholder="Enter secret name"
+    >
+
+    <br>
+
+    <button onclick="unlock()">
+      UNLOCK 🔐
+    </button>
+
+    <div class="error" id="error"></div>
+
+  </div>
+
+</section>
+
+
+<!-- 5. MEMORIES -->
+<section id="memories" class="screen hidden">
+
+  <div class="memoryTitle">
+    Little Memories 📸
+  </div>
+
+  <div class="memorySub">
+    Some moments worth keeping ✨
+  </div>
+
+  <div class="photoStack">
+
+    <div class="card">
+      <img src="photo1.jpg" alt="Memory 1">
+      <div class="cardText">Memory #1 🫶</div>
     </div>
-  </section>
 
-  <!-- NO -->
-  <section id="noScreen" class="screen hidden">
-    <div class="bye">BYE 👋</div>
-  </section>
+    <div class="card">
+      <img src="photo2.jpg" alt="Memory 2">
+      <div class="cardText">Memory #2 ✨</div>
+    </div>
 
-</div>
-
-<script>
-
-function openProposal(){
-  document.getElementById("intro").classList.add("hidden");
-
-  setTimeout(()=>{
-    document.getElementById("proposal").classList.remove("hidden");
-  },500);
-}
-
-function sayYes(){
-  document.getElementById("proposal").classList.add("hidden");
-
-  setTimeout(()=>{
-    document.getElementById("yesScreen").classList.remove("hidden");
-    createHearts();
-  },500);
-}
-
-function sayNo(){
-  document.getElementById("proposal").classList.add("hidden");
-
-  setTimeout(()=>{
-    document.getElementById("noScreen").classList.remove("hidden");
-  },500);
-}
-
-function createHearts(){
-
-  for(let i=0;i<45;i++){
-
-    let heart=document.createElement("div");
-
-    heart.className="heart";
-    heart.innerHTML=["❤️","💗","💕","💖","💘"][Math.floor(Math.random()*5)];
-
-    heart.style.left=Math.random()*100+"vw";
-    heart.style.animationDuration=(3+Math.random()*4)+"s";
-    heart.style.animationDelay=Math.random()*2+"s";
-
-    document.getElementById("yesScreen").appendChild(heart);
-  }
-}
-
-</script>
-
-</body>
-</html>
+    <div class="card">
+      <img src="photo3.jpg" alt="Memory 3">
+      <div class="cardText">Memory #3 🌸</div>
